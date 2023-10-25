@@ -10,7 +10,7 @@ network:
       dhcp6: no
       addresses:
         - 10.0.255.254/16
-      set-name: eth-oficina-dorayaki
+      set-name: eth0
     # Interfaz para la red de servidores de Dorayaki.
     eth-oficina-dorayaki:
       match:
@@ -19,7 +19,7 @@ network:
       dhcp6: no
       addresses:
         - 10.1.255.254/16
-      set-name: eth-oficina-dorayaki
+      set-name: eth1
     # Interfaz para la comunicación con el router del ISP de Dorayaki.
     eth-isp-dorayaki:
       match:
@@ -28,6 +28,6 @@ network:
       dhcp6: no
       addresses:
         - 10.16.0.254/24
-      set-name: eth-oficina-dorayaki
-      
+      set-name: eth2
+
     
