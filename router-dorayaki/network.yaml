@@ -12,7 +12,7 @@ network:
         - 10.0.255.254/16
       set-name: eth0
     # Interfaz para la red de servidores de Dorayaki.
-    eth-oficina-dorayaki:
+    eth-servidores-dorayaki:
       match:
         macaddress: 08:00:27:00:00:01
       dhcp4: no
