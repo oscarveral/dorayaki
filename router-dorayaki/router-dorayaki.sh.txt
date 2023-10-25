@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo WARNING! Execute this script on the same directory it is located.
+
+# Configuración de nombres local de la máquina. Permite facilitar la identificación de la máquina en la red.
+hostnamectl hostname "router-dorayaki" --static
+hostnamectl hostname "Router de la sede Dorayaki" --pretty
+hostnamectl icon-name router-dorayaki
+hostnamectl chassis vm
+hostnamectl deployment vm
+hostnamectl location vm
+
+# TODO: Configurar Servidores DNS para que pueda obtener el nombre de dominio al que pertenece la máquina.
+
+echo WARNING! Configuration finished. Power off this machine and disable the original NAT network card.
