@@ -24,15 +24,31 @@ Para nuestro escenario, crearemos las siguientes redes internas para emular de l
 
 	- red-oficina-dorayaki: LAN compuesta por todas las interfaces de las oficinas de la organización.
 	- red-servidores-dorayaki: LAN compuesta por todas las interfaces de la sección de la organicación en la que se ubican los diferentes servicios ofrecidos.
-	- red-isp-dorayaki: Representa la LAN del ISP que utiliza la organización para tener acceso a internet. En la práctica esta LAN es usada por el router externo de Dorayaki y el router del ISP dentro de la red no confiable.
+	- red-isp-dorayaki: Representa la LAN del ISP que utiliza la organización para tener acceso a internet. En la práctica esta LAN es usada por el router de la sede Dorayaki y el router del ISP.
+	- red-organicacion-externa: LAN compuesta por las interfaces de los dispositivos dentro de la organicación externa.
+	- red-isp-organicacion-externa: Representa la LAN del ISP que usa la organicación no confiable para tener acceso a internet. En la práctica esta LAN es usada por el router del ISP y el router del ISP de la orgaización externa.
+	- red-isp auditoria: Representa la LAN del ISP que usa la auditoria para tener acceso a internet. En la práctica esta LAN es usada por el router del ISP y el host del auditor.
 
 Nota: dado que la comunicación entre máquinas va a estar determinada por la enrutación a nivel de red, no sería necesario emular con tanta precisión la topología en en nivel de transporte, pero lo realizamos así con el objetivo de mantener una orgaización adecuada y para facilitar la depuración del escenario si fuese necesario.
+Nota: no juntamos las LAN ISP ya que no queremos que se puedan trasmitir paquetes entre organzaciones sin pasar por un router central.
 
 # Sobre la organización en subredes y distribución de IPs
 
+Todo el escenario se realizara usando el rango de IPs 10.0.0.0/8, de forma que crearemos subredes según convenga para cada segmento de red. 
+
+Dada la forma en la que hemos organizado la topología "física" del escenario, la opción más simple y que realizaremos será la de asignar una subred a cada LAN, simplificando el escenario.
+
+A la orgaización Dorayaki le asignaremos la subred 10.0.0.0/15, la cual dividirá en dos subredes; 10.0.0.0/16 para la LAN de oficinas (red-oficina-dorayaki) y 10.1.0.0/16 para la LAN de los servidores (red-servidores-dorayaki).
+
+A la organización externa le asignaremos la subred 10.8.0.0/16 (red-orgaizacion-externa). 
+
+Para las LAN usadas para comunicarnos con el exterior usaremos 10.16.0.0/24 (red-isp-dorayaki), 10.16.1.0/24 (red-isp-organizacion-externa) y 10.16.2.0/24 (red-isp-auditoria). Aunque en nuestro escenario estas LANs son redes punto a punto, en una situación realista una subred no tendría porque tratarse de una subred punto a punto.
+
 #[dibujo_topologia_de_red.jpg]
 
-TODO describir topologia nivel de red y correlacionar subredes con segmentos fisicos LAN
+#[esquema_asignacion_ips_subredes.html https://www.davidc.net/sites/default/subnets/subnets.html?network=10.0.0.0&mask=8&division=49.ff078ff720000]
+
+#[esquema_especifico_asignacion_ips_interfaces.jpg]
 
 # Sobre la asignación de MACs para las interfaces de las VMs.
 
