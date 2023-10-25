@@ -1,4 +1,4 @@
-#!env sh
+#!/bin/bash
 
 echo WARNING! Execute this script on the same directory it is located.
 
