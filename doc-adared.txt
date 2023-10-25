@@ -1,0 +1,98 @@
+# Sobre el repositorio de configuración.
+
+TODO Explicar que es publico pero se adjunta en la entrega la última versión
+
+# Sobre el dominio de la organización.
+
+TODO dorayaki.org
+
+# Sobre la conectividad inicial de todas las VMs.
+
+Por defecto cada máquina recien instalada en Virtual Box tiene configurada una tarjeta de red en modo NAT para poder acceder a internet. Usaremos esa tarjeta para tener acceso a internet hasta acabar la configuración de la máquina, cuando desactivaremos dicha interfaz y eliminaremos su configuración. A partir de ese momento seguiriamos teniendo conectividad pero utilizando toda la infraestructura de red desplegada en el escenario.
+
+El script de configuración creado para cada máquina debe ejecutarse teniendo acceso a internet. Por lo que se deberá ejecutar antes de eliminar la interfaz NAT de la máquina virtual y su configuración.
+
+# Sobre la conectividad entre VMs mediante redes internas en Virtual Box.
+
+La conectividad entre máquinas virtuales se ha realizado mediante el uso de redes internas en Virtual Box. Una red interna representa una segmento físico de una red (LAN), actuando el hipervisor como un conmutador de paquetes para todas las interfaces pertenencientes a dicha red virtual.
+
+De esta forma, todas las interfaces conectadas a una misma red interna, simulan interfaces conectadas a un mismo switch, por lo que pueden trasmitirse tramas de forma directa entre ellas. 
+
+#[dibujo_representación_red_interna_virtual_box.jpg]
+
+Para nuestro escenario, crearemos las siguientes redes internas para emular de la forma más realista posible una topología real con diferentes segmentos físicos de red.
+
+	- red-oficina-dorayaki: LAN compuesta por todas las interfaces de las oficinas de la organización.
+	- red-servidores-dorayaki: LAN compuesta por todas las interfaces de la sección de la organicación en la que se ubican los diferentes servicios ofrecidos.
+	- red-isp-dorayaki: Representa la LAN del ISP que utiliza la organización para tener acceso a internet. En la práctica esta LAN es usada por el router externo de Dorayaki y el router del ISP dentro de la red no confiable.
+
+Nota: dado que la comunicación entre máquinas va a estar determinada por la enrutación a nivel de red, no sería necesario emular con tanta precisión la topología en en nivel de transporte, pero lo realizamos así con el objetivo de mantener una orgaización adecuada y para facilitar la depuración del escenario si fuese necesario.
+
+# Sobre la organización en subredes y distribución de IPs
+
+#[dibujo_topologia_de_red.jpg]
+
+TODO describir topologia nivel de red y correlacionar subredes con segmentos fisicos LAN
+
+# Sobre la asignación de MACs para las interfaces de las VMs.
+
+Asignaremos a cada interfaz de cada máquina virtual una MAC única y reconocible para facilitar el análisis de trazas y monitorización de la red. Además, tener una MAC reconocible nos facilitará realizar diferentes configuraciones de red en cada máquina. La asignación de MACs la realizaremos manualmente mediante Virtual Box por comodidad. En un entorno real, bastaría con conocer la MAC grabada fisicamente en la tarjeta de red y configurar el kernel para que la sobreescribiese en cada arranque del sistema.
+
+-------------
+
+router-dorayaki:
+
+Ubuntu LTS 22.04.03 Server:. User: router-dorayaki. Pass: router-dorayaki. FQDM: router-dorayaki.dorayaki.org
+Router que utiliza la organización para tener acceso a Internet.
+
+Detalles de instalación:
+
+- Instalación de la versión mínima para mejor rendimiento.
+- Layout de disco estandar ofrecido por el instalador de Ubuntu. Por rendimiento para la simulación se ha elegido no encriptar aunque sería recomendado en determinadas situaciones por seguridad.
+- Seleccionada la opción de instalación del servidor SSH para comunicación con el exterior. No se añade ningún componente adicional durante la instalación.
+- Apagar la máquina al acabar la instalación.
+- A continuación, se hablitan las siguientes interfaces de red a la máquina mediante configuración en Virtual Box, quedando la configuración de red de la máquina como sigue.
+
+	* Adaptador 1:
+		Tipo: NAT
+		Comentario: "Proporciona acceso a internet de forma temporal mientras se configura la máquina."
+	* Adaptador 2:
+		Tipo: Red Interna
+		Nombre de red interna: red-oficina-dorayaki
+		MAC: 08:00:27:00:00:00
+	* Adaptador 3:
+		Tipo: Red Interna
+		Nombre de red interna: red-servidores-dorayaki
+		MAC: 08:00:27:00:00:01
+	* Adaptador 4:
+		Tipo: Red Interna
+		Nombre de red interna: red-isp-dorayaki
+		MAC: 08:00:27:00:00:02
+
+- Encender la máquina.
+- Instalar git en la máquina: sudo apt install git -y
+- Ubicarnos en el directorio de usuario local: cd ~
+- Clonar el repositorio de configuración: git clone https://github.com/oscarveral/dorayaki.git
+- Ubicarnos dentro del directorio de configuración para el router-dorayaki: cd dorayaki/router-dorayaki/
+- Dar permisos de ejecución al script: chmod +x router-dorayaki.sh
+- Ejecutar el script de configuración presente: 
+
+Post-instalación:
+
+- Apagar la máquina.
+- Deshabilitar la interfaz de red en modo NAT de dicha máquina en Virtual Box. Se corresponde con el Adaptador 1 en Virtual Box. Configuración resultante:
+
+	* Adaptador 1:
+		Deshabilitado
+	* Adaptador 2:
+		Tipo: Red Interna
+		Nombre de red interna: red-oficina-dorayaki
+		MAC: 08:00:27:00:00:00
+	* Adaptador 3:
+		Tipo: Red Interna
+		Nombre de red interna: red-servidores-dorayaki
+		MAC: 08:00:27:00:00:01
+	* Adaptador 4:
+		Tipo: Red Interna
+		Nombre de red interna: red-isp-dorayaki
+		MAC: 08:00:27:00:00:02
