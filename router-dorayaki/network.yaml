@@ -1,0 +1,33 @@
+# Network configuration for router-dorayaki.
+network:
+  version: 2
+  ethernets:
+    # Interfaz para la red de la oficina de Dorayaki.
+    eth-oficina-dorayaki:
+      match:
+        macaddress: 08:00:27:00:00:00
+      dhcp4: no
+      dhcp6: no
+      addresses:
+        - 10.0.255.254/16
+      set-name: eth-oficina-dorayaki
+    # Interfaz para la red de servidores de Dorayaki.
+    eth-oficina-dorayaki:
+      match:
+        macaddress: 08:00:27:00:00:01
+      dhcp4: no
+      dhcp6: no
+      addresses:
+        - 10.1.255.254/16
+      set-name: eth-oficina-dorayaki
+    # Interfaz para la comunicación con el router del ISP de Dorayaki.
+    eth-isp-dorayaki:
+      match:
+        macaddress: 08:00:27:00:00:02
+      dhcp4: no
+      dhcp6: no
+      addresses:
+        - 10.16.0.254/24
+      set-name: eth-oficina-dorayaki
+      
+    
