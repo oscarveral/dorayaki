@@ -35,6 +35,3 @@ network:
         # Cualquier otra subred del escenario sólo es alcanzable por aquí.
         - to: default
           via: 10.12.0.1
-      # TODO: Poner bien el DNS y Dominio
-      nameservers:
-        addresses: [8.8.8.8]
