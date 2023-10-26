@@ -3,7 +3,7 @@ router-dorayaki:
 Ubuntu LTS 22.04.03 Server. 
 User: router-dorayaki. 
 Pass: router-dorayaki. 
-FQDM: router-dorayaki.dorayaki.org
+FQDM: router-dorayaki.dorayaki.org.
 
 Router que utiliza la organización para tener acceso a Internet.
 
@@ -25,21 +25,21 @@ Detalles de instalación:
 	la máquina como sigue.
 
 	* Adaptador 1:
-		Tipo: NAT
+		Tipo: NAT.
 		Comentario: "Proporciona acceso a internet de forma temporal mientras 
 					se configura la máquina."
 	* Adaptador 2:
-		Tipo: Red Interna
-		Nombre de red interna: red-oficina-dorayaki
-		MAC: 08:00:27:00:00:00
+		Tipo: Red Interna.
+		Nombre de red interna: red-oficina-dorayaki.
+		MAC: 08:00:27:00:00:00.
 	* Adaptador 3:
-		Tipo: Red Interna
-		Nombre de red interna: red-servidores-dorayaki
-		MAC: 08:00:27:00:00:01
+		Tipo: Red Interna.
+		Nombre de red interna: red-servidores-dorayaki.
+		MAC: 08:00:27:00:00:01.
 	* Adaptador 4:
-		Tipo: Red Interna
-		Nombre de red interna: red-isp-dorayaki
-		MAC: 08:00:27:00:00:02
+		Tipo: Red Interna.
+		Nombre de red interna: red-isp-dorayaki.
+		MAC: 08:00:27:00:00:02.
 
 - Encender la máquina.
 - Actualizar paquetes: sudo apt update && sudo apt upgrade -y

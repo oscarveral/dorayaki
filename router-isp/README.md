@@ -3,7 +3,7 @@ router-isp:
 Ubuntu LTS 22.04.03 Server. 
 User: router-isp. 
 Pass: router-isp. 
-FQDM: Ninguno
+FQDM: Ninguno.
 
 Router que representa un router de un ISP cualquiera que proporciona acceso 
 a internet. Este router si mantendrá la interfaz NAT predeterminada.
@@ -26,20 +26,20 @@ Detalles de instalación:
 	la máquina como sigue.
 
 	* Adaptador 1:
-		Tipo: NAT
-		MAC: 08:00:27:00:01:00
+		Tipo: NAT.
+		MAC: 08:00:27:00:01:00.
 	* Adaptador 2:
-		Tipo: Red Interna
-		Nombre de red interna: red-isp-dorayaki
-		MAC: 08:00:27:00:01:01
+		Tipo: Red Interna.
+		Nombre de red interna: red-isp-dorayaki.
+		MAC: 08:00:27:00:01:01.
 	* Adaptador 3:
-		Tipo: Red Interna
-		Nombre de red interna: red-isp-organicacion-externa
-		MAC: 08:00:27:00:01:02
+		Tipo: Red Interna.
+		Nombre de red interna: red-isp-organicacion-externa.
+		MAC: 08:00:27:00:01:02.
 	* Adaptador 4:
-		Tipo: Red Interna
-		Nombre de red interna: red-isp-auditoria
-		MAC: 08:00:27:00:01:03
+		Tipo: Red Interna.
+		Nombre de red interna: red-isp-auditoria.
+		MAC: 08:00:27:00:01:03.
 
 - Encender la máquina.
 - Actualizar paquetes: sudo apt update && sudo apt upgrade -y
