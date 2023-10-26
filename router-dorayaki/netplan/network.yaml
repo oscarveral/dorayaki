@@ -27,7 +27,11 @@ network:
       dhcp4: no
       dhcp6: no
       addresses:
-        - 10.16.0.254/24
+        - 10.16.0.1/24
       set-name: eth2
-
-    
+      # Establecimiento de la tabla de rutas de este router.
+      routes:
+        # la ruta por defecto de este router es hacia el router del ISP.
+        # Cualquier otra subred del escenario sólo es alcanzable por aquí.
+        - to: default
+          via: 10.16.0.254

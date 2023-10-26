@@ -1,25 +1,17 @@
-# Sobre el repositorio de configuración.
-
-TODO Explicar que es publico pero se adjunta en la entrega la última versión
-
-# Sobre el dominio de la organización.
-
-TODO dorayaki.org
+TODO Sobre el repositorio de configuración. Explicar que es publico pero se adjunta en la entrega la última versión
+TODO Sobre el dominio de la organización. Explicar dorayaki.org
+TODO Los ficheros de config están comentados explicando funcionalidades
 
 # Sobre la conectividad inicial de todas las VMs.
 
 Por defecto cada máquina recien instalada en Virtual Box tiene configurada una tarjeta de red en modo NAT para poder acceder a internet. Usaremos esa tarjeta para tener acceso a internet hasta acabar la configuración de la máquina, cuando desactivaremos dicha interfaz y eliminaremos su configuración. A partir de ese momento seguiriamos teniendo conectividad pero utilizando toda la infraestructura de red desplegada en el escenario.
-
 El script de configuración creado para cada máquina debe ejecutarse teniendo acceso a internet. Por lo que se deberá ejecutar antes de eliminar la interfaz NAT de la máquina virtual y su configuración.
 
 # Sobre la conectividad entre VMs mediante redes internas en Virtual Box.
 
 La conectividad entre máquinas virtuales se ha realizado mediante el uso de redes internas en Virtual Box. Una red interna representa una segmento físico de una red (LAN), actuando el hipervisor como un conmutador de paquetes para todas las interfaces pertenencientes a dicha red virtual.
-
 De esta forma, todas las interfaces conectadas a una misma red interna, simulan interfaces conectadas a un mismo switch, por lo que pueden trasmitirse tramas de forma directa entre ellas. 
-
 #[dibujo_representación_red_interna_virtual_box.jpg]
-
 Para nuestro escenario, crearemos las siguientes redes internas para emular de la forma más realista posible una topología real con diferentes segmentos físicos de red.
 
 	- red-oficina-dorayaki: LAN compuesta por todas las interfaces de las oficinas de la organización.
@@ -27,7 +19,7 @@ Para nuestro escenario, crearemos las siguientes redes internas para emular de l
 	- red-isp-dorayaki: Representa la LAN del ISP que utiliza la organización para tener acceso a internet. En la práctica esta LAN es usada por el router de la sede Dorayaki y el router del ISP.
 	- red-organicacion-externa: LAN compuesta por las interfaces de los dispositivos dentro de la organicación externa.
 	- red-isp-organicacion-externa: Representa la LAN del ISP que usa la organicación no confiable para tener acceso a internet. En la práctica esta LAN es usada por el router del ISP y el router del ISP de la orgaización externa.
-	- red-isp auditoria: Representa la LAN del ISP que usa la auditoria para tener acceso a internet. En la práctica esta LAN es usada por el router del ISP y el host del auditor.
+	- red-isp-auditoria: Representa la LAN del ISP que usa la auditoria para tener acceso a internet. En la práctica esta LAN es usada por el router del ISP y el host del auditor.
 
 Nota: dado que la comunicación entre máquinas va a estar determinada por la enrutación a nivel de red, no sería necesario emular con tanta precisión la topología en en nivel de transporte, pero lo realizamos así con el objetivo de mantener una orgaización adecuada y para facilitar la depuración del escenario si fuese necesario.
 Nota: no juntamos las LAN ISP ya que no queremos que se puedan trasmitir paquetes entre organzaciones sin pasar por un router central.
@@ -35,20 +27,18 @@ Nota: no juntamos las LAN ISP ya que no queremos que se puedan trasmitir paquete
 # Sobre la organización en subredes y distribución de IPs
 
 Todo el escenario se realizara usando el rango de IPs 10.0.0.0/8, de forma que crearemos subredes según convenga para cada segmento de red. 
-
 Dada la forma en la que hemos organizado la topología "física" del escenario, la opción más simple y que realizaremos será la de asignar una subred a cada LAN, simplificando el escenario.
-
 A la orgaización Dorayaki le asignaremos la subred 10.0.0.0/15, la cual dividirá en dos subredes; 10.0.0.0/16 para la LAN de oficinas (red-oficina-dorayaki) y 10.1.0.0/16 para la LAN de los servidores (red-servidores-dorayaki).
-
 A la organización externa le asignaremos la subred 10.8.0.0/16 (red-orgaizacion-externa). 
-
 Para las LAN usadas para comunicarnos con el exterior usaremos 10.16.0.0/24 (red-isp-dorayaki), 10.16.1.0/24 (red-isp-organizacion-externa) y 10.16.2.0/24 (red-isp-auditoria). Aunque en nuestro escenario estas LANs son redes punto a punto, en una situación realista una subred no tendría porque tratarse de una subred punto a punto.
-
 #[dibujo_topologia_de_red.jpg]
-
 #[esquema_asignacion_ips_subredes.html https://www.davidc.net/sites/default/subnets/subnets.html?network=10.0.0.0&mask=8&division=49.ff078ff720000]
-
 #[esquema_especifico_asignacion_ips_interfaces.jpg]
+
+# Sobre la configuración de interfaces de red.
+
+Para los routers se ha utilizado netplan para configurar las interfaces de red de forma cómoda, estbleciendose IPs estáticas y tablas de rutas de forma manual.
+En escenarios más grandes y complejos puede que fuese necesario utilizar un protocolo de enrutamiento dinámico como OSPF que permita establecer tablas de rutas y DHCP en el router del ISP para configurar las interfaces de los clientes, pero eso queda fuera del ámbito de esta práctica. 
 
 # Sobre la asignación de MACs para las interfaces de las VMs.
 
@@ -86,6 +76,7 @@ Detalles de instalación:
 		MAC: 08:00:27:00:00:02
 
 - Encender la máquina.
+- Actualizar paquetes: sudo apt update && sudo apt upgrade -y
 - Instalar git en la máquina: sudo apt install git -y
 - Ubicarnos en el directorio de usuario local: cd ~
 - Clonar el repositorio de configuración: git clone https://github.com/oscarveral/dorayaki.git
