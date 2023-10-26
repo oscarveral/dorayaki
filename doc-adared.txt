@@ -60,7 +60,7 @@ Detalles de instalación:
 - Layout de disco estandar ofrecido por el instalador de Ubuntu. Por rendimiento para la simulación se ha elegido no encriptar aunque sería recomendado en determinadas situaciones por seguridad.
 - Seleccionada la opción de instalación del servidor SSH para comunicación con el exterior. No se añade ningún componente adicional durante la instalación.
 - Apagar la máquina al acabar la instalación.
-- A continuación, se hablitan las siguientes interfaces de red a la máquina mediante configuración en Virtual Box, quedando la configuración de red de la máquina como sigue.
+- A continuación, se habilitan las siguientes interfaces de red a la máquina mediante configuración en Virtual Box, quedando la configuración de red de la máquina como sigue.
 
 	* Adaptador 1:
 		Tipo: NAT
@@ -119,7 +119,7 @@ Detalles de instalación:
 - Layout de disco estandar ofrecido por el instalador de Ubuntu. Por rendimiento para la simulación se ha elegido no encriptar aunque sería recomendado en determinadas situaciones por seguridad.
 - Seleccionada la opción de instalación del servidor SSH para comunicación con el exterior. No se añade ningún componente adicional durante la instalación.
 - Apagar la máquina al acabar la instalación.
-- A continuación, se hablitan las siguientes interfaces de red a la máquina mediante configuración en Virtual Box, quedando la configuración de red de la máquina como sigue.
+- A continuación, se habilitan las siguientes interfaces de red a la máquina mediante configuración en Virtual Box, quedando la configuración de red de la máquina como sigue.
 
 	* Adaptador 1:
 		Tipo: NAT
