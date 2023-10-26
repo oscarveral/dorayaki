@@ -29,11 +29,14 @@ Nota: no juntamos las LAN ISP ya que no queremos que se puedan trasmitir paquete
 
 # Sobre la organización en subredes y distribución de IPs
 
+# TODO Asignacion evitar conflictos con NAT de virtual box
+
 Todo el escenario se realizara usando el rango de IPs 10.0.0.0/8, de forma que crearemos subredes según convenga para cada segmento de red. 
 Dada la forma en la que hemos organizado la topología "física" del escenario, la opción más simple y que realizaremos será la de asignar una subred a cada LAN, simplificando el escenario.
 A la orgaización Dorayaki le asignaremos la subred 10.0.0.0/15, la cual dividirá en dos subredes; 10.0.0.0/16 para la LAN de oficinas (red-oficina-dorayaki) y 10.1.0.0/16 para la LAN de los servidores (red-servidores-dorayaki).
 A la organización externa le asignaremos la subred 10.8.0.0/16 (red-orgaizacion-externa). 
 Para las LAN usadas para comunicarnos con el exterior usaremos 10.16.0.0/24 (red-isp-dorayaki), 10.16.1.0/24 (red-isp-organizacion-externa) y 10.16.2.0/24 (red-isp-auditoria). Aunque en nuestro escenario estas LANs son redes punto a punto, en una situación realista una subred no tendría porque tratarse de una subred punto a punto.
+
 #[dibujo_topologia_de_red.jpg]
 #[esquema_asignacion_ips_subredes.html https://www.davidc.net/sites/default/subnets/subnets.html?network=10.0.0.0&mask=8&division=49.ff078ff720000]
 #[esquema_especifico_asignacion_ips_interfaces.jpg]

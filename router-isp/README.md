@@ -1,4 +1,3 @@
-
 router-isp:
 
 Ubuntu LTS 22.04.03 Server. 
