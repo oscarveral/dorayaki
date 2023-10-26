@@ -3,7 +3,7 @@ TODO Sobre el dominio de la organización. Explicar dorayaki.org
 TODO Los ficheros de config están comentados explicando funcionalidades
 TODO Nombrar todas las máquinas en esquema
 TODO: Configurar Servidores DNS para que pueda obtener el nombre de dominio al que pertenece la máquina. Establecer nombre de dominio para cada máquina localmente (domainname comando)
-		Configurar DNS de las máquinas para que apunten al DNS del ISP.
+		Configurar DNS de las máquinas para que apunten al DNS del ISP con los registros del dominio. ver bien opciones disponibles.
 
 # Sobre la conectividad inicial de todas las VMs.
 
