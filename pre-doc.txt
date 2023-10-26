@@ -2,7 +2,7 @@ TODO Sobre el repositorio de configuración. Explicar que es publico pero se adj
 TODO Sobre el dominio de la organización. Explicar dorayaki.org
 TODO Los ficheros de config están comentados explicando funcionalidades
 TODO Nombrar todas las máquinas en esquema
-TODO: Configurar Servidores DNS para que pueda obtener el nombre de dominio al que pertenece la máquina.
+TODO: Configurar Servidores DNS para que pueda obtener el nombre de dominio al que pertenece la máquina. Establecer nombre de dominio para cada máquina localmente (domainname comando)
 
 
 # Sobre la conectividad inicial de todas las VMs.
@@ -20,8 +20,8 @@ Para nuestro escenario, crearemos las siguientes redes internas para emular de l
 	- red-oficina-dorayaki: LAN compuesta por todas las interfaces de las oficinas de la organización.
 	- red-servidores-dorayaki: LAN compuesta por todas las interfaces de la sección de la organicación en la que se ubican los diferentes servicios ofrecidos.
 	- red-isp-dorayaki: Representa la LAN del ISP que utiliza la organización para tener acceso a internet. En la práctica esta LAN es usada por el router de la sede Dorayaki y el router del ISP.
-	- red-organicacion-externa: LAN compuesta por las interfaces de los dispositivos dentro de la organicación externa.
-	- red-isp-organicacion-externa: Representa la LAN del ISP que usa la organicación no confiable para tener acceso a internet. En la práctica esta LAN es usada por el router del ISP y el router del ISP de la orgaización externa.
+	- red-organizacion-externa: LAN compuesta por las interfaces de los dispositivos dentro de la organicación externa.
+	- red-isp-organizacion-externa: Representa la LAN del ISP que usa la organicación no confiable para tener acceso a internet. En la práctica esta LAN es usada por el router del ISP y el router del ISP de la orgaización externa.
 	- red-isp-auditoria: Representa la LAN del ISP que usa la auditoria para tener acceso a internet. En la práctica esta LAN es usada por el router del ISP y el host del auditor.
 
 Nota: dado que la comunicación entre máquinas va a estar determinada por la enrutación a nivel de red, no sería necesario emular con tanta precisión la topología en en nivel de transporte, pero lo realizamos así con el objetivo de mantener una orgaización adecuada y para facilitar la depuración del escenario si fuese necesario.
@@ -37,18 +37,18 @@ Dado que las interfaces NAT de Virtual Box utilizan la dirección 10.0.2.15, hem
 Red de Dorayaki:  172.16.0.0/12 -> 172.16.0.0/13 (red-oficina-dorayaki) y 172.24.0.0/13 (red-servidores-dorayaki)
 Red de la orgaizacion externa (red-orgaizacion-externa) 192.168.0.0/16
 Red del ISP (red-isp-dorayaki) -> 10.12.0.0/16
-Red del ISP de la organización externa (red-isp-organicacion-externa) -> 10.13.0.0/16
+Red del ISP de la organización externa (red-isp-organizacion-externa) -> 10.13.0.0/16
 Red del ISP de la auditoria (red-isp-auditoria) -> 10.14.0.0/16
 
 #[dibujo_topologia_de_red.jpg]
 #[esquema_asignacion_ips_subredes.html https://www.davidc.net/sites/default/subnets/subnets.html?network=172.16.0.0&mask=12&division=3.1]
 #[esquema_especifico_asignacion_ips_interfaces.jpg]
 
-# Sobre la configuración de interfaces de red.
-
-Para los routers se ha utilizado netplan para configurar las interfaces de red de forma cómoda, estbleciendose IPs estáticas y tablas de rutas de forma manual.
+Para los routers del escenario se ha utilizado netplan para configurar las interfaces de red de forma cómoda, estbleciendose IPs estáticas y tablas de rutas de forma manual.
 En escenarios más grandes y complejos puede que fuese necesario utilizar un protocolo de enrutamiento dinámico como OSPF que permita establecer tablas de rutas y DHCP en el router del ISP para configurar las interfaces de los clientes, pero eso queda fuera del ámbito de esta práctica. 
-En las interfaces de los routers se han utilizado las direcciones bajas dentro del rango de la subred a la que pertenecen.
+En las interfaces de los routers se han utilizado las direcciones bajas dentro del rango de la subred a la que pertenecen. Además hemos tenido que habilitar el reenvio de paquetes para que las máquinas puedan actuar como routers.
+
+TODO: describir asignación ips para el resto de máquinas.
 
 # Sobre la asignación de MACs para las interfaces de las VMs.
 

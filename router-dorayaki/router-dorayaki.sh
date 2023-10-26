@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo WARNING! Execute this script on the same directory it is located.
+echo WARNING! Execute this script on the same directory it is located. If asked any input, press ENTER.
 
 # Configuración de nombres local de la máquina. Permite facilitar la identificación de la máquina en la red.
 hostnamectl hostname "router-dorayaki" --static
@@ -19,6 +19,8 @@ cp netplan/network.yaml /etc/netplan/
 netplan apply
 
 echo WARNING! Configuration finished. Power off this machine and disable the original NAT network card.
+
+
 
 # Remove this repo automatically from the system.
 rm -r ../../dorayaki

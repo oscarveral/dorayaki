@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo WARNING! Execute this script on the same directory it is located.
+echo WARNING! Execute this script on the same directory it is located.If asked any input, press ENTER.
 
 # Configuración de nombres local de la máquina. Permite facilitar la identificación de la máquina en la red.
 hostnamectl hostname "router-isp" --static

@@ -3,7 +3,7 @@ router-isp:
 Ubuntu LTS 22.04.03 Server. 
 User: router-isp. 
 Pass: router-isp. 
-FQDM: Ninguno.
+FQDM: none.
 
 Router que representa un router de un ISP cualquiera que proporciona acceso 
 a internet. Este router si mantendrá la interfaz NAT predeterminada.
@@ -34,7 +34,7 @@ Detalles de instalación:
 		MAC: 08:00:27:00:01:01.
 	* Adaptador 3:
 		Tipo: Red Interna.
-		Nombre de red interna: red-isp-organicacion-externa.
+		Nombre de red interna: red-isp-organizacion-externa.
 		MAC: 08:00:27:00:01:02.
 	* Adaptador 4:
 		Tipo: Red Interna.
