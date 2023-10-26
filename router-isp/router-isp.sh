@@ -18,6 +18,12 @@ chmod 600 netplan/network.yaml
 cp netplan/network.yaml /etc/netplan/
 netplan apply
 
+# Configurar parámetros del kernel mediante sysctl.
+rm /etc/sysctl.conf
+# Restrict permissions to avoid warnings
+chmod 600 sysctl/sysctl.conf
+cp sysctl/sysctl.conf /etc/
+
 echo WARNING! Configuration finished.
 
 # Remove this repo automatically from the system.
