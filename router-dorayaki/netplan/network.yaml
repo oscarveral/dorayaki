@@ -9,7 +9,7 @@ network:
       dhcp4: no
       dhcp6: no
       addresses:
-        - 10.0.255.254/16
+        - 172.16.0.1/13
       set-name: eth0
     # Interfaz para la red de servidores de Dorayaki.
     eth-servidores-dorayaki:
@@ -18,7 +18,7 @@ network:
       dhcp4: no
       dhcp6: no
       addresses:
-        - 10.1.255.254/16
+        - 172.24.0.1/13
       set-name: eth1
     # Interfaz para la comunicación con el router del ISP de Dorayaki.
     eth-isp-dorayaki:
@@ -27,11 +27,11 @@ network:
       dhcp4: no
       dhcp6: no
       addresses:
-        - 10.16.0.1/24
+        - 10.12.1.1/16
       set-name: eth2
       # Establecimiento de la tabla de rutas de este router.
       routes:
         # la ruta por defecto de este router es hacia el router del ISP.
         # Cualquier otra subred del escenario sólo es alcanzable por aquí.
         - to: default
-          via: 10.16.0.254
+          via: 10.12.0.1

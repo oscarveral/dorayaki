@@ -14,7 +14,7 @@ El script de configuración creado para cada máquina debe ejecutarse teniendo a
 
 La conectividad entre máquinas virtuales se ha realizado mediante el uso de redes internas en Virtual Box. Una red interna representa una segmento físico de una red (LAN), actuando el hipervisor como un conmutador de paquetes para todas las interfaces pertenencientes a dicha red virtual.
 De esta forma, todas las interfaces conectadas a una misma red interna, simulan interfaces conectadas a un mismo switch, por lo que pueden trasmitirse tramas de forma directa entre ellas. 
-#[dibujo_representación_red_interna_virtual_box.jpg]
+#[dibujo_representación_red_interna_virtual_box.jpg https://www.nakivo.com/blog/virtualbox-network-setting-guide/]
 Para nuestro escenario, crearemos las siguientes redes internas para emular de la forma más realista posible una topología real con diferentes segmentos físicos de red.
 
 	- red-oficina-dorayaki: LAN compuesta por todas las interfaces de las oficinas de la organización.
@@ -25,26 +25,32 @@ Para nuestro escenario, crearemos las siguientes redes internas para emular de l
 	- red-isp-auditoria: Representa la LAN del ISP que usa la auditoria para tener acceso a internet. En la práctica esta LAN es usada por el router del ISP y el host del auditor.
 
 Nota: dado que la comunicación entre máquinas va a estar determinada por la enrutación a nivel de red, no sería necesario emular con tanta precisión la topología en en nivel de transporte, pero lo realizamos así con el objetivo de mantener una orgaización adecuada y para facilitar la depuración del escenario si fuese necesario.
-Nota: no juntamos las LAN ISP ya que no queremos que se puedan trasmitir paquetes entre organzaciones sin pasar por un router central.
 
 # Sobre la organización en subredes y distribución de IPs
 
-# TODO Asignacion evitar conflictos con NAT de virtual box
+El escenario se realiza integramente sobre rangos de IPs privadas para evitar conflictos con IPs públicas reales.
+La distribución de subredes se ha realizado de forma que cada subred coincida con una LAN (red interna de VBox) por simplicidad.
+Además, hemos elegido rangos que facilitan la comprensión de la topología de red y que permiten una fácil identificación de la subred a la que pertenece una IP.
 
-Todo el escenario se realizara usando el rango de IPs 10.0.0.0/8, de forma que crearemos subredes según convenga para cada segmento de red. 
-Dada la forma en la que hemos organizado la topología "física" del escenario, la opción más simple y que realizaremos será la de asignar una subred a cada LAN, simplificando el escenario.
-A la orgaización Dorayaki le asignaremos la subred 10.0.0.0/15, la cual dividirá en dos subredes; 10.0.0.0/16 para la LAN de oficinas (red-oficina-dorayaki) y 10.1.0.0/16 para la LAN de los servidores (red-servidores-dorayaki).
-A la organización externa le asignaremos la subred 10.8.0.0/16 (red-orgaizacion-externa). 
-Para las LAN usadas para comunicarnos con el exterior usaremos 10.16.0.0/24 (red-isp-dorayaki), 10.16.1.0/24 (red-isp-organizacion-externa) y 10.16.2.0/24 (red-isp-auditoria). Aunque en nuestro escenario estas LANs son redes punto a punto, en una situación realista una subred no tendría porque tratarse de una subred punto a punto.
+Dado que las interfaces NAT de Virtual Box utilizan la dirección 10.0.2.15, hemos decidido utilizar IPs en subredes que no contengan dicha dirección para evitar conflictos con el enrutamiento.
+
+Red de Dorayaki:  172.16.0.0/12 -> 172.16.0.0/13 (red-oficina-dorayaki) y 172.24.0.0/13 (red-servidores-dorayaki)
+Red de la orgaizacion externa (red-orgaizacion-externa) 192.168.0.0/16
+Red del ISP (red-isp-dorayaki) -> 10.12.0.0/16
+Red del ISP de la organización externa (red-isp-organicacion-externa) -> 10.13.0.0/16
+Red del ISP de la auditoria (red-isp-auditoria) -> 10.14.0.0/16
 
 #[dibujo_topologia_de_red.jpg]
-#[esquema_asignacion_ips_subredes.html https://www.davidc.net/sites/default/subnets/subnets.html?network=10.0.0.0&mask=8&division=49.ff078ff720000]
+#[esquema_asignacion_ips_subredes.html https://www.davidc.net/sites/default/subnets/subnets.html?network=172.16.0.0&mask=12&division=3.1]
 #[esquema_especifico_asignacion_ips_interfaces.jpg]
 
 # Sobre la configuración de interfaces de red.
 
+TODO: Arreglar
+
 Para los routers se ha utilizado netplan para configurar las interfaces de red de forma cómoda, estbleciendose IPs estáticas y tablas de rutas de forma manual.
 En escenarios más grandes y complejos puede que fuese necesario utilizar un protocolo de enrutamiento dinámico como OSPF que permita establecer tablas de rutas y DHCP en el router del ISP para configurar las interfaces de los clientes, pero eso queda fuera del ámbito de esta práctica. 
+En las interfaces de los routers se han utilizado las direcciones bajas dentro del rango de la subred a la que pertenecen.
 
 # Sobre la asignación de MACs para las interfaces de las VMs.
 
