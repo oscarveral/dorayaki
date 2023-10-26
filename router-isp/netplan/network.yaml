@@ -4,7 +4,7 @@ network:
   ethernets:
     # Interfaz para la salida a internet.
     eth-internet:
-       match:
+      match:
         macaddress: 08:00:27:00:01:00
       dhcp4: yes
       set-name: eth0
