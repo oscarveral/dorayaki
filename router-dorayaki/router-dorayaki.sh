@@ -13,9 +13,12 @@ hostnamectl location vm
 
 # Configuración de las interfaces de red. Permite que la máquina pueda comunicarse con otras máquinas.
 rm /etc/netplan/00-installer-config.yaml
+# Restrict permissions to avoid warnings
+chmod 600 netplan/network.yaml
 cp netplan/network.yaml /etc/netplan/
 netplan apply
 
-# TODO: Configurar Servidores DNS para que pueda obtener el nombre de dominio al que pertenece la máquina.
-
 echo WARNING! Configuration finished. Power off this machine and disable the original NAT network card.
+
+# Remove this repo automatically from the system
+rm -r ../../dorayaki
