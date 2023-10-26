@@ -23,6 +23,7 @@ rm /etc/sysctl.conf
 # Restrict permissions to avoid warnings
 chmod 600 sysctl/sysctl.conf
 cp sysctl/sysctl.conf /etc/
+sysctl -p
 
 echo WARNING! Configuration finished. Power off this machine and disable the original NAT network card.
 

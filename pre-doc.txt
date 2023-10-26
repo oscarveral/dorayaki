@@ -46,7 +46,7 @@ Red del ISP de la auditoria (red-isp-auditoria) -> 10.14.0.0/16
 
 Para los routers del escenario se ha utilizado netplan para configurar las interfaces de red de forma cómoda, estbleciendose IPs estáticas y tablas de rutas de forma manual.
 En escenarios más grandes y complejos puede que fuese necesario utilizar un protocolo de enrutamiento dinámico como OSPF que permita establecer tablas de rutas y DHCP en el router del ISP para configurar las interfaces de los clientes, pero eso queda fuera del ámbito de esta práctica. 
-En las interfaces de los routers se han utilizado las direcciones bajas dentro del rango de la subred a la que pertenecen. Además hemos tenido que habilitar el reenvio de paquetes (sólo de IPv4 ya que no usaremos IPv6 en nuestro escenario) para que las máquinas puedan actuar como routers.
+En las interfaces de los routers se han utilizado las direcciones bajas dentro del rango de la subred a la que pertenecen. Además hemos tenido que habilitar el reenvio de paquetes para que las máquinas puedan actuar como routers.
 
 TODO: describir asignación ips para el resto de máquinas.
 

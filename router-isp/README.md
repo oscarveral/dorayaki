@@ -54,4 +54,4 @@ Detalles de instalación:
 
 Post-instalación:
 
-- No es necesario realizar ninguna acción adicional.
+- Reiniciar la máquina.
