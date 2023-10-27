@@ -2,6 +2,7 @@
 
 echo WARNING! Execute this script on the same directory it is located. If asked any input, press ENTER.
 
+
 # Configuración de nombres local de la máquina. Permite facilitar la identificación de la máquina en la red.
 hostnamectl hostname "router-dorayaki" --static
 hostnamectl hostname "Router de la sede Dorayaki" --pretty
@@ -24,6 +25,13 @@ rm /etc/sysctl.conf
 chmod 600 sysctl/sysctl.conf
 cp sysctl/sysctl.conf /etc/
 sysctl -p
+
+# Configurar NAT/firewall con iptables
+chmod 700 iptables-conf.sh
+apt-get install iptables
+apt-get install iptables-persistent
+./iptables-conf.sh
+
 
 echo WARNING! Configuration finished. Power off this machine and disable the original NAT network card.
 
