@@ -1,4 +1,4 @@
-# Network configuration for router-isp.
+# Network configuration for router2.
 network:
   version: 2
   ethernets:

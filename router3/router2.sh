@@ -1,11 +1,11 @@
 #!/bin/bash
 
-echo WARNING! Execute this script on the same directory it is located.If asked any input, press ENTER.
+echo WARNING! Execute this script on the same directory it is located.
 
 # Configuración de nombres local de la máquina. Permite facilitar la identificación de la máquina en la red.
-hostnamectl hostname "router-isp" --static
+hostnamectl hostname "router2" --static
 hostnamectl hostname "Router del ISP" --pretty
-hostnamectl icon-name router-isp
+hostnamectl icon-name router2
 hostnamectl chassis vm
 hostnamectl deployment vm
 hostnamectl location vm
@@ -24,6 +24,13 @@ rm /etc/sysctl.conf
 chmod 600 sysctl/sysctl.conf
 cp sysctl/sysctl.conf /etc/
 sysctl -p
+
+# Configurar NAT/firewall con iptables
+chmod 700 iptables/iptables-conf.sh
+echo If asked for input, press ENTER.
+apt install iptables -y
+apt install iptables-persistent -y
+./iptables/iptables-conf.sh
 
 echo WARNING! Configuration finished.
 

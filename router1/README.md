@@ -1,9 +1,9 @@
 router-dorayaki:
 
 Ubuntu LTS 22.04.03 Server. 
-User: router-dorayaki. 
-Pass: router-dorayaki. 
-FQDM: router-dorayaki.dorayaki.org.
+User: router1. 
+Pass: router1. 
+FQDM: router.dorayaki.org.
 
 Router que utiliza la organización para tener acceso a Internet.
 
@@ -47,10 +47,10 @@ Detalles de instalación:
 - Ubicarnos en el directorio de usuario local: cd ~
 - Clonar el repositorio de configuración: 
 	git clone https://github.com/oscarveral/dorayaki.git
-- Ubicarnos dentro del directorio de configuración para el router-dorayaki: 
-	cd dorayaki/router-dorayaki/
-- Dar permisos de ejecución al script: chmod +x router-dorayaki.sh
-- Ejecutar el script de configuración presente: sudo ./router-dorayaki.sh
+- Ubicarnos dentro del directorio de configuración para el router1: 
+	cd dorayaki/router1/
+- Dar permisos de ejecución al script: chmod +x router1.sh
+- Ejecutar el script de configuración presente: sudo ./router1.sh
 
 Post-instalación:
 

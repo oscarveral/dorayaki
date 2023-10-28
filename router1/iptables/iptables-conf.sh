@@ -1,11 +1,9 @@
 #!/bin/bash
 
-
 #iptables -t nat -A POSTROUTING -o enp0s8 -j SNAT --to 1.2.3.2
-
-iptables -t nat -A POSTROUTING -o enp0s8 -j MASQUERADE
-
 #iptables -t nat -A PREROUTING -i enp0s8 -p tcp --dport 22 -j DNAT --to 172.16.2.2
+
+iptables -t nat -A POSTROUTING -o eth2 -j MASQUERADE
 
 # --- FIREWALL ---
 
@@ -16,7 +14,7 @@ iptables -t nat -A POSTROUTING -o enp0s8 -j MASQUERADE
 
 # --- LOADBALANCER ---
 iptables -A PREROUTING -t nat -p tcp -d 1.2.3.2 --dport 80 \
-         -m statistic --mode nth --every 2 --packet 0              \
+         -m statistic --mode nth --every 2 --packet 0      \
          -j DNAT --to-destination 172.16.2.2:80
 
 iptables -A PREROUTING -t nat -p tcp -d 1.2.3.2 --dport 80 \
@@ -24,4 +22,3 @@ iptables -A PREROUTING -t nat -p tcp -d 1.2.3.2 --dport 80 \
 
 
 iptables-save > /etc/iptables/rules.v4
-

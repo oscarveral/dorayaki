@@ -1,4 +1,4 @@
-# Network configuration for router-dorayaki.
+# Network configuration for router1.
 network:
   version: 2
   ethernets:
@@ -9,7 +9,7 @@ network:
       dhcp4: no
       dhcp6: no
       addresses:
-        - 172.16.0.1/13
+        - 172.16.1.1/13
       set-name: eth0
     # Interfaz para la red de servidores de Dorayaki.
     eth-servidores-dorayaki:
@@ -18,7 +18,7 @@ network:
       dhcp4: no
       dhcp6: no
       addresses:
-        - 172.24.0.1/13
+        - 172.24.2.1/13
       set-name: eth1
     # Interfaz para la comunicación con el router del ISP de Dorayaki.
     eth-isp-dorayaki:

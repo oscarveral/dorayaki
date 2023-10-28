@@ -1,12 +1,11 @@
 #!/bin/bash
 
-echo WARNING! Execute this script on the same directory it is located. If asked any input, press ENTER.
-
+echo WARNING! Execute this script on the same directory it is located.
 
 # Configuración de nombres local de la máquina. Permite facilitar la identificación de la máquina en la red.
-hostnamectl hostname "router-dorayaki" --static
-hostnamectl hostname "Router de la sede Dorayaki" --pretty
-hostnamectl icon-name router-dorayaki
+hostnamectl hostname "router2" --static
+hostnamectl hostname "Router del ISP" --pretty
+hostnamectl icon-name router2
 hostnamectl chassis vm
 hostnamectl deployment vm
 hostnamectl location vm
@@ -27,13 +26,13 @@ cp sysctl/sysctl.conf /etc/
 sysctl -p
 
 # Configurar NAT/firewall con iptables
-chmod 700 iptables-conf.sh
-apt-get install iptables
-apt-get install iptables-persistent
-./iptables-conf.sh
+chmod 700 iptables/iptables-conf.sh
+echo If asked for input, press ENTER.
+apt install iptables -y
+apt install iptables-persistent -y
+./iptables/iptables-conf.sh
 
-
-echo WARNING! Configuration finished. Power off this machine and disable the original NAT network card.
+echo WARNING! Configuration finished.
 
 # Remove this repo automatically from the system.
 rm -r ../../dorayaki

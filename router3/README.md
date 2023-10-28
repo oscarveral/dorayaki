@@ -1,12 +1,11 @@
 router-isp:
 
 Ubuntu LTS 22.04.03 Server. 
-User: router-isp. 
-Pass: router-isp. 
+User: router3. 
+Pass: router3. 
 FQDM: none.
 
-Router que representa un router de un ISP cualquiera que proporciona acceso 
-a internet. Este router si mantendrá la interfaz NAT predeterminada.
+Router de la organización externa.
 
 Detalles de instalación:
 
@@ -30,16 +29,12 @@ Detalles de instalación:
 		MAC: 08:00:27:00:01:00.
 	* Adaptador 2:
 		Tipo: Red Interna.
-		Nombre de red interna: red-isp-dorayaki.
-		MAC: 08:00:27:00:01:01.
+		Nombre de red interna: red-organizacion-externa.
+		MAC: 08:00:27:00:02:00.
 	* Adaptador 3:
 		Tipo: Red Interna.
 		Nombre de red interna: red-isp-organizacion-externa.
-		MAC: 08:00:27:00:01:02.
-	* Adaptador 4:
-		Tipo: Red Interna.
-		Nombre de red interna: red-isp-auditoria.
-		MAC: 08:00:27:00:01:03.
+		MAC: 08:00:27:00:02:01.
 
 - Encender la máquina.
 - Actualizar paquetes: sudo apt update && sudo apt upgrade -y
@@ -47,10 +42,10 @@ Detalles de instalación:
 - Ubicarnos en el directorio de usuario local: cd ~
 - Clonar el repositorio de configuración: 
 	git clone https://github.com/oscarveral/dorayaki.git
-- Ubicarnos dentro del directorio de configuración para el router-dorayaki: 
-	cd dorayaki/router-isp/
-- Dar permisos de ejecución al script: chmod +x router-isp.sh
-- Ejecutar el script de configuración presente: sudo ./router-isp.sh
+- Ubicarnos dentro del directorio de configuración para el router2: 
+	cd dorayaki/router2/
+- Dar permisos de ejecución al script: chmod +x router2.sh
+- Ejecutar el script de configuración presente: sudo ./router2.sh
 
 Post-instalación:
 
