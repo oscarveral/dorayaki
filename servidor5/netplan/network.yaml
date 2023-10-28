@@ -5,9 +5,9 @@ network:
     # Interfaz para la red de la organización externa.
     eth-orgnaizacion-externa:
       match:
-        macaddress: 08:00:27:00:03:00
+        macaddress: 08:00:27:00:04:00
       dhcp4: no
       dhcp6: no
       addresses:
-        - 192.168.2.10/24
+        - 192.168.2.20/24
       set-name: eth0

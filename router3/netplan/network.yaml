@@ -10,7 +10,7 @@ network:
       dhcp6: no
       addresses:
         - 192.168.1.1/24
-      set-name: eth1
+      set-name: eth0
     # Interfaz para le red del ISP con la organización externa.
     eth-isp-ognarizacion-externa:
       match:
@@ -19,7 +19,7 @@ network:
       dhcp6: no
       addresses:
         - 10.2.3.6/30
-      set-name: eth2
+      set-name: eth1
       # Tabla de rutas hacia la organización externa
       routes:
         - to: default
