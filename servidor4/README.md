@@ -1,11 +1,9 @@
 router-isp:
 
 Ubuntu LTS 22.04.03 Server. 
-User: router3. 
-Pass: router3. 
-FQDM: none.
-
-Router de la organización externa.
+User: servidor4. 
+Pass: servidor4. 
+FQDM: servidor4.dorayaki.org.
 
 Detalles de instalación:
 
@@ -30,23 +28,19 @@ Detalles de instalación:
 					se configura la máquina."
 	* Adaptador 2:
 		Tipo: Red Interna.
-		Nombre de red interna: red-organizacion-externa.
-		MAC: 08:00:27:00:02:00.
-	* Adaptador 3:
-		Tipo: Red Interna.
-		Nombre de red interna: red-isp-organizacion-externa.
-		MAC: 08:00:27:00:02:01.
-
+		Nombre de red interna: red-servidores-dorayaki.
+		MAC: 08:00:27:00:03:00.
+	
 - Encender la máquina.
 - Actualizar paquetes: sudo apt update && sudo apt upgrade -y
 - Instalar git en la máquina: sudo apt install git -y
 - Ubicarnos en el directorio de usuario local: cd ~
 - Clonar el repositorio de configuración: 
 	git clone https://github.com/oscarveral/dorayaki.git
-- Ubicarnos dentro del directorio de configuración para el router3: 
-	cd dorayaki/router3/
-- Dar permisos de ejecución al script: chmod +x router3.sh
-- Ejecutar el script de configuración presente: sudo ./router3.sh
+- Ubicarnos dentro del directorio de configuración para el servidor4: 
+	cd dorayaki/servidor4/
+- Dar permisos de ejecución al script: chmod +x servidor4.sh
+- Ejecutar el script de configuración presente: sudo ./servidor4.sh
 
 Post-instalación:
 
@@ -58,9 +52,5 @@ Post-instalación:
 		Deshabilitado
 	* Adaptador 2:
 		Tipo: Red Interna.
-		Nombre de red interna: red-organizacion-externa.
-		MAC: 08:00:27:00:02:00.
-	* Adaptador 3:
-		Tipo: Red Interna.
-		Nombre de red interna: red-isp-organizacion-externa.
-		MAC: 08:00:27:00:02:01.
+		Nombre de red interna: red-servidores-dorayaki.
+		MAC: 08:00:27:00:03:00.

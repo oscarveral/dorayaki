@@ -3,7 +3,7 @@ router-dorayaki:
 Ubuntu LTS 22.04.03 Server. 
 User: router1. 
 Pass: router1. 
-FQDM: router.dorayaki.org.
+FQDM: router1.dorayaki.org.
 
 Router que utiliza la organización para tener acceso a Internet.
 

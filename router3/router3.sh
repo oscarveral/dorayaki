@@ -2,11 +2,10 @@
 
 echo WARNING! Execute this script on the same directory it is located.
 
-
 # Configuración de nombres local de la máquina. Permite facilitar la identificación de la máquina en la red.
-hostnamectl hostname "router1" --static
-hostnamectl hostname "Router de la sede Dorayaki" --pretty
-hostnamectl icon-name router1
+hostnamectl hostname "router3" --static
+hostnamectl hostname "Router de la organizacion externa." --pretty
+hostnamectl icon-name router3
 hostnamectl chassis vm
 hostnamectl deployment vm
 hostnamectl location vm
@@ -36,7 +35,7 @@ apt install iptables -y
 apt install iptables-persistent -y
 ./iptables/iptables-conf.sh
 
-echo WARNING! Configuration finished. Power off this machine and disable the original NAT network card.
+echo WARNING! Configuration finished.
 
 # Remove this repo automatically from the system.
 rm -r ../../dorayaki

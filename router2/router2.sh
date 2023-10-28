@@ -10,6 +10,9 @@ hostnamectl chassis vm
 hostnamectl deployment vm
 hostnamectl location vm
 
+# Instalar ping para depurar.
+echo If asked for input, press ENTER.
+apt install inetutils-ping -y
 
 # Configuración de las interfaces de red. Permite que la máquina pueda comunicarse con otras máquinas.
 rm /etc/netplan/00-installer-config.yaml
