@@ -1,4 +1,4 @@
-router-dorayaki:
+router1:
 
 Ubuntu LTS 22.04.03 Server. 
 User: router1. 

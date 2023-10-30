@@ -1,4 +1,4 @@
-router-isp:
+servidor5:
 
 Ubuntu LTS 22.04.03 Server. 
 User: servidor5. 

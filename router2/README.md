@@ -1,4 +1,4 @@
-router-isp:
+router2:
 
 Ubuntu LTS 22.04.03 Server. 
 User: router2. 
