@@ -10,6 +10,13 @@ hostnamectl chassis vm
 hostnamectl deployment vm
 hostnamectl location vm
 
+# Configurar NAT/firewall con iptables
+chmod 700 iptables/iptables-conf.sh
+echo If asked for input, press ENTER.
+apt install iptables -y
+apt install iptables-persistent -y
+./iptables/iptables-conf.sh
+
 # Instalar ping para depurar.
 echo If asked for input, press ENTER.
 apt install inetutils-ping -y
@@ -27,13 +34,6 @@ rm /etc/sysctl.conf
 chmod 600 sysctl/sysctl.conf
 cp sysctl/sysctl.conf /etc/
 sysctl -p
-
-# Configurar NAT/firewall con iptables
-chmod 700 iptables/iptables-conf.sh
-echo If asked for input, press ENTER.
-apt install iptables -y
-apt install iptables-persistent -y
-./iptables/iptables-conf.sh
 
 echo WARNING! Configuration finished.
 

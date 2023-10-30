@@ -14,6 +14,13 @@ hostnamectl location vm
 echo If asked for input, press ENTER.
 apt install inetutils-ping -y
 
+# Configurar NAT/firewall con iptables
+chmod 700 iptables/iptables-conf.sh
+echo If asked for input, press ENTER.
+apt install iptables -y
+apt install iptables-persistent -y
+./iptables/iptables-conf.sh
+
 # Configuración de las interfaces de red. Permite que la máquina pueda comunicarse con otras máquinas.
 rm /etc/netplan/00-installer-config.yaml
 # Restrict permissions to avoid warnings
@@ -27,13 +34,6 @@ rm /etc/sysctl.conf
 chmod 600 sysctl/sysctl.conf
 cp sysctl/sysctl.conf /etc/
 sysctl -p
-
-# Configurar NAT/firewall con iptables
-chmod 700 iptables/iptables-conf.sh
-echo If asked for input, press ENTER.
-apt install iptables -y
-apt install iptables-persistent -y
-./iptables/iptables-conf.sh
 
 echo WARNING! Configuration finished.
 
