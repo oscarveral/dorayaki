@@ -10,9 +10,10 @@ hostnamectl chassis vm
 hostnamectl deployment vm
 hostnamectl location vm
 
-# Instalar ping para depurar.
+# Instalar ping y otras utilidades para depurar.
 echo If asked for input, press ENTER.
 apt install inetutils-ping -y
+apt install vim -y
 
 # Configurar NAT/firewall con iptables
 chmod 700 iptables/iptables-conf.sh

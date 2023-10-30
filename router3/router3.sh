@@ -17,9 +17,10 @@ apt install iptables -y
 apt install iptables-persistent -y
 ./iptables/iptables-conf.sh
 
-# Instalar ping para depurar.
+# Instalar ping y otras utilidades para depurar.
 echo If asked for input, press ENTER.
 apt install inetutils-ping -y
+apt install vim -y
 
 # Configuración de las interfaces de red. Permite que la máquina pueda comunicarse con otras máquinas.
 rm /etc/netplan/00-installer-config.yaml
