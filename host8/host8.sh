@@ -9,3 +9,6 @@ hostnamectl icon-name host8
 hostnamectl chassis vm
 hostnamectl deployment vm
 hostnamectl location vm
+
+# Habilitar el servicio de SSH.
+systemctl enable --now sshd
