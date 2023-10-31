@@ -12,7 +12,7 @@ hostnamectl location vm
 
 # Instalar ping y otras utilidades para depurar.
 echo If asked for input, press ENTER.
-apt install inetutils-ping vim -y
+apt install inetutils-ping vim tcpdump -y
 
 # Configurar NAT/firewall con iptables
 chmod 700 iptables/iptables-conf.sh
