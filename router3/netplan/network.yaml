@@ -23,4 +23,4 @@ network:
       # Tabla de rutas hacia la organización externa
       routes:
         - to: default
-          via: 10.2.3.5/30
+          via: 10.2.3.5
