@@ -22,7 +22,7 @@ chmod 600 netplan/network.yaml
 cp netplan/network.yaml /etc/netplan/
 netplan apply
 
-echo WARNING! Configuration finished.
+echo WARNING! Configuration finished. Power off this machine and disable the original NAT network card.
 
 # Remove this repo automatically from the system.
 rm -r ../../dorayaki
