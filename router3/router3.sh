@@ -12,7 +12,7 @@ hostnamectl location vm
 
 # Configurar NAT/firewall con iptables
 chmod 700 iptables/iptables-conf.sh
-echo If asked for input, press ENTER.
+echo If asked for input, write yes to save current config.
 apt install iptables -y
 apt install iptables-persistent -y
 ./iptables/iptables-conf.sh
