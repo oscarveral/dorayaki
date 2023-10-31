@@ -12,14 +12,12 @@ hostnamectl location vm
 
 # Instalar ping y otras utilidades para depurar.
 echo If asked for input, press ENTER.
-apt install inetutils-ping -y
-apt install vim -y
+apt install inetutils-ping vim -y
 
 # Configurar NAT/firewall con iptables
 chmod 700 iptables/iptables-conf.sh
 echo If asked for input, write yes to save current config.
-apt install iptables -y
-apt install iptables-persistent -y
+apt install iptables iptables-persistent -y
 ./iptables/iptables-conf.sh
 
 # Configuración de las interfaces de red. Permite que la máquina pueda comunicarse con otras máquinas.
