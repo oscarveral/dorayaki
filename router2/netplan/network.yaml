@@ -7,6 +7,8 @@ network:
       match:
         macaddress: 08:00:27:00:01:00
       dhcp4: yes
+      dhcp4-overrides:
+        use-dns: no
       set-name: eth0
     # Interfaz para la red del ISP con Dorayaki.
     eth-isp-dorayaki:
@@ -25,6 +27,9 @@ network:
         # Ruta para la red de servidores de Dorayaki
         - to: 172.16.2.0/24
           via: 10.2.3.2
+      # Configuración de DNS utilizado por la máquina.
+      nameservers:
+        addresses: [8.8.8.8]
     # Interfaz para le red del ISP con la organización externa.
     eth-isp-ognarizacion-externa:
       match:

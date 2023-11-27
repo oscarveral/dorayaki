@@ -27,7 +27,7 @@ nmcli con add type ethernet con-name eth0 ifname eth0 ipv4.method manual ip4 192
 nmcli con add type ethernet con-name eth1 ifname eth1 ipv4.method auto
 systemctl restart NetworkManager
 
-echo WARNING! Configuration finished. Reboot this machine and finish the configuration.
+echo WARNING! Configuration finished. Power-off this machine and finish the configuration.
 
 # Remove this repo automatically from the system.
 rm -r ../../dorayaki
