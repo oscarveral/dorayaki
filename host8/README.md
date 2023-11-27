@@ -22,8 +22,8 @@ Detalles de instalación:
 	* Adaptador 2:
 		Tipo: Red Interna.
 		Nombre de red interna: red-isp-auditoria.
-		MAC: 08:00:27:00:07:00.
-		Comentario "La MAC se randomizará por defecto en esta distribución 
+		MAC: 08:00:27:00:07:01.
+		Comentario "La MAC peude randomizarse por defecto en esta distribución 
 					aunque la asignemos manualmente aqui."
 
 - Encender la máquina y seleccionar la opcion "Test this media & start Fedora-Workstation-Live 38" en GRUB.
@@ -34,5 +34,5 @@ Detalles de instalación:
 - Encender la máquina.
 - Iniciar configuración. Omitir todo. Establecer nombre de usuario y contraseña.
 
-# TODO quitar aleatorizacion MAC
-# TODO Cambiar MAC del adaptador 2.
+# TODO quitar aleatorizacion MAC. Ver si es verdad esto.
+# TODO Copy config from files

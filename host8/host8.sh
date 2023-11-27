@@ -13,14 +13,18 @@ hostnamectl location vm
 # Habilitar el servicio de SSH.
 systemctl enable --now sshd
 
-# Rename interfaces.
-cp udev/10-persistent-net.rules /etc/udev/rules.d/10-persistent-net.rules
+# Rename interfaces. Aplicable on next boot.
+cp udev/persistent.rules /etc/udev/rules.d/10-persistent-net.rules
+
+# Force disable MAC randomization.
+cp network_managet/mac.conf /etc/NetworkManager/conf.d/10-mac.conf
 
 # Network configuration.
 nmcli con add type ethernet con-name eth1 ifname eth1 ipv4.method auto
 nmcli con modify eth1 connection.interface-name eth1
+systemctl restart NetworkManager
 
-echo WARNING! Configuration finished. Power off this machine and disable the original NAT network card.
+echo WARNING! Configuration finished. Reboot this machine.
 
 # Remove this repo automatically from the system.
 rm -r ../../dorayaki
