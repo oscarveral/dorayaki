@@ -10,6 +10,9 @@ network:
       dhcp4-overrides:
         use-dns: no
       set-name: eth0
+      # Configuración DNS temporal
+      nameservers:
+        addresses: [8.8.8.8]
     # Interfaz para la red del ISP con Dorayaki.
     eth-isp-dorayaki:
       match:
@@ -28,8 +31,8 @@ network:
         - to: 172.16.2.0/24
           via: 10.2.3.2
       # Configuración de DNS utilizado por la máquina.
-      nameservers:
-        addresses: [8.8.8.8]
+      #nameservers:
+      #  addresses: [x.x.x.x]
     # Interfaz para le red del ISP con la organización externa.
     eth-isp-ognarizacion-externa:
       match:
