@@ -21,6 +21,7 @@ cp network_manager/network.conf /etc/NetworkManager/conf.d/10-mac.conf
 
 # Network configuration.
 systemctl start NetworkManager
+nmcli con add type ethernet con-name eth0 ifname eth0 ipv4.method manual ip4 192.168.64.40/24
 nmcli con add type ethernet con-name eth1 ifname eth1 ipv4.method auto
 systemctl restart NetworkManager
 

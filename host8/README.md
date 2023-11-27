@@ -34,5 +34,18 @@ Detalles de instalación:
 - Encender la máquina.
 - Iniciar configuración. Omitir todo. Establecer nombre de usuario y contraseña.
 
+	* Adaptador 1:
+		Tipo: Red sólo anfitrión.
+		MAC: 08:00:27:00:07:00.
+		Red sólo anfitrión: 192.168.64.0/24
+		Comentario: "Proporcionará accesso mediante SSH al anfitrión."
+
+	* Adaptador 2:
+		Tipo: Red Interna.
+		Nombre de red interna: red-isp-auditoria.
+		MAC: 08:00:27:00:07:01.
+		Comentario "La MAC peude randomizarse por defecto en esta distribución 
+					aunque la asignemos manualmente aqui."
+
 # TODO Copy network config from files on /etc/NetworkManager/system-connections/
 # TODO Terminar este readme.
