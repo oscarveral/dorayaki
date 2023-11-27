@@ -20,6 +20,12 @@ apt install iptables iptables-persistent -y
 echo If asked for input, press ENTER.
 apt install inetutils-ping vim tcpdump -y
 
+# DHCP Server configuration.
+apt install kea -y
+# Not setting a password on kea-ctrl-agent so it is not enabled
+cp kea/kea-dhcp4.conf /etc/kea/kea-dhcp4.conf
+systemctl restart kea-dhcp4-server
+
 # Configuración de las interfaces de red. Permite que la máquina pueda comunicarse con otras máquinas.
 rm /etc/netplan/00-installer-config.yaml
 # Restrict permissions to avoid warnings

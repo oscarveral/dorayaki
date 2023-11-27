@@ -11,7 +11,7 @@ network:
       dhcp4-overrides:
         use-dns: no
       set-name: eth0
-      # Configuración DNS temporal
+      # TODO: Cambiar a DNS de Dorayaki.
       nameservers:
         addresses: [8.8.8.8]
     # Interfaz para la red del ISP con Dorayaki.
