@@ -21,11 +21,13 @@ cp network_manager/network.conf /etc/NetworkManager/conf.d/10-mac.conf
 
 # Network configuration.
 systemctl start NetworkManager
+# Interfaz de red solo anfitrión para uso de SSH desde el anfitrión de la VM.
 nmcli con add type ethernet con-name eth0 ifname eth0 ipv4.method manual ip4 192.168.64.40/24
+# Interfaz para uso cotidiano por parte del usuario de la maquina.
 nmcli con add type ethernet con-name eth1 ifname eth1 ipv4.method auto
 systemctl restart NetworkManager
 
-echo WARNING! Configuration finished. Reboot this machine.
+echo WARNING! Configuration finished. Reboot this machine and finish the configuration.
 
 # Remove this repo automatically from the system.
 rm -r ../../dorayaki

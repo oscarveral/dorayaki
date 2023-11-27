@@ -33,19 +33,31 @@ Detalles de instalación:
 - Asignar más memoria de video si es necesario.
 - Encender la máquina.
 - Iniciar configuración. Omitir todo. Establecer nombre de usuario y contraseña.
+- Actualizar paquetes: sudo dnf upgrade -y
+- Ubicarnos en el directorio de usuario local: cd ~
+- Clonar el repositorio de configuración: 
+	git clone https://github.com/oscarveral/dorayaki.git
+- Ubicarnos dentro del directorio de configuración para el router1: 
+	cd dorayaki/host8/
+- Dar permisos de ejecución al script: chmod +x host8.sh
+- Ejecutar el script de configuración presente: sudo ./host8.sh
+
+Post-instalación
+
+- Apagar la máquina. 
+- Actualizar interfaces de red de acuerdo a las descripciones a continuación:
 
 	* Adaptador 1:
 		Tipo: Red sólo anfitrión.
 		MAC: 08:00:27:00:07:00.
-		Red sólo anfitrión: 192.168.64.0/24
+		Red sólo anfitrión: 192.168.64.0/24. Dirección IP del anfitrión 192.168.64.1. Servidor DHCP Desactivado.
 		Comentario: "Proporcionará accesso mediante SSH al anfitrión."
 
 	* Adaptador 2:
 		Tipo: Red Interna.
 		Nombre de red interna: red-isp-auditoria.
 		MAC: 08:00:27:00:07:01.
-		Comentario "La MAC peude randomizarse por defecto en esta distribución 
+		Comentario "La MAC puede randomizarse por defecto en esta distribución 
 					aunque la asignemos manualmente aqui."
 
 # TODO Copy network config from files on /etc/NetworkManager/system-connections/
-# TODO Terminar este readme.
