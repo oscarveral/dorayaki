@@ -1,0 +1,16 @@
+[connection]
+id=eth1
+uuid=178fabf6-9560-4834-bb01-63d4c90a3040
+type=ethernet
+interface-name=eth1
+
+[ethernet]
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=default
+method=auto
+
+[proxy]
