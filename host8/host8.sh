@@ -17,7 +17,7 @@ systemctl enable --now sshd
 cp udev/10-persistent-net.rules /etc/udev/rules.d/10-persistent-net.rules
 
 # Network configuration.
-nmcli con add type ethernet con-name eth1 ifname eth1 ip4.method auto
+nmcli con add type ethernet con-name eth1 ifname eth1 ipv4.method auto
 nmcli con modify eth1 connection.interface-name eth1
 
 echo WARNING! Configuration finished. Power off this machine and disable the original NAT network card.
