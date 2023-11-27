@@ -17,10 +17,12 @@ systemctl enable --now sshd
 cp udev/persistent.rules /etc/udev/rules.d/10-persistent-net.rules
 
 # Force disable MAC randomization.
-cp network_manager/mac.conf /etc/NetworkManager/conf.d/10-mac.conf
+cp network_manager/network.conf /etc/NetworkManager/conf.d/10-mac.conf
 
 # Network configuration.
+systemctl start NetworkManager
 nmcli con add type ethernet con-name eth1 ifname eth1 ipv4.method auto
+#nmcli con modify eth1 connection.interface-name eth1
 systemctl restart NetworkManager
 
 echo WARNING! Configuration finished. Reboot this machine.
