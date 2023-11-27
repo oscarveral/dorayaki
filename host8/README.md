@@ -59,5 +59,3 @@ Post-instalación
 		MAC: 08:00:27:00:07:01.
 		Comentario "La MAC puede randomizarse por defecto en esta distribución 
 					aunque la asignemos manualmente aqui."
-
-# TODO Copy network config from files on /etc/NetworkManager/system-connections/
