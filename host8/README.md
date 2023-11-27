@@ -30,8 +30,9 @@ Detalles de instalación:
 - Seleccionar instalar Fedora. Lenguaje y teclado en Español, seleccionar el único disco disponible y comenzar instalación.
 - Finalizar instalación y apagar la máquina.
 - Desconectar la imagen iso de la ranura de disco óptico de la máquina virtual.
+- Asignar más memoria de video si es necesario.
 - Encender la máquina.
 - Iniciar configuración. Omitir todo. Establecer nombre de usuario y contraseña.
 
 # TODO quitar aleatorizacion MAC
-
+# TODO Cambiar MAC del adaptador 2.
