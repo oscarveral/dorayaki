@@ -37,7 +37,7 @@ sysctl -p
 # DHCP Server configuration.
 apt install kea -y
 # Not setting a password on kea-ctrl-agent so it is not enabled
-cp kea/kea-dhcp4.conf /etc/kea/ked-dhcp4.conf
+cp kea/kea-dhcp4.conf /etc/kea/kea-dhcp4.conf
 systemctl restart kea-dhcp4-server
 
 echo WARNING! Configuration finished.
