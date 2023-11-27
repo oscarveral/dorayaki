@@ -34,5 +34,5 @@ Detalles de instalación:
 - Encender la máquina.
 - Iniciar configuración. Omitir todo. Establecer nombre de usuario y contraseña.
 
-# TODO quitar aleatorizacion MAC. Ver si es verdad esto.
-# TODO Copy config from files
+# TODO Copy network config from files on /etc/NetworkManager/system-connections/
+# TODO Terminar este readme.
