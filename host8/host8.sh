@@ -25,11 +25,6 @@ systemctl start NetworkManager
 nmcli con add type ethernet con-name eth0 ifname eth0 ipv4.method manual ip4 192.168.64.40/24
 # Interfaz para uso cotidiano por parte del usuario de la maquina.
 nmcli con add type ethernet con-name eth1 ifname eth1 ipv4.method auto
-
-# Método alternativo
-# cp network_manager/eth0.nmconnection /etc/NetworkManager/system-connections/eth0.nmconnection
-# cp network_manager/eth1.nmconnection /etc/NetworkManager/system-connections/eth1.nmconnection
-
 systemctl restart NetworkManager
 
 echo WARNING! Configuration finished. Power-off this machine and finish the configuration.
