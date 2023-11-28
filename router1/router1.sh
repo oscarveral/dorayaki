@@ -3,7 +3,7 @@
 echo WARNING! Execute this script on the same directory it is located.
 
 # Configuración de nombres local de la máquina. Permite facilitar la identificación de la máquina en la red.
-hostnamectl hostname "router1" --static
+hostnamectl hostname "router1.dorayaki.org" --static # Dado que ejecutará el servidor DHCP el FQDN hay que configurarlo manualmente.
 hostnamectl hostname "Router de la sede Dorayaki" --pretty
 hostnamectl icon-name router1
 hostnamectl chassis vm
