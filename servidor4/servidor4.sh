@@ -3,7 +3,7 @@
 echo WARNING! Execute this script on the same directory it is located.
 
 # Configuración de nombres local de la máquina. Permite facilitar la identificación de la máquina en la red.
-hostnamectl hostname "servidor4" --static
+hostnamectl hostname "" --static # Se recibirá un FQDN del servidor DHCP.
 hostnamectl hostname "Servidor con id 4 de Dorayaki." --pretty
 hostnamectl icon-name servidor4
 hostnamectl chassis vm

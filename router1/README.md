@@ -11,6 +11,9 @@ Detalles de instalación:
 
 - Instalación de la versión mínima para mejor rendimiento.
 
+- Establecer como nombre de la máquina durante la instalación: "router1". Dado
+	que el router será el servidor DHCP la configuración de su FQDN será manual.
+
 - Layout de disco estandar ofrecido por el instalador de Ubuntu. Por rendimiento 
 	para la simulación se ha elegido no encriptar aunque sería recomendado en 
 	determinadas situaciones por seguridad.

@@ -6,11 +6,6 @@ network:
     eth-orgnaizacion-externa:
       match:
         macaddress: 08:00:27:00:03:00
-      dhcp4: no
+      dhcp4: yes
       dhcp6: no
-      addresses:
-        - 172.16.2.10/24
       set-name: eth0
-      routes:
-        - to: default
-          via: 172.16.2.1

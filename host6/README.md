@@ -3,13 +3,17 @@ host6:
 Fedora Workstation 38. 
 User: host6. 
 Pass: host6. 
-FQDM: none. Aunque esté en la organización, este host no tiene FQDN asignado en el DNS de la organización.
+FQDM: none.
 
 Host usado para la auditoría de seguridad.
 
 Detalles de instalación:
 
 - Crear la máquina virtual en VirtualBox cargando el iso de Fedora.
+
+- Establecer como nombre de máquina "host6" durante la instalación. Aunque esté 
+	en la organización, este host no tiene FQDN asignado en el DNS de la 
+	organización.
 
 - A continuación, se habilitan las siguientes interfaces de red a la máquina 
 	mediante configuración en Virtual Box, quedando la configuración de red de 
