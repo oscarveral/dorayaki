@@ -21,7 +21,7 @@
     },
     {
        "hw-address": "08:00:27:00:04:00",
-       "hostname": "servidor5.dorayaki.org",
+       "hostname": "servidor5.dorayaki.org"
 	}
 	],
 
@@ -30,7 +30,7 @@
 		"name": "domain-name-servers",
 		"data": "8.8.8.8"
     }
-	]
+	],
 
 	"subnet4": [
   	{
@@ -48,12 +48,12 @@
       	{
         	"name": "routers",
         	"data": "172.16.1.1"
-      	},
+      	}
     	]
   	},
 	{
 		"id": 2,
-		"subnet": "172.16.2.0/24"
+		"subnet": "172.16.2.0/24",
 		"interface": "eth1",
 		"reservations-global": true,
 		"reservations-in-subnet": false,
@@ -66,7 +66,7 @@
       	{
         	"name": "routers",
         	"data": "172.16.2.1"
-      	},
+      	}
     	]
 	}
 	],
