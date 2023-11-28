@@ -20,6 +20,9 @@ network:
       addresses:
         - 172.16.2.1/24
       set-name: eth1
+      # Uso del DNS de Dorayaki por defecto.
+      #nameservers:
+      #  addresses: [x.x.x.x]
     # Interfaz para la comunicación con el router del ISP de Dorayaki.
     eth-isp-dorayaki:
       match:
@@ -35,3 +38,6 @@ network:
         # Cualquier otra subred del escenario sólo es alcanzable por aquí.
         - to: default
           via: 10.2.3.1
+      # TODO: Cambiar a DNS de Dorayaki.
+      nameservers:
+        addresses: [8.8.8.8]

@@ -2,7 +2,6 @@
 
 echo WARNING! Execute this script on the same directory it is located.
 
-
 # Configuración de nombres local de la máquina. Permite facilitar la identificación de la máquina en la red.
 hostnamectl hostname "router1" --static
 hostnamectl hostname "Router de la sede Dorayaki" --pretty
@@ -20,6 +19,12 @@ chmod 700 iptables/iptables-conf.sh
 echo If asked for input, write yes to save current config.
 apt install iptables iptables-persistent -y
 ./iptables/iptables-conf.sh
+
+# DHCP Server configuration.
+apt install kea -y
+# Not setting a password on kea-ctrl-agent so it is not enabled
+cp kea/kea-dhcp4.conf /etc/kea/kea-dhcp4.conf
+systemctl restart kea-dhcp4-server
 
 # Configuración de las interfaces de red. Permite que la máquina pueda comunicarse con otras máquinas.
 rm /etc/netplan/00-installer-config.yaml
