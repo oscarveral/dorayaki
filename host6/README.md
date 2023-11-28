@@ -3,7 +3,7 @@ host6:
 Fedora Workstation 38. 
 User: host6. 
 Pass: host6. 
-FQDM: none. Aunque esté en la organización este host no tiene FQDN asignado en el DNS de la organización.
+FQDM: none. Aunque esté en la organización, este host no tiene FQDN asignado en el DNS de la organización.
 
 Host usado para la auditoría de seguridad.
 
