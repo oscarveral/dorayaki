@@ -20,7 +20,7 @@ network:
       addresses:
         - 10.2.3.6/30
       set-name: eth1
-      # Tabla de rutas hacia la organización externa
+      # Tabla de rutas por defecto.
       routes:
         - to: default
           via: 10.2.3.5

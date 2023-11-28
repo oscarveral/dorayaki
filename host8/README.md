@@ -50,12 +50,10 @@ Post-instalación
 	* Adaptador 1:
 		Tipo: Red sólo anfitrión.
 		MAC: 08:00:27:00:07:00.
-		Red sólo anfitrión: 192.168.64.0/24. Dirección IP del anfitrión 192.168.64.1. Servidor DHCP Desactivado.
+		Red sólo anfitrión: 192.168.64.0/24. Dirección IP del anfitrión 192.168.64.1. Servidor DHCP desactivado.
 		Comentario: "Proporcionará accesso mediante SSH al anfitrión."
 
 	* Adaptador 2:
 		Tipo: Red Interna.
 		Nombre de red interna: red-isp-auditoria.
 		MAC: 08:00:27:00:07:01.
-		Comentario "La MAC puede randomizarse por defecto en esta distribución 
-					aunque la asignemos manualmente aqui."
