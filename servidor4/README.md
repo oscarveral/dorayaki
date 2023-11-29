@@ -42,7 +42,6 @@ Detalles de instalación:
 	git clone https://github.com/oscarveral/dorayaki.git
 - Ubicarnos dentro del directorio de configuración para el servidor4: 
 	cd dorayaki/servidor4/
-- Dar permisos de ejecución al script: chmod +x servidor4.sh
 - Ejecutar el script de configuración presente: sudo ./servidor4.sh
 
 Post-instalación:

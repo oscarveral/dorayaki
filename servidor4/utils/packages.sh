@@ -2,4 +2,4 @@
 
 # Instalar ping y otras utilidades para depurar.
 
-apt install inetutils-ping vim tcpdump -y
+apt install inetutils-ping vim tcpdump -y 2> /dev/null

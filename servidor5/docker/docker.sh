@@ -4,7 +4,7 @@
 
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do apt remove $pkg; done
 apt update
-apt install ca-certificates curl gnupg
+apt install ca-certificates curl gnupg -y
 install -m 0755 -d /etc/apt/keyrings
 echo WARNING! If asked for overwrite, press y and ENTER.
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg

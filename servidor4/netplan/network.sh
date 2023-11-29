@@ -6,4 +6,4 @@
 rm /etc/netplan/00-installer-config.yaml
 chmod 600 netplan/network.yaml
 cp netplan/network.yaml /etc/netplan/
-netplan apply
+netplan apply 2> /dev/null
