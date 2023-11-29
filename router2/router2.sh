@@ -44,3 +44,4 @@ echo WARNING! Configuration finished.
 
 # Remove this repo automatically from the system.
 rm -r ../../dorayaki
+cd

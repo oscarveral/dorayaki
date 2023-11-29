@@ -40,3 +40,4 @@ echo WARNING! Configuration finished. Power off this machine and disable the ori
 
 # Remove this repo automatically from the system.
 rm -r ../../dorayaki
+cd

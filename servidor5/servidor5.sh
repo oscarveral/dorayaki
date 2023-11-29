@@ -19,7 +19,7 @@ for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker c
 apt update
 apt install ca-certificates curl gnupg
 install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o --batch --yes /etc/apt/keyrings/docker.gpg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 chmod a+r /etc/apt/keyrings/docker.gpg
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
@@ -39,3 +39,4 @@ echo WARNING! Configuration finished. Power off this machine and disable the ori
 
 # Remove this repo automatically from the system.
 rm -r ../../dorayaki
+cd

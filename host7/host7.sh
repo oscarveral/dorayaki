@@ -33,3 +33,4 @@ echo WARNING! Configuration finished. Power-off this machine and finish the conf
 
 # Remove this repo automatically from the system.
 rm -r ../../dorayaki
+cd
