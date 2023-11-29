@@ -14,6 +14,20 @@ hostnamectl location vm
 echo If asked for input, press ENTER.
 apt install inetutils-ping vim tcpdump -y
 
+# Instalar docker.
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do apt remove $pkg; done
+apt update
+apt install ca-certificates curl gnupg
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+chmod a+r /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update
+apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
 # Configuración de las interfaces de red. Permite que la máquina pueda comunicarse con otras máquinas.
 rm /etc/netplan/00-installer-config.yaml
 # Restrict permissions to avoid warnings
