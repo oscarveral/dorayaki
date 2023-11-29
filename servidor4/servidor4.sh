@@ -8,6 +8,12 @@ if [ "$SCRIPT_PATH" != "$CURRENT_PATH" ]; then
 	exit 1
 fi
 
+if [ "$EUID" -ne 0 ]
+  then echo ERROR! Please run as root. 1>&2
+  exit
+fi
+
+
 cd utils
 ./hostname.sh > /dev/null
 ./packages.sh > /dev/null
@@ -24,7 +30,7 @@ cd ..
 
 # Swarm.
 cd swarm
-./swarm/swarm.sh > /dev/null
+./swarm.sh > /dev/null
 cd ..
 
 echo Script configuration finished successfully. 1>&2

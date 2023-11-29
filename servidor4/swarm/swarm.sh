@@ -4,6 +4,11 @@
 # Manager is expected to have only one network interface, eth0, with a fixed IP 
 # address assigned by DHCP or set manually.
 
+if [ "$EUID" -ne 0 ]
+  then echo ERROR! Please run as root. 1>&2
+  exit
+fi
+
 systemctl restart docker
 
 # Clear swarm environment if exists.
