@@ -7,7 +7,6 @@
 systemctl restart docker
 
 # Clear swarm environment if exists.
-docker node rm $(sudo docker node ls | grep Down | awk -F" " '{ print $1 }')
 docker swarm leave --force
 
 docker swarm init --advertise-addr eth0
