@@ -19,7 +19,7 @@ cd ..
 
 # Red.
 cd netplan
-.network.sh > /dev/null
+./network.sh > /dev/null
 cd ..
 
 # Swarm.
