@@ -16,9 +16,7 @@ docker swarm leave --force
 
 docker swarm init --advertise-addr eth0
 
-if [ $? -eq 0 ]; then
-	echo WARNING! Swarm initialized successfully. 1>&2
-else
+if [ $? -ne 0 ]; then
 	echo ERROR! Swarm initialization failed. Check the network configuration and retry. 1>&2
 	exit 1
 fi
