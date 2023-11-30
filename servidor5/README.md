@@ -42,7 +42,6 @@ Detalles de instalación:
 	git clone https://github.com/oscarveral/dorayaki.git
 - Ubicarnos dentro del directorio de configuración para el servidor5: 
 	cd dorayaki/servidor5/
-- Dar permisos de ejecución al script: chmod +x servidor5.sh
 - Ejecutar el script de configuración presente: sudo ./servidor5.sh
 
 Post-instalación:

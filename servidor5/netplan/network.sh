@@ -19,4 +19,4 @@ fi
 rm /etc/netplan/* 2> /dev/null
 chmod 600 network.yaml
 cp network.yaml /etc/netplan/
-netplan apply
+netplan apply 2> /dev/null

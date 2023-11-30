@@ -9,7 +9,7 @@ fi
 # Instalar docker.
 
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; 
-  do apt remove $pkg; 
+  do apt-get remove $pkg; 
 done
 
 apt-get update
@@ -23,6 +23,6 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
--
+
 apt-get update
-apt-gety install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
