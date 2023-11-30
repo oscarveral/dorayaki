@@ -39,7 +39,6 @@ Detalles de instalación:
 	git clone https://github.com/oscarveral/dorayaki.git
 - Ubicarnos dentro del directorio de configuración para el router1: 
 	cd dorayaki/host8/
-- Dar permisos de ejecución al script: chmod +x host8.sh
 - Ejecutar el script de configuración presente: sudo ./host8.sh
 
 Post-instalación
