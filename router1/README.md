@@ -52,7 +52,6 @@ Detalles de instalación:
 	git clone https://github.com/oscarveral/dorayaki.git
 - Ubicarnos dentro del directorio de configuración para el router1: 
 	cd dorayaki/router1/
-- Dar permisos de ejecución al script: chmod +x router1.sh
 - Ejecutar el script de configuración presente: sudo ./router1.sh
 
 Post-instalación:

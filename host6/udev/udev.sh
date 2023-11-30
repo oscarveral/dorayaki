@@ -13,17 +13,5 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-cd utils
-./hostname.sh > /dev/null
-./services.sh > /dev/null
-cd ..
-
-cd udev
-./udev.sh > /dev/null
-cd ..
-
-cd network_manager
-./network.sh > /dev/null
-cd ..
-
-echo Script configuration finished successfully. 1>&2
+# Rename interfaces. Aplicable on next boot.
+cp persistent.rules /etc/udev/rules.d/10-persistent-net.rules
