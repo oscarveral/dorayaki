@@ -39,7 +39,6 @@ Detalles de instalación:
 	git clone https://github.com/oscarveral/dorayaki.git
 - Ubicarnos dentro del directorio de configuración para el router1: 
 	cd dorayaki/host7/
-- Dar permisos de ejecución al script: chmod +x host7.sh
 - Ejecutar el script de configuración presente: sudo ./host7.sh
 
 Post-instalación
