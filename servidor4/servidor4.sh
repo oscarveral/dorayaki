@@ -13,7 +13,6 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-
 cd utils
 ./hostname.sh > /dev/null
 ./packages.sh > /dev/null
@@ -23,12 +22,10 @@ cd docker
 ./docker.sh > /dev/null
 cd ..
 
-# Red.
 cd netplan
 ./network.sh > /dev/null
 cd ..
 
-# Swarm.
 cd swarm
 ./swarm.sh > /dev/null
 cd ..
