@@ -49,7 +49,6 @@ Detalles de instalación:
 	git clone https://github.com/oscarveral/dorayaki.git
 - Ubicarnos dentro del directorio de configuración para el router2: 
 	cd dorayaki/router2/
-- Dar permisos de ejecución al script: chmod +x router2.sh
 - Ejecutar el script de configuración presente: sudo ./router2.sh
 
 Post-instalación:
