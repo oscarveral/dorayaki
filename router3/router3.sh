@@ -1,47 +1,37 @@
 #!/bin/bash
 
-echo WARNING! Execute this script on the same directory it is located.
+SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+CURRENT_PATH="$(pwd)"
 
-# Configuración de nombres local de la máquina. Permite facilitar la identificación de la máquina en la red.
-hostnamectl hostname "router3" --static
-hostnamectl hostname "Router de la organizacion externa." --pretty
-hostnamectl icon-name router3
-hostnamectl chassis vm
-hostnamectl deployment vm
-hostnamectl location vm
+if [ "$SCRIPT_PATH" != "$CURRENT_PATH" ]; then
+	echo ERROR! This script must be executed from the same directory it is located. 1>&2
+	exit 1
+fi
 
-# Configurar NAT/firewall con iptables
-chmod 700 iptables/iptables-conf.sh
-echo If asked for input, write yes to save current config.
-apt install iptables iptables-persistent -y
-./iptables/iptables-conf.sh
+if [ "$EUID" -ne 0 ]
+  then echo ERROR! Please run as root. 1>&2
+  exit 1
+fi
 
-# Instalar ping y otras utilidades para depurar.
-echo If asked for input, press ENTER.
-apt install inetutils-ping vim tcpdump -y
+cd utils
+./hostname.sh > /dev/null
+./packages.sh > /dev/null
+cd ..
 
-# DHCP Server configuration.
-apt install kea -y
-# Not setting a password on kea-ctrl-agent so it is not enabled
-cp kea/kea-dhcp4.conf /etc/kea/kea-dhcp4.conf
-systemctl restart kea-dhcp4-server
+cd iptables
+./iptables-conf.sh > /dev/null
+cd ..
 
-# Configuración de las interfaces de red. Permite que la máquina pueda comunicarse con otras máquinas.
-rm /etc/netplan/00-installer-config.yaml
-# Restrict permissions to avoid warnings
-chmod 600 netplan/network.yaml
-cp netplan/network.yaml /etc/netplan/
-netplan apply
+cd kea
+./kea.sh > /dev/null
+cd ..
 
-# Configurar parámetros del kernel mediante sysctl.
-rm /etc/sysctl.conf
-# Restrict permissions to avoid warnings
-chmod 600 sysctl/sysctl.conf
-cp sysctl/sysctl.conf /etc/
-sysctl -p
+cd netplan
+./network.sh > /dev/null
+cd ..
 
-echo WARNING! Configuration finished. Power off this machine and disable the original NAT network card.
+cd sysctl
+./sysctl.sh > /dev/null
+cd ..
 
-# Remove this repo automatically from the system.
-rm -r ../../dorayaki
-cd
+echo Script configuration finished successfully. 1>&2

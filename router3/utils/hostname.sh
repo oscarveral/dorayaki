@@ -8,9 +8,10 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-hostnamectl hostname "" --static 
-hostnamectl hostname "Servidor con id 4 de Dorayaki." --pretty
-hostnamectl icon-name servidor4
+# Configuración de nombres local de la máquina. Permite facilitar la identificación de la máquina en la red.
+hostnamectl hostname "router3" --static
+hostnamectl hostname "Router de la organizacion externa." --pretty
+hostnamectl icon-name router3
 hostnamectl chassis vm
 hostnamectl deployment vm
 hostnamectl location vm

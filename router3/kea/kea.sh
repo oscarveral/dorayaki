@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Configuración de las interfaces de red. Permite que la máquina pueda 
-# comunicarse con otras máquinas.
-
 SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 CURRENT_PATH="$(pwd)"
 
@@ -16,7 +13,9 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-rm /etc/netplan/* 2> /dev/null
-chmod 600 network.yaml
-cp network.yaml /etc/netplan/
-netplan apply 2> /dev/null
+# DHCP Server configuration.
+
+apt-get install kea -y
+# Not setting a password on kea-ctrl-agent so it is not enabled
+cp kea-dhcp4.conf /etc/kea/kea-dhcp4.conf
+systemctl restart kea-dhcp4-server

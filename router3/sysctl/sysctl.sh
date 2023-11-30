@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Configuración de las interfaces de red. Permite que la máquina pueda 
-# comunicarse con otras máquinas.
-
 SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 CURRENT_PATH="$(pwd)"
 
@@ -16,7 +13,9 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-rm /etc/netplan/* 2> /dev/null
-chmod 600 network.yaml
-cp network.yaml /etc/netplan/
-netplan apply 2> /dev/null
+# Configurar parámetros del kernel mediante sysctl.
+
+rm /etc/sysctl.conf 2> /dev/null 
+chmod 600 sysctl.conf
+cp sysctl.conf /etc/
+sysctl -p
