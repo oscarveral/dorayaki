@@ -13,25 +13,9 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-cd utils
-./hostname.sh > /dev/null
-./packages.sh > /dev/null
-cd ..
+# DHCP Server configuration.
 
-cd iptables
-./iptables-conf.sh > /dev/null
-cd ..
-
-cd kea
-./kea.sh > /dev/null
-cd ..
-
-cd netplan
-./network.sh > /dev/null
-cd ..
-
-cd sysctl
-./sysctl.sh > /dev/null
-cd ..
-
-echo Script configuration finished successfully. 1>&2
+apt-get install kea -y
+# Not setting a password on kea-ctrl-agent so it is not enabled
+cp kea-dhcp4.conf /etc/kea/kea-dhcp4.conf
+systemctl restart kea-dhcp4-server

@@ -13,7 +13,6 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-chmod 700 iptables-conf.sh
 apt-get install iptables iptables-persistent -y
 
 #iptables -t nat -A POSTROUTING -o enp0s8 -j SNAT --to 1.2.3.2
