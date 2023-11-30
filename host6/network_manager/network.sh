@@ -15,11 +15,12 @@ fi
 
 # Force disable MAC randomization.
 rm /etc/NetworkManager/conf.d/*
-cp network_manager/network.conf /etc/NetworkManager/conf.d/10-network.conf
+cp network.conf /etc/NetworkManager/conf.d/10-network.conf
 
 # Network configuration.
-systemctl restart NetworkManager
+systemctl stop NetworkManager
 rm /etc/NetworkManager/system-connections/*
+systemctl start NetworkManager
 
 # Interfaz de red solo anfitrión para uso de SSH desde el anfitrión de la VM.
 nmcli con add type ethernet con-name eth0 ifname eth0 ipv4.method manual ip4 192.168.62.40/24
