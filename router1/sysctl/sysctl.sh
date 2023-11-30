@@ -13,25 +13,9 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-cd utils
-./hostname.sh > /dev/null
-./packages.sh > /dev/null
-cd ..
+# Configurar parámetros del kernel mediante sysctl.
 
-cd iptables
-./iptables-conf.sh > /dev/null
-cd ..
-
-cd kea
-./kea.sh > /dev/null
-cd ..
-
-cd netplan
-./network.sh > /dev/null
-cd ..
-
-cd sysctl
-./sysctl.sh > /dev/null
-cd ..
-
-echo Script configuration finished successfully. 1>&2
+rm /etc/sysctl.conf 2> /dev/null 
+chmod 600 sysctl.conf
+cp sysctl.conf /etc/
+sysctl -p

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Configuración de las interfaces de red. Permite que la máquina pueda 
+# comunicarse con otras máquinas.
+
 SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 CURRENT_PATH="$(pwd)"
 
@@ -13,25 +16,7 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-cd utils
-./hostname.sh > /dev/null
-./packages.sh > /dev/null
-cd ..
-
-cd iptables
-./iptables-conf.sh > /dev/null
-cd ..
-
-cd kea
-./kea.sh > /dev/null
-cd ..
-
-cd netplan
-./network.sh > /dev/null
-cd ..
-
-cd sysctl
-./sysctl.sh > /dev/null
-cd ..
-
-echo Script configuration finished successfully. 1>&2
+rm /etc/netplan/* 2> /dev/null
+chmod 600 network.yaml
+cp network.yaml /etc/netplan/
+netplan apply 2> /dev/null
