@@ -16,3 +16,4 @@ servidor5   IN      A       172.16.2.3
 infra0      IN      A       172.16.2.254
 
 dns         IN      CNAME   infra0
+radius      IN      CNAME   infra0

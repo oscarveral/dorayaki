@@ -15,3 +15,12 @@ services:
         - /var/cache/bind:/var/cache/bind
         - /var/lib/bind:/var/lib/bind
         restart: unless-stopped
+    radius:
+        container_name: radius
+        image: freeradius/freeradius-server:latest
+        ports:
+        - "1812:1812/udp"
+        - "1813:1813/udp"
+        volumes:
+        - /etc/raddb:/etc/raddb
+        restart: unless-stopped
