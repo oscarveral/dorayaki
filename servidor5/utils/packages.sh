@@ -7,4 +7,4 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-apt-get install inetutils-ping vim tcpdump -y 2> /dev/null
+apt-get install inetutils-ping vim tcpdump apt-utils -y 2> /dev/null
