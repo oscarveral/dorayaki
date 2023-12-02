@@ -26,5 +26,7 @@ echo \
 apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
+docker compose down 2> /dev/null
 docker rm -f $(docker ps -aq) 2> /dev/null
+cp compose.yaml /etc/docker/compose.yaml
 docker compose up -d

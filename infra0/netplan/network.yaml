@@ -1,15 +1,12 @@
 # Network configuration for router3.
 network:
-  # Uso del DNS de Dorayaki por defecto. En este caso la propia máquina.
-  nameservers:
-    addresses: [127.0.0.1]
   version: 2
   ethernets:
     # Interfaz para la red de la organización externa.
     eth-servidores-dorayaki:
       match:
         macaddress: 08:00:27:00:99:00
-      dhcp4: yes
+      dhcp4: no
       dhcp6: no
       addresses:
         - 172.16.2.254/24
