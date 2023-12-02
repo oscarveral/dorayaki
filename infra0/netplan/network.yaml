@@ -1,5 +1,8 @@
 # Network configuration for router3.
 network:
+  # Uso del DNS de Dorayaki por defecto. En este caso la propia máquina.
+  nameservers:
+    addresses: [127.0.0.1, 8.8.8.8]
   version: 2
   ethernets:
     # Interfaz para la red de la organización externa.
@@ -11,9 +14,6 @@ network:
       addresses:
         - 172.16.1.254/24
       set-name: eth0
-      # Uso del DNS de Dorayaki por defecto. En este caso la propia máquina.
-      #nameservers:
-      #  addresses: [172.16.2.254]
       routes:
         - to: default
           via: 172.16.2.1
