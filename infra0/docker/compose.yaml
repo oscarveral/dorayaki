@@ -21,6 +21,8 @@ services:
         ports:
         - "1812:1812/udp"
         - "1813:1813/udp"
-        volumes:
-        - /etc/raddb:/etc/raddb
+        build:
+            dockerfile_inline: |
+                FROM freeradius/freeradius-server:latest
+                COPY raddb/ /etc/raddb/
         restart: unless-stopped
