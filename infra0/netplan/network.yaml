@@ -12,8 +12,8 @@ network:
         - 172.16.1.254/24
       set-name: eth0
       # Uso del DNS de Dorayaki por defecto. En este caso la propia máquina.
-      nameservers:
-        addresses: [172.16.2.254]
+      #nameservers:
+      #  addresses: [172.16.2.254]
       routes:
         - to: default
           via: 172.16.2.1
