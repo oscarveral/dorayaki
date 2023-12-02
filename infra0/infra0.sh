@@ -26,6 +26,10 @@ cd bind
 ./bind.sh > /dev/null
 cd ..
 
+cd radius
+./radius.sh > /dev/null
+cd ..
+
 cd docker
 ./docker.sh > /dev/null
 cd ..
