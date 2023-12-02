@@ -15,11 +15,10 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-rm /etc/bind/named.conf.options 2> /dev/null
-rm /etc/bind/named.conf.local 2> /dev/null
-
+rm -r /etc/bind 2> /dev/null
 mkdir -p /etc/bind 2> /dev/null
 
+cp named.conf /etc/bind/named.conf
 cp named.conf.options /etc/bind/named.conf.options
 cp named.conf.local /etc/bind/named.conf.local
 
