@@ -10,7 +10,7 @@ fi
 
 hostnamectl hostname "infra0.dorayaki.org" --static 
 hostnamectl hostname "Servidor de servicios maestros de Dorayaki." --pretty
-hostnamectl icon-name master0
+hostnamectl icon-name infra0
 hostnamectl chassis vm
 hostnamectl deployment vm
 hostnamectl location vm

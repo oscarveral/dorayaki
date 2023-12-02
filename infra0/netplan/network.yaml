@@ -2,7 +2,7 @@
 network:
   # Uso del DNS de Dorayaki por defecto. En este caso la propia máquina.
   nameservers:
-    addresses: [127.0.0.1, 8.8.8.8]
+    addresses: [127.0.0.1]
   version: 2
   ethernets:
     # Interfaz para la red de la organización externa.
@@ -12,7 +12,7 @@ network:
       dhcp4: yes
       dhcp6: no
       addresses:
-        - 172.16.1.254/24
+        - 172.16.2.254/24
       set-name: eth0
       routes:
         - to: default
