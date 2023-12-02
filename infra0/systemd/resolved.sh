@@ -10,5 +10,5 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-# Uncomment DNSStubListener=no in /etc/systemd/resolved.conf
+# Uncomment DNSStubListener=no in /etc/systemd/resolved.conf. To use the DNS server in the host.
 sed -i 's/#DNSStubListener=yes/DNSStubListener=no/g' /etc/systemd/resolved.conf 2> /dev/null

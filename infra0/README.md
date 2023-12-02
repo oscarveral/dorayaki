@@ -9,8 +9,7 @@ Detalles de instalación:
 
 - Instalación de la versión mínima para mejor rendimiento.
 
-- Aunque se recibirá un FQDN desde la red. Establecer como nombre de la máquina
-	durante la instalación: "servidor4".
+- Establecer como nombre de la máquina durante la instalación: "infra0".
 
 - Layout de disco estandar ofrecido por el instalador de Ubuntu. Por rendimiento
 	para la simulación se ha elegido no encriptar aunque sería recomendado en 
