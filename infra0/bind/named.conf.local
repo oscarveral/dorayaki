@@ -1,0 +1,11 @@
+zone "dorayaki.org" {
+    type master;
+    file "/etc/bind/zones/db.dorayaki.org";
+    allow-transfer { none; };
+};
+
+zone "172.16.2.in-addr.arpa" {
+	type master;
+	file "/etc/bind/zones/db.2.16.172";
+	allow-transfer { none; };
+};

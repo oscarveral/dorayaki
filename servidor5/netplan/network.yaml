@@ -3,7 +3,7 @@ network:
   version: 2
   ethernets:
     # Interfaz para la red de la organización externa.
-    eth-orgnaizacion-externa:
+    eth-servidores-dorayaki:
       match:
         macaddress: 08:00:27:00:04:00
       dhcp4: yes

@@ -1,0 +1,18 @@
+$TTL    604800
+$ORIGIN dorayaki.org.
+@       IN      SOA     infra0.dorayaki.org admin.dorayaki.org (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+
+@           IN      NS      infra0
+
+router1 	  IN 		  A		    172.16.2.1
+servidor4   IN      A       172.16.2.2
+servidor5   IN      A       172.16.2.3
+infra0      IN      A       172.16.2.254
+
+dns         IN      CNAME   infra0

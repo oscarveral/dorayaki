@@ -1,0 +1,15 @@
+name: master0
+services:
+    bind9:
+        container_name: bind9
+        restart: always
+        ports:
+            - 53:53/udp
+            - 53:53/tcp
+            - 127.0.0.1:953:953/tcp
+        volumes:
+            - /etc/bind
+            - /var/cache/bind
+            - /var/lib/bind
+            - /var/log
+        image: internetsystemsconsortium/bind9:9.18
