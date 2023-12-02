@@ -26,4 +26,4 @@ cp named.conf.local /etc/bind/named.conf.local
 mkdir -p /etc/bind/zones
 
 cp db.dorayaki.org /etc/bind/zones/db.dorayaki.org
-cp db.172.162.2 /etc/bind/zones/db.172.16.2
+cp db.172.16.2 /etc/bind/zones/db.172.16.2
