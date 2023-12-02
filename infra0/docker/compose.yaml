@@ -25,4 +25,5 @@ services:
             dockerfile_inline: |
                 FROM freeradius/freeradius-server:latest
                 COPY raddb/ /etc/raddb/
+        command: -X
         restart: unless-stopped
