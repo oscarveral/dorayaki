@@ -1,15 +1,17 @@
 name: master0
+version: "3"
 services:
     bind9:
         container_name: bind9
-        restart: always
+        image: ubuntu/bind9:latest
+        environment:
+        - BIND9_USER=root
+        - TZ=Europe/Paris
         ports:
-            - 53:53/udp
-            - 53:53/tcp
-            - 127.0.0.1:953:953/tcp
+        - "53:53/tcp"
+        - "53:53/udp"
         volumes:
-            - /etc/bind:/etc/bind
-            - /var/cache/bind:/var/cache/bind
-            - /var/lib/bind:/var/lib/bind
-            - /var/log:/var/log
-        image: internetsystemsconsortium/bind9:9.18
+        - /etc/bind:/etc/bind
+        - /var/cache/bind:/var/cache/bind
+        - /var/lib/bind:/var/lib/bind
+        restart: unless-stopped
