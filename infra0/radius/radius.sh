@@ -15,7 +15,8 @@ fi
 
 rm -r /etc/raddb 2> /dev/null
 mkdir /etc/raddb 2> /dev/null
-mkdir /etc/raddb/files 2> /dev/null
+mkdir /etc/raddb/mods-config 2> /dev/null
+mkdir /etc/raddb/mods-config/files 2> /dev/null
 
 cp clients.conf /etc/raddb/clients.conf
-cp authorize /etc/raddb/files/authorize
+cp authorize /etc/raddb/mods-config/files/authorize
