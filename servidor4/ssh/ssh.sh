@@ -16,7 +16,7 @@ fi
 # Add admin user with disabled password
 userdel admin 2> /dev/null
 rm -r /home/admin 2> /dev/null
-useradd -m -c "" admin
+adduser --disabled-password --gecos "" admin
 
 # Modify sshd_config
 sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
