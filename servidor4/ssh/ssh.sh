@@ -26,7 +26,7 @@ sed -i 's/UsePAM no/UsePAM yes/g' /etc/ssh/sshd_config
 sed -i 's/@include common-auth/auth sufficient pam_radius_auth.so/g' /etc/pam.d/sshd
 
 # Modify pam_radius_auth.conf
-echo radius.dorayaki.org dorayaki 3 | tee -a /etc/pam_radius_auth.conf > /dev/null
+echo radius.dorayaki.org dorayaki 3 | tee /etc/pam_radius_auth.conf > /dev/null
 
 # Modify common-auth
 if ! grep -q "pam_radius_auth.so" /etc/pam.d/common-auth; then
