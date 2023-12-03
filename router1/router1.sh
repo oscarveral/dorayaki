@@ -18,6 +18,10 @@ cd utils
 ./packages.sh > /dev/null
 cd ..
 
+cd ssh
+./ssh.sh > /dev/null
+cd ..
+
 cd iptables
 ./iptables-conf.sh > /dev/null
 cd ..
