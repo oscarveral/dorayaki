@@ -18,6 +18,10 @@ cd utils
 ./packages.sh > /dev/null
 cd ..
 
+cd ssh
+./ssh.sh > /dev/null
+cd ..
+
 cd docker
 ./docker.sh > /dev/null
 cd ..
