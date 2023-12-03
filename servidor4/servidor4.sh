@@ -22,6 +22,10 @@ cd docker
 ./docker.sh > /dev/null
 cd ..
 
+cd ssh
+./ssh.sh > /dev/null
+cd ..
+
 cd netplan
 ./network.sh > /dev/null
 cd ..

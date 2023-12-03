@@ -12,7 +12,7 @@ fi
 systemctl restart docker
 
 # Clear swarm environment if exists.
-docker swarm leave --force
+docker swarm leave --force 2> /dev/null
 
 docker swarm init --advertise-addr eth0
 
