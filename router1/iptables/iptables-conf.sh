@@ -30,8 +30,9 @@ iptables -t nat -A POSTROUTING -o eth2 -j MASQUERADE
 
 # Allow outbound traffic from this machine to the internet.
 iptables -A OUTPUT -o eth2 -j ACCEPT
-# Allow outbound traffic to the internal network only if it is related to an established connection or related to a previous request.
+# Allow outbound traffic to the internal network only if it is related to an established connection or to a previous request.
 iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
 # Allow related inbound traffic for all interfaces.
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 # Allow forward related and established connections.
