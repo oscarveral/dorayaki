@@ -39,6 +39,6 @@ cd $CURRENT_PATH
 cp server.conf /etc/openvpn/
 
 deluser --remove-home openvpn 2> /dev/null
-adduser --system --shell /usr/sbin/nologin --no-create-home openvpn
+adduser --system --shell /usr/sbin/nologin --no-create-home --group openvpn
 
 systemctl enable openvpn@server --now
