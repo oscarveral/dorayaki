@@ -26,4 +26,4 @@ network:
           via: 10.2.3.5
       # Uso del DNS de Dorayaki por defecto.
       nameservers:
-        addresses: [172.16.2.254]
+        addresses: [10.2.3.2]
