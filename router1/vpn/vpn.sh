@@ -37,6 +37,7 @@ cp easy-rsa/pki/dh.pem keys/
 cd $CURRENT_PATH
 
 cp server.conf /etc/openvpn/
+cp radius.conf /etc/openvpn/
 
 deluser --remove-home openvpn 2> /dev/null
 adduser --system --shell /usr/sbin/nologin --no-create-home --group openvpn
