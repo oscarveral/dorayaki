@@ -16,5 +16,6 @@ fi
 apt-get install iptables iptables-persistent -y
 
 iptables -F
+iptables -F -t nat
 
 iptables-save > /etc/iptables/rules.v4

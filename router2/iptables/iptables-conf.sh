@@ -16,6 +16,7 @@ fi
 apt-get install iptables iptables-persistent -y
 
 iptables -F
+iptables -F -t nat
 
 # Solo se necesita SNAT para dar acceso a internet a las máquinas del escenario.
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE

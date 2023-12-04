@@ -17,6 +17,7 @@ apt-get install iptables iptables-persistent -y
 
 # Clear existing rules and set the default policies
 iptables -F
+iptables -F -t nat
 iptables -P INPUT DROP
 iptables -P FORWARD DROP
 iptables -P OUTPUT DROP
