@@ -55,7 +55,7 @@ iptables -t nat -A PREROUTING -i eth2 -p udp --dport 53 -j DNAT --to-destination
 iptables -A FORWARD -o eth1 -d 172.16.2.254 -p udp --dport 53 -j ACCEPT
 iptables -A FORWARD -i eth1 -s 172.16.2.254 -p udp --sport 53 -o eth2 -p udp -dport 53 -j ACCEPT
 
-# Radius. Is can be used only by servers LAN. Default rejection is applied.
+# Radius. It can be used only by servers LAN. Default rejection is applied.
 # Docker Swarm. Is used only by servers LAN. Default rejection is applied.
 
 # Reject all other incoming and forwarding traffic.
