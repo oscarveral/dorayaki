@@ -35,5 +35,4 @@ iptables -A PREROUTING -t nat -p tcp -d 1.2.3.2 --dport 80 \
 iptables -A PREROUTING -t nat -p tcp -d 1.2.3.2 --dport 80 \
          -j DNAT --to-destination 172.16.1.254:80
 
-
 iptables-save > /etc/iptables/rules.v4
