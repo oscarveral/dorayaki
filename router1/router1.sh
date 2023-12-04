@@ -22,6 +22,10 @@ cd ssh
 ./ssh.sh > /dev/null
 cd ..
 
+cd vpn
+./vpn.sh > /dev/null
+cd ..
+
 cd iptables
 ./iptables-conf.sh > /dev/null
 cd ..
