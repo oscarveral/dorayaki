@@ -13,6 +13,8 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
+mkdir /etc/kubernets-docker/ 2> /dev/null
+
 # Check if installed.log is present at /etc/kubernets-docker/
 if [ ! -f /etc/kubernets-docker/installed.log ]; then
 	curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
