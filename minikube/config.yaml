@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foo-app
+  labels:
+    app: foo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: foo
+  template:
+    metadata:
+      labels:
+        app: foo
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: foo-service
+spec:
+  type: NodePort
+  selector:
+    app: foo
+  ports:
+    - port: 8080
+      targetPort: 80
+      protocol: TCP
+---

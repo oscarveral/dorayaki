@@ -1,0 +1,240 @@
+* Enabling dashboard ...
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+	minikube addons enable metrics-server	
+
+
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Opening http://127.0.0.1:39629/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:39629/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Opening http://127.0.0.1:46859/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:46859/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Opening http://127.0.0.1:34853/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:34853/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+* Opening http://127.0.0.1:38885/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:38885/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+error: lost connection to pod
+* Enabling dashboard ...
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+	minikube addons enable metrics-server	
+
+
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+error: unable to forward port because pod is not running. Current status=Pending
+* Opening http://127.0.0.1:44221/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:44221/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+* Enabling dashboard ...
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+	minikube addons enable metrics-server	
+
+
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Opening http://127.0.0.1:36665/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:36665/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+error: unable to forward port because pod is not running. Current status=Pending
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Opening http://127.0.0.1:37157/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:37157/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+Handling connection for 8080
+error: lost connection to pod
+E1205 15:59:03.602064  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:03.607413  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:03.617639  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:03.637856  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:03.678065  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:03.758339  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:03.918856  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:04.239112  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:04.879348  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:06.161392  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:08.721581  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:13.842193  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:14.299537  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:14.305578  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:14.317401  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:14.342458  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:14.384847  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:14.465096  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:14.626016  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:14.947045  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:15.588183  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:16.868575  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:19.428879  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:24.082797  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:24.549587  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:34.790337  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:44.563353  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 15:59:55.271545  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:25.524493  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:36.234461  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:49.659801  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:49.665053  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:49.675374  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:49.696298  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:49.736572  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:49.816819  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:49.977096  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:50.297666  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:50.938566  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:52.218752  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:54.779324  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:00:59.900233  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:10.140847  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:30.622267  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:47.444878  224256 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:50.714106  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:50.719568  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:50.729859  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:50.750190  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:50.790499  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:50.870928  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:51.034432  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:51.355315  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:51.995905  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:53.276449  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:55.836983  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:01:58.155190  210145 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:02:00.957822  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:02:11.197958  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:02:11.582823  216385 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+* Enabling dashboard ...
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+	minikube addons enable metrics-server	
+
+
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Opening http://127.0.0.1:39805/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:39805/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+* Enabling dashboard ...
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+	minikube addons enable metrics-server	
+
+
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+error: unable to forward port because pod is not running. Current status=Pending
+* Opening http://127.0.0.1:41607/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:41607/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+* Enabling dashboard ...
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+	minikube addons enable metrics-server	
+
+
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Opening http://127.0.0.1:45393/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:45393/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+* Opening http://127.0.0.1:43409/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:43409/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+* Enabling dashboard ...
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+	minikube addons enable metrics-server	
+
+
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Opening http://127.0.0.1:44745/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:44745/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+E1205 16:11:50.715481  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:11:50.724935  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:11:50.735965  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:11:50.758424  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:11:50.800674  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:11:50.881400  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:11:51.042115  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:11:51.362662  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:11:52.003298  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:11:53.283622  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+E1205 16:11:55.843881  231726 cert_rotation.go:168] key failed with : open /home/server4/.minikube/profiles/minikube/client.crt: no such file or directory
+* Enabling dashboard ...
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+	minikube addons enable metrics-server	
+
+
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Opening http://127.0.0.1:34995/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:34995/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+* Enabling dashboard ...
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+	minikube addons enable metrics-server	
+
+
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Opening http://127.0.0.1:41029/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:41029/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+* Enabling dashboard ...
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+	minikube addons enable metrics-server	
+
+
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+* Opening http://127.0.0.1:44743/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+  http://127.0.0.1:44743/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
+Handling connection for 8080
+Handling connection for 8080
