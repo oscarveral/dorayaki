@@ -1,0 +1,11 @@
+# Network configuration for router3.
+network:
+  version: 2
+  ethernets:
+    # Interfaz para la red de la organización externa.
+    eth-oficina-dorayaki:
+      match:
+        macaddress: 08:00:27:00:08:00
+      dhcp4: yes
+      dhcp6: no
+      set-name: eth0
