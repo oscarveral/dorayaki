@@ -19,16 +19,3 @@ services:
                 FROM ubuntu/bind9:latest
                 COPY /etc/bind/ /etc/bind/
         restart: unless-stopped
-    radius:
-        container_name: radius
-        image: freeradius/freeradius-server:latest
-        ports:
-        - "1812:1812/udp"
-        - "1813:1813/udp"
-        build:
-            context: /
-            dockerfile_inline: |
-                FROM freeradius/freeradius-server:latest
-                COPY /etc/raddb/ /etc/raddb/
-        command: -X
-        restart: unless-stopped

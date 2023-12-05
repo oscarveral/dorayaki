@@ -27,7 +27,6 @@ apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 docker pull ubuntu/bind9:latest
-docker pull freeradius/freeradius-server:latest
 
 docker rm -f $(docker ps -aq) 2> /dev/null
 
