@@ -29,5 +29,5 @@ cp minikube-stop.sh /etc/kubernets-docker/
 usermod -aG docker servidor4
 
 # Execute minikube-start.sh and minikube-stop.sh as servidor4 user.
-sudo -u servidor4 /etc/kubernets-docker/minikube-stop.sh
-sudo -u servidor4 /etc/kubernets-docker/minikube-start.sh
+sudo -u servidor4 ./minikube-stop.sh
+sudo -u servidor4 ./minikube-start.sh
