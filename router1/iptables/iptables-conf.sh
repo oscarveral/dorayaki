@@ -34,7 +34,7 @@ iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 # Allow internal networks to access external networks.
 iptables -A FORWARD -o eth2 -j ACCEPT
-iptables -A FORWARD -i eth2 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 # DHCP. Only allow DHCP traffic from the internal networks of eth0 and eth1.
 iptables -A INPUT -i eth0 -p udp --dport 67:68 --sport 67:68 -j ACCEPT
