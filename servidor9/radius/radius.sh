@@ -13,25 +13,10 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-cd utils
-./hostname.sh > /dev/null
-./packages.sh > /dev/null
-cd ..
+rm -r /etc/raddb 2> /dev/null
+mkdir /etc/raddb 2> /dev/null
+mkdir /etc/raddb/mods-config 2> /dev/null
+mkdir /etc/raddb/mods-config/files 2> /dev/null
 
-cd ssh
-./ssh.sh > /dev/null
-cd ..
-
-cd radius
-./radius.sh > /dev/null
-cd ..
-
-cd docker
-./docker.sh > /dev/null
-cd ..
-
-cd netplan
-./network.sh > /dev/null
-cd ..
-
-echo Script configuration finished successfully. 1>&2
+cp clients.conf /etc/raddb/clients.conf
+cp authorize /etc/raddb/mods-config/files/authorize
