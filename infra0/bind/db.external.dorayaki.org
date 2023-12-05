@@ -1,6 +1,6 @@
 $TTL    604800
 $ORIGIN dorayaki.org.
-@       IN      SOA     infra0.dorayaki.org admin.dorayaki.org (
+@       IN      SOA     public.dorayaki.org admin.dorayaki.org (
                               3         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
