@@ -8,11 +8,6 @@ if [ "$SCRIPT_PATH" != "$CURRENT_PATH" ]; then
 	exit 1
 fi
 
-if [ "$EUID" -ne 0 ]
-  then echo ERROR! Please run as root. 1>&2
-  exit 1
-fi
-
 rm nohup.out 2> /dev/null
 
 minikube start --memory=1900 --driver=docker
