@@ -10,18 +10,12 @@ $ORIGIN dorayaki.org.
 ; Private services records.
 
 servidor9   IN      A       172.16.1.2
-router1 	  IN 		  A		    172.16.2.1
+
+router1 	  IN 		  A		    172.16.1.1
+router1     IN      A       172.16.2.1
+
 servidor4   IN      A       172.16.2.2
 servidor5   IN      A       172.16.2.3
 infra0      IN      A       172.16.2.254
 
 radius      IN      CNAME   servidor9
-
-; Public services records.
-
-@           IN      NS      public
-
-public      IN      A       10.2.3.2
-
-vpn         IN      CNAME   public
-dns         IN      CNAME   public
