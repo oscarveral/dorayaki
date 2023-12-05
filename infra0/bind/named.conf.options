@@ -1,4 +1,5 @@
 options {
+	
 	directory "/var/cache/bind";
 	
 	recursion yes;                 # Habilitar consultas recursivas

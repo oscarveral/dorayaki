@@ -1,42 +1,39 @@
-options { 
+acl trusted { 172.16.1.0/24; 172.16.2.0/24; localhost; };
 
-	acl trusted { 172.16.1.0/24; 172.16.2.0/24; localhost; };
+view "internal" {
 
-	view "internal" {
+	match-clients { trusted; };
 
-		match-clients { trusted; };
+	recursion yes;
 
-		recursion yes;
-
-		zone "dorayaki.org" {
-			type master;
-			file "/etc/bind/zones/db.internal.dorayaki.org";
-			allow-transfer { none; };
-		};
-
-		zone "2.16.172.in-addr.arpa" {
-			type master;
-			file "/etc/bind/zones/db.2.16.172";
-			allow-transfer { none; };
-		};
-
-		zone "1.16.172.in-addr.arpa" {
-			type master;
-			file "/etc/bind/zones/db.1.16.172";
-			allow-transfer { none; };
-		};
+	zone "dorayaki.org" {
+		type master;
+		file "/etc/bind/zones/db.internal.dorayaki.org";
+		allow-transfer { none; };
 	};
 
-	view "external" {
+	zone "2.16.172.in-addr.arpa" {
+		type master;
+		file "/etc/bind/zones/db.2.16.172";
+		allow-transfer { none; };
+	};
 
-		match-clients { any; };
+	zone "1.16.172.in-addr.arpa" {
+		type master;
+		file "/etc/bind/zones/db.1.16.172";
+		allow-transfer { none; };
+	};
+};
 
-		recursion yes;
+view "external" {
 
-		zone "dorayaki.org" {
-			type master;
-			file "/etc/bind/zones/db.external.dorayaki.org";
-			allow-transfer { none; };
-		};
+    match-clients { any; };
+
+    recursion yes;
+
+    zone "dorayaki.org" {
+		type master;
+		file "/etc/bind/zones/db.external.dorayaki.org";
+		allow-transfer { none; };
 	};
 };
