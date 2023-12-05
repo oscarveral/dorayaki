@@ -7,7 +7,7 @@ $ORIGIN dorayaki.org.
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 
-; Private hostnames
+; Private records. Ideally, these should be in a separate DNS server.
 
 router1 	  IN 		  A		    172.16.2.1
 servidor4   IN      A       172.16.2.2
@@ -16,7 +16,7 @@ infra0      IN      A       172.16.2.254
 
 radius      IN      CNAME   infra0
 
-; Public services
+; Public services records.
 
 @           IN      NS      public
 
