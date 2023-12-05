@@ -33,7 +33,6 @@ iptables -t nat -A POSTROUTING -o eth2 -j MASQUERADE
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 # Allow internal networks to access external networks and allow responses back in.
-# Also allow internal responses from internal networks to internal hosts.
 iptables -A FORWARD -o eth2 -j ACCEPT
 iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
 
@@ -54,8 +53,8 @@ iptables -A FORWARD -p tcp --dport 22 -j ACCEPT
 iptables -t nat -A PREROUTING -i eth2 -p udp --dport 53 -j DNAT --to-destination 172.16.2.254
 iptables -A FORWARD -o eth1 -d 172.16.2.254 -p udp --dport 53 -j ACCEPT
 
-# Radius. Allow requests only fron internal server on office. 
-iptables -A FORWARD -i eth1 -p udp --dport 1812 -s 172.16.1.2 -j ACCEPT
+# Radius. Allow requests only from servers LAN.
+çiptables -A FORWARD -i eth1 -p udp --dport 1812 -d 172.16.1.2 -j ACCEPT
 
 # Docker Swarm. Is used only by servers LAN. Default rejection is applied.
 

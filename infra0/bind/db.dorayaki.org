@@ -7,9 +7,9 @@ $ORIGIN dorayaki.org.
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 
-; Private records. Ideally, these should be in a separate DNS server.
+; Private services records. Ideally, these should be in a separate DNS server.
 
-servidor9   IN      A       172.16.2.2
+servidor9   IN      A       172.16.1.2
 router1 	  IN 		  A		    172.16.2.1
 servidor4   IN      A       172.16.2.2
 servidor5   IN      A       172.16.2.3

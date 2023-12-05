@@ -31,7 +31,7 @@ Detalles de instalación:
 					se configura la máquina."
 	* Adaptador 2:
 		Tipo: Red Interna.
-		Nombre de red interna: red-servidores-dorayaki.
+		Nombre de red interna: red-oficina-dorayaki.
 		MAC: 08:00:27:00:08:00.
 	
 - Encender la máquina.
@@ -54,5 +54,5 @@ Post-instalación:
 		Deshabilitado
 	* Adaptador 2:
 		Tipo: Red Interna.
-		Nombre de red interna: red-servidores-dorayaki.
+		Nombre de red interna: red-oficina-dorayaki.
 		MAC: 08:00:27:00:09:00.
