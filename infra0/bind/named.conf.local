@@ -1,6 +1,8 @@
+acl trusted { 172.16.1.0/24; 172.16.2.0/24; localhost; };
+
 view "internal" {
 
-	match-clients { 172.16.1.0/24; 172.16.2.0/24; localhost; };
+	match-clients { trusted; };
 
 	recursion yes;
 
