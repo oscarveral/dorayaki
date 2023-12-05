@@ -20,7 +20,7 @@ iptables -F
 iptables -F -t nat
 iptables -P INPUT DROP
 iptables -P FORWARD DROP
-iptables -P OUTPUT DROP
+iptables -P OUTPUT ACCEPT
 
 # Allow traffic on the loopback interface
 iptables -A INPUT -i lo -j ACCEPT
@@ -29,15 +29,12 @@ iptables -A OUTPUT -o lo -j ACCEPT
 # SNAT. Hide internal networks behind eth2.
 iptables -t nat -A POSTROUTING -o eth2 -j MASQUERADE
 
-# Allow outbound traffic from this machine to the internet.
-iptables -A OUTPUT -o eth2 -j ACCEPT
-# Allow outbound traffic to the internal network only if it is related to an established connection or to a previous request.
-iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
-
 # Allow related inbound traffic for all interfaces.
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
-# Allow forward related and established connections.
-iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# Allow internal networks to access external networks.
+iptables -A FORWARD -o eth2 -j ACCEPT
+iptables -A FORWARD -i eth2 -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 # DHCP. Only allow DHCP traffic from the internal networks of eth0 and eth1.
 iptables -A INPUT -i eth0 -p udp --dport 67:68 --sport 67:68 -j ACCEPT
@@ -48,14 +45,13 @@ iptables -A INPUT -i eth2 -p udp --dport 1194 -j ACCEPT
 
 # SSH. Restric only SSH from external network.
 iptables -A INPUT -i eth2 -p tcp --dport 22 -m state --state NEW -j REJECT --reject-with icmp-host-prohibited
-iptables -A INPUT -p tcp --dport 22 -m state --state NEW -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 iptables -A FORWARD -i eth2 -p tcp --dport 22 -m state --state NEW -j REJECT --reject-with icmp-host-prohibited
-iptables -A FORWARD -p tcp --dport 22 -m state --state NEW -j ACCEPT
+iptables -A FORWARD -p tcp --dport 22 -j ACCEPT
 
 # DNS. Allow DNS traffic only to DNS server and from DNS server to external networks. As this is a public service, DNAT is needed.
 iptables -t nat -A PREROUTING -i eth2 -p udp --dport 53 -j DNAT --to-destination 172.16.2.254
 iptables -A FORWARD -o eth1 -d 172.16.2.254 -p udp --dport 53 -j ACCEPT
-iptables -A FORWARD -i eth1 -s 172.16.2.254 -p udp --sport 53 -o eth2 -p udp -dport 53 -j ACCEPT
 
 # Radius. It can be used only by servers LAN. Default rejection is applied.
 # Docker Swarm. Is used only by servers LAN. Default rejection is applied.
