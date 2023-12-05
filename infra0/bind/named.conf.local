@@ -8,12 +8,6 @@ view "internal" {
 
 	zone "dorayaki.org" {
 		type master;
-		file "/etc/bind/zones/db.external.dorayaki.org";
-		allow-transfer { none; };
-	};
-
-	zone "dorayaki.org" {
-		type master;
 		file "/etc/bind/zones/db.internal.dorayaki.org";
 		allow-transfer { none; };
 	};

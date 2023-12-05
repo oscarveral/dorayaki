@@ -21,3 +21,12 @@ servidor5   IN      A       172.16.2.3
 infra0      IN      A       172.16.2.254
 
 radius      IN      CNAME   servidor9
+
+; Public services records.
+
+@           IN      NS      public
+
+public      IN      A       10.2.3.2
+
+vpn         IN      CNAME   public
+dns         IN      CNAME   public
