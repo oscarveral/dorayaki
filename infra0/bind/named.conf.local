@@ -1,4 +1,4 @@
-acl trusted { 172.16.1.0/24; 172.16.2.0/24; localhost; };
+acl trusted { 172.16.1.0/24; 172.16.2.0/24; 127.0.0.0/8; };
 
 view "internal" {
 
