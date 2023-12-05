@@ -25,8 +25,8 @@ fi
 cp minikube-start.sh /etc/kubernets-docker/
 cp minikube-stop.sh /etc/kubernets-docker/
 
-./minikube-stop.sh
-./minikube-start.sh
-
 # Add docker user to main user group.
 usermod -aG docker $USER
+
+./minikube-stop.sh
+./minikube-start.sh
