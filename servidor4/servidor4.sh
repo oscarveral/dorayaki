@@ -30,6 +30,10 @@ cd netplan
 ./network.sh > /dev/null
 cd ..
 
+cd minikube
+./minikube.sh > /dev/null
+cd ..
+
 cd swarm
 ./swarm.sh > /dev/null
 cd ..
