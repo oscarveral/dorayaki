@@ -17,7 +17,7 @@ minikube addons enable metrics-server
 
 nohup minikube dashboard &
 
-minikube kubectl -- apply -f ~/minikube/config.yaml
+minikube kubectl -- apply -f /etc/kubernets-docker/config.yaml
 
 stop=""
 while [ "$stop" == "" ] 
