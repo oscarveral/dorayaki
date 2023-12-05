@@ -22,6 +22,7 @@ if [ ! -f /etc/kubernets-docker/installed.log ]; then
 	touch /etc/kubernets-docker/installed.log
 fi
 
+cp config.yaml /etc/kubernets-docker/
 cp minikube-start.sh /etc/kubernets-docker/
 cp minikube-stop.sh /etc/kubernets-docker/
 
