@@ -9,6 +9,7 @@ $ORIGIN dorayaki.org.
 
 ; Private records. Ideally, these should be in a separate DNS server.
 
+servidor9   IN      A       172.16.2.2
 router1 	  IN 		  A		    172.16.2.1
 servidor4   IN      A       172.16.2.2
 servidor5   IN      A       172.16.2.3

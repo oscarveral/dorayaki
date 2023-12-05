@@ -1,9 +1,9 @@
 servidor4:
 
 Ubuntu LTS 22.04.03 Server. 
-User: servidor4. 
-Pass: servidor4. 
-FQDM: servidor4.dorayaki.org.
+User: servidor9. 
+Pass: servidor9. 
+FQDM: servidor9.dorayaki.org.
 
 Detalles de instalación:
 
@@ -32,7 +32,7 @@ Detalles de instalación:
 	* Adaptador 2:
 		Tipo: Red Interna.
 		Nombre de red interna: red-servidores-dorayaki.
-		MAC: 08:00:27:00:03:00.
+		MAC: 08:00:27:00:08:00.
 	
 - Encender la máquina.
 - Actualizar paquetes: sudo apt update && sudo apt upgrade -y
@@ -40,9 +40,9 @@ Detalles de instalación:
 - Ubicarnos en el directorio de usuario local: cd ~
 - Clonar el repositorio de configuración: 
 	git clone https://github.com/oscarveral/dorayaki.git
-- Ubicarnos dentro del directorio de configuración para el servidor4: 
-	cd dorayaki/servidor4/
-- Ejecutar el script de configuración presente: sudo ./servidor4.sh
+- Ubicarnos dentro del directorio de configuración para el servidor9: 
+	cd dorayaki/servidor9/
+- Ejecutar el script de configuración presente: sudo ./servidor9.sh
 
 Post-instalación:
 
@@ -55,4 +55,4 @@ Post-instalación:
 	* Adaptador 2:
 		Tipo: Red Interna.
 		Nombre de red interna: red-servidores-dorayaki.
-		MAC: 08:00:27:00:03:00.
+		MAC: 08:00:27:00:09:00.
