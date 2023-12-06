@@ -19,7 +19,7 @@ mkdir /etc/kubernets-docker/ 2> /dev/null
 if [ ! -f /etc/kubernets-docker/installed.log ]; then
 	curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 	install minikube-linux-amd64 /usr/local/bin/minikube
-	touch /etc/kubernets-docker/installed.log
+	touch /etc/kubernets-docker/installed.log 2> /dev/null
 fi
 
 cp config.yaml /etc/kubernets-docker/
@@ -27,5 +27,7 @@ cp minikube-start.sh /etc/kubernets-docker/
 cp minikube-stop.sh /etc/kubernets-docker/
 
 # Execute minikube-start.sh and minikube-stop.sh as current user.
-sudo -u $(logname) ./minikube-stop.sh
-sudo -u $(logname) ./minikube-start.sh
+sudo -u $(logname) ./minikube-stop.sh 2> /dev/null
+sudo -u $(logname) ./minikube-start.sh 2> /dev/null
+
+rm nohup.out 2> /dev/null

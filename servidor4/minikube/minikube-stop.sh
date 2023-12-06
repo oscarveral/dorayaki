@@ -8,4 +8,4 @@ if [ "$SCRIPT_PATH" != "$CURRENT_PATH" ]; then
 	exit 1
 fi
 
-minikube delete --all
+minikube delete --all 2> /dev/null
