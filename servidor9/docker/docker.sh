@@ -46,7 +46,6 @@ docker pull greenbone/greenbone/mqtt-broker
 docker pull greenbone/notus-scanner:stable
 docker pull greenbone/gvm-tools
 
-
 docker rm -f $(docker ps -aq) 2> /dev/null
 
 cp compose.yaml /etc/docker/compose.yaml
