@@ -1,4 +1,4 @@
-servidor4:
+servidor9:
 
 Ubuntu LTS 22.04.03 Server. 
 User: servidor9. 
@@ -10,7 +10,7 @@ Detalles de instalación:
 - Instalación de la versión mínima para mejor rendimiento.
 
 - Aunque se recibirá un FQDN desde la red. Establecer como nombre de la máquina
-	durante la instalación: "servidor4".
+	durante la instalación: "servidor9".
 
 - Layout de disco estandar ofrecido por el instalador de Ubuntu. Por rendimiento
 	para la simulación se ha elegido no encriptar aunque sería recomendado en 
