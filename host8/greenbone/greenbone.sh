@@ -20,7 +20,7 @@ if ! command -v sudo &> /dev/null; then
     exit 1
 fi
 
-if ! [ $(id -nG "$USER" 2>/dev/null | egrep "sudo" | wc -l) -gt 0 ]; then
+if ! [ $(id -nG "$USER" 2>/dev/null | grep -E "wheel" | wc -l) -gt 0 ]; then
     echo
     echo -e "${LRED}The current user (${USER}) must be a member of the 'sudo' group. Run: sudo usermod -aG sudo ${USER}" 1>&2
     echo -e ${NC}
