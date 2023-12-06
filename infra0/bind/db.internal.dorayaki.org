@@ -23,6 +23,10 @@ infra0      IN      A       172.16.2.254
 radius      IN      CNAME   servidor9
 auditoria   IN      CNAME   servidor9
 
+dns         IN      CNAME   infra0
+
+www         IN      CNAME   servidor4
+
 ; Public services records.
 
 @           IN      NS      public
@@ -30,5 +34,3 @@ auditoria   IN      CNAME   servidor9
 public      IN      A       10.2.3.2
 
 vpn         IN      CNAME   public
-dns         IN      CNAME   public
-www         IN      CNAME   public
