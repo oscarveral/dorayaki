@@ -42,7 +42,7 @@ docker pull greenbone/pg-gvm:stable
 docker pull greenbone/gvmd:stable
 docker pull greenbone/gsa:stable
 docker pull greenbone/ospd-openvas:stable
-docker pull greenbone/greenbone/mqtt-broker
+docker pull greenbone/mqtt-broker
 docker pull greenbone/notus-scanner:stable
 docker pull greenbone/gvm-tools
 
