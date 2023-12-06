@@ -31,7 +31,7 @@ cd netplan
 cd ..
 
 cd minikube
-./minikube.sh
+./minikube.sh > /dev/null
 cd ..
 
 cd swarm
