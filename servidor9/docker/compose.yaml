@@ -76,6 +76,7 @@ services:
       - psql_socket_vol:/var/run/postgresql
 
   gvmd:
+    container_name: gvmd
     image: greenbone/gvmd:stable
     restart: on-failure
     volumes:
