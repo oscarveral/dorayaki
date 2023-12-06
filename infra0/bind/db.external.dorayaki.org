@@ -15,3 +15,4 @@ public      IN      A       10.2.3.2
 
 vpn         IN      CNAME   public
 dns         IN      CNAME   public
+www         IN      CNAME   public
