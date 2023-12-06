@@ -57,8 +57,8 @@ if [[ ${OFFICIAL_POSTGRESQL} = "yes" ]]; then
             #export POSTGRESQL="postgresql-server-all"
 fi
 
-SERVER_NAME=""                       # Preferred server hostname (no installer prompt if has value)
-LOCAL_DOMAIN=""                      # Local DNS suffix (no installer prompt if has value)
+SERVER_NAME="auditoria"              # Preferred server hostname (no installer prompt if has value)
+LOCAL_DOMAIN="dorayaki.org"          # Local DNS suffix (no installer prompt if has value)
 PROXY_SITE=""                        # Will default to $SERVER_NAME.$LOCAL_DOMAIN if no value provided here
 GVM_URL="http://localhost:9392"      # GVM native web front end URL - don't change this
 CERT_COUNTRY="AU"                    # For RSA SSL cert, 2 character country code only, must not be blank
@@ -69,8 +69,8 @@ CERT_OU="I.T."                       # For RSA SSL cert, Optional to change, mus
 CERT_DAYS="3650"                     # For RSA SSL cert, Number of days until self signed certificate expiry
 DIR_SSL_CERT="/etc/nginx/ssl/cert"   # Nginx SSL certificate location - don't change this
 DIR_SSL_KEY="/etc/nginx/ssl/private" # Nginx SSL private key location - don't change this
-ADMIN_USER="itiligent"               # Set the default admin account username
-ADMIN_PASS="password"                # Set the default admin account password
+ADMIN_USER="admin"               # Set the default admin account username
+ADMIN_PASS="admin"                # Set the default admin account password
 
 clear
 

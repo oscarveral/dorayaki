@@ -34,4 +34,8 @@ cd netplan
 ./network.sh > /dev/null
 cd ..
 
+cd greenbone
+./install.sh > /dev/null
+cd ..
+
 echo Script configuration finished successfully. 1>&2

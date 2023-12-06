@@ -10,8 +10,8 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-apt update
-apt install nmap
+apt-get update
+apt-get install nmap -y
 
-./gvm*
+sudo -u $(logname) ./greenbone.sh
 
