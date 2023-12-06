@@ -26,9 +26,6 @@ cp config.yaml /etc/kubernets-docker/
 cp minikube-start.sh /etc/kubernets-docker/
 cp minikube-stop.sh /etc/kubernets-docker/
 
-# Add docker user to main user group.
-usermod -aG docker servidor4
-
-# Execute minikube-start.sh and minikube-stop.sh as servidor4 user.
-sudo -u servidor4 ./minikube-stop.sh
-sudo -u servidor4 ./minikube-start.sh
+# Execute minikube-start.sh and minikube-stop.sh as current user.
+sudo -u $(logname) ./minikube-stop.sh
+sudo -u $(logname) ./minikube-start.sh

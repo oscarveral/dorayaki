@@ -26,6 +26,8 @@ echo \
 apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
+usermod -aG docker $(logname)
+
 docker pull ubuntu/bind9:latest
 
 docker rm -f $(docker ps -aq) 2> /dev/null
