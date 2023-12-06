@@ -57,8 +57,8 @@ if [[ ${OFFICIAL_POSTGRESQL} = "yes" ]]; then
             #export POSTGRESQL="postgresql-server-all"
 fi
 
-SERVER_NAME=""                       # Preferred server hostname (no installer prompt if has value)
-LOCAL_DOMAIN=""                      # Local DNS suffix (no installer prompt if has value)
+SERVER_NAME="localhost"              # Preferred server hostname (no installer prompt if has value)
+LOCAL_DOMAIN="localdomain"           # Local DNS suffix (no installer prompt if has value)
 PROXY_SITE=""                        # Will default to $SERVER_NAME.$LOCAL_DOMAIN if no value provided here
 GVM_URL="http://localhost:9392"      # GVM native web front end URL - don't change this
 CERT_COUNTRY="AU"                    # For RSA SSL cert, 2 character country code only, must not be blank
