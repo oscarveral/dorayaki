@@ -85,10 +85,10 @@ services:
         
   
 volumes:
-  config: ~/dorayaki/servidor9/nagios/config
-  etc: ~/dorayaki/servidor9/nagios/etc
-  var: ~/dorayaki/servidor9/nagios/var
-  db_data: ~/dorayaki/servidor9/nagios/db_data
+  config: # ~/dorayaki/servidor9/nagios/config
+  etc: #~/dorayaki/servidor9/nagios/etc
+  var: #~/dorayaki/servidor9/nagios/var
+  db_data: #~/dorayaki/servidor9/nagios/db_data
 
 secrets:
   nagios-htpasswd:
