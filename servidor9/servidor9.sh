@@ -13,10 +13,6 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-cd greenbone
-./install.sh > /dev/null
-cd ..
-
 cd utils
 ./hostname.sh > /dev/null
 ./packages.sh > /dev/null
@@ -32,6 +28,10 @@ cd ..
 
 cd docker
 ./docker.sh > /dev/null
+cd ..
+
+cd greenbone
+./greenbone.sh > /dev/null
 cd ..
 
 cd netplan
