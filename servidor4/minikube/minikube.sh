@@ -20,6 +20,7 @@ if [ ! -f /etc/kubernets-docker/installed.log ]; then
 	curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 	install minikube-linux-amd64 /usr/local/bin/minikube
 	touch /etc/kubernets-docker/installed.log 2> /dev/null
+	rm minikube-linux-amd64 2> /dev/null
 fi
 
 cp config.yaml /etc/kubernets-docker/
