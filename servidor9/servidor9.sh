@@ -13,6 +13,10 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
+cd greenbone
+./install.sh > /dev/null
+cd ..
+
 cd utils
 ./hostname.sh > /dev/null
 ./packages.sh > /dev/null
@@ -32,10 +36,6 @@ cd ..
 
 cd netplan
 ./network.sh > /dev/null
-cd ..
-
-cd greenbone
-./install.sh > /dev/null
 cd ..
 
 echo Script configuration finished successfully. 1>&2
