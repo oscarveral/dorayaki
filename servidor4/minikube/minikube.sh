@@ -27,8 +27,5 @@ cp config.yaml /etc/kubernets-docker/
 cp minikube-start.sh /etc/kubernets-docker/
 cp minikube-stop.sh /etc/kubernets-docker/
 
-# Execute minikube-start.sh and minikube-stop.sh as current user.
-sudo -u $(logname) ./minikube-stop.sh 2> /dev/null
-sudo -u $(logname) ./minikube-start.sh 2> /dev/null
-
-rm nohup.out 2> /dev/null
+cp minikube.service /etc/systemd/system/
+systemctl enable --now minikube.service

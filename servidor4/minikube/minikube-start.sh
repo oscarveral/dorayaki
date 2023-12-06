@@ -1,12 +1,6 @@
 #!/bin/bash
 
-SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-CURRENT_PATH="$(pwd)"
-
-if [ "$SCRIPT_PATH" != "$CURRENT_PATH" ]; then
-	echo ERROR! This script must be executed from the same directory it is located. 1>&2
-	exit 1
-fi
+cd /etc/kubernets-docker/
 
 rm nohup.out 2> /dev/null
 
@@ -31,3 +25,5 @@ done
 nohup minikube kubectl -- port-forward service/foo-service 8080:8080 2> /dev/null & 
 
 minikube kubectl -- get po -A 2> /dev/null
+
+rm nohup.out 2> /dev/null

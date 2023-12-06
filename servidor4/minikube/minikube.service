@@ -1,0 +1,11 @@
+[Unit]
+Description=Runs minikube service on start.
+
+[Service]
+ExecStart=/etc/kubernetes-docker/minikube-start.sh
+Type=oneshot
+User=servidor4
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
