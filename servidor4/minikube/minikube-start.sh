@@ -17,6 +17,8 @@ do
   echo "$stop"
 done
 
+nohup minikube tunnel &
+
 #nohup minikube kubectl -- port-forward service/nginx-service 8080:8080 & 
 
 minikube kubectl -- get pods -A
