@@ -52,3 +52,6 @@ cp compose.yaml /etc/docker/compose.yaml
 
 sudo -u $(logname) docker compose build 2> /dev/null
 sudo -u $(logname) docker compose up -d 2> /dev/null
+
+sudo -u $(logname) docker compose -f compose.yml -p greenbone-community-edition pull notus-data vulnerability-tests scap-data dfn-cert-data cert-bund-data report-formats data-objects
+sudo -u $(logname) docker compose -f compose.yml -p greenbone-community-edition up -d notus-data vulnerability-tests scap-data dfn-cert-data cert-bund-data report-formats data-objects
