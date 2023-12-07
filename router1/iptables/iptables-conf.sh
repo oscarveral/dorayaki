@@ -32,10 +32,6 @@ iptables -t nat -A POSTROUTING -o eth2 -j MASQUERADE
 # Allow related inbound traffic for all interfaces.
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
-# Forward any traffic from this server to allow monitoring of other servers.
-iptables -A FORWARD -i eth0 -s 172.16.1.2 -j ACCEPT
-iptables -A INPUT -i eth0 -s 172.16.1.2 -j ACCEPT
-
 # Allow internal networks to access external networks and allow responses back in.
 iptables -A FORWARD -o eth2 -j ACCEPT
 iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
