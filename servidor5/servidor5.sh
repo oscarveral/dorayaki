@@ -31,7 +31,7 @@ cd netplan
 cd ..
 
 cd swarm
-./swarm.sh > /dev/null
+./swarm.sh
 cd .. 
 
 echo Script configuration finished successfully. 1>&2
