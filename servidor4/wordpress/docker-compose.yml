@@ -17,8 +17,8 @@ services:
     image: mariadb:latest
     networks:
       - backend-net
-    ports:
-      - "127.0.0.1:3306:3306"
+    #ports:
+    #  - "127.0.0.1:3306:3306"
     volumes:
       - /etc/wordpress/database/mariadb.cnf:/etc/mysql/conf.d/mariadb.cnf
       - /etc/wordpress/database/initdb.d:/docker-entrypoint-initdb.d
@@ -38,8 +38,8 @@ services:
     image: phpmyadmin/phpmyadmin:latest
     networks:
       - backend-net
-    ports:
-      - "127.0.0.1:9000:80"
+    #ports:
+    #  - "127.0.0.1:9000:80"
 
   wordpress:
     deploy:
