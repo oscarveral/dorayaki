@@ -54,17 +54,22 @@ iptables -t nat -A PREROUTING -i eth2 -p udp --dport 53 -j DNAT --to-destination
 iptables -A FORWARD -o eth1 -d 172.16.2.254 -p udp --dport 53 -j ACCEPT
 
 # Radius. Allow requests only from servers LAN to internal server.
-iptables -A FORWARD -i eth1 -p udp --dport 1812 -d 172.16.1.2 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 172.16.2.0/24 -p udp --dport 1812 -d 172.16.1.2 -j ACCEPT
 
 # Greenbone. Allow access to web interface only to organization hosts. As only VPN clients are outside the organization, we need to allow access.
 # Physical hosts on office already have access to this service as they share LAN with the server.
-iptables -A FORWARD -i tun0 -o eth0 -p tcp --dport 9392 -d 172.16.1.2 -j ACCEPT
+iptables -A FORWARD -i tun0 -o eth0 -s 172.16.1.0/24 -p tcp --dport 9392 -d 172.16.1.2 -j ACCEPT
+
+# Wordpress. Allow access to any host on the internet. As this is a public service, DNAT is needed.
+iptables -t nat -A PREROUTING -i eth2 -p tcp --dport 80 -j DNAT --to-destination 172.16.2.2
+iptables -A FORWARD -o eth1 -d 172.16.2.2 -p tcp --dport 80 -j ACCEPT
+
+# Wordpress admin panel. Allow access to host on office only.
+iptables -A FORWARD -i eth0 -o eth1 -s 172.16.1.0/24 -p tcp --dport 9000 -d 172.16.2.2 -j ACCEPT
 
 # HTTP Server. Allow requests HTTP request only to this server. As this is a public service, DNAT is needed.
 iptables -t nat -A PREROUTING -i eth2 -p tcp --dport 8080 -j DNAT --to-destination 172.16.2.2
-iptables -t nat -A PREROUTING -i eth2 -p tcp --dport 80 -j DNAT --to-destination 172.16.2.2
 iptables -A FORWARD -o eth1 -d 172.16.2.2 -p tcp --dport 8080 -j ACCEPT
-iptables -A FORWARD -o eth1 -d 172.16.2.2 -p tcp --dport 80 -j ACCEPT
 
 # Docker Swarm. Is used only by servers LAN. Default rejection is applied.
 
