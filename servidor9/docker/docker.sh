@@ -50,5 +50,5 @@ docker rm -f $(docker ps -aq) 2> /dev/null
 
 cp compose.yaml /etc/docker/compose.yaml
 
-docker compose build 2> /dev/null
-docker compose up -d 2> /dev/null
+sudo -u $(logname) docker compose build 2> /dev/null
+sudo -u $(logname) docker compose up -d 2> /dev/null
