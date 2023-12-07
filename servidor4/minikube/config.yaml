@@ -18,9 +18,6 @@ spec:
       containers:
         - name: nginx
           image: nginx:latest
-          volumes:
-            - /etc/nginx/:/etc/nginx/
-            - /var/www/html:/var/www/html
           ports:
             - containerPort: 80
 ---
