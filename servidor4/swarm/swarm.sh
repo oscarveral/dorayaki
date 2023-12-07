@@ -20,3 +20,6 @@ if [ $? -ne 0 ]; then
 	echo ERROR! Swarm initialization failed. Check the network configuration and retry. 1>&2
 	exit 1
 fi
+
+# Write token to a file to be used by the worker nodes.
+docker swarm join-token -q worker > /home/admin/swarm_token

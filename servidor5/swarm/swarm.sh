@@ -14,4 +14,10 @@ systemctl restart docker
 # Force the node to leave the swarm if it is already part of it. 
 docker swarm leave --force
 
-shh admin@swarm.dorayaki.org docker swarm join-token -q worker
+# Get the token from the manager node.
+scp admin@servidor4:/home/admin/swarm_token ./swarm_token
+TOKEN=$(cat swarm_token)
+rm swarm_token 2> /dev/null
+
+# Join the swarm.
+docker swarm join --token $TOKEN swarm.dorayaki.org
