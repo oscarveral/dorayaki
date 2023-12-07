@@ -6,7 +6,7 @@ minikube start --memory=1900 --driver=docker
 
 minikube addons enable metrics-server
 
-nohup minikube dashboard 2> /dev/null &
+#nohup minikube dashboard 2> /dev/null &
 
 minikube kubectl -- apply -f /etc/kubernets-docker/config.yaml
 
@@ -15,10 +15,10 @@ while [ "$stop" == "" ]
 do
   echo "Waiting..."
   sleep 1
-  stop=$(minikube kubectl -- get po -A | grep -e "nginx.*Running")
+  stop=$(minikube kubectl -- get pods -A | grep -e "nginx.*Running")
   echo "$stop"
 done
 
 #nohup minikube kubectl -- port-forward service/nginx-service 8080:8080 & 
 
-minikube kubectl -- get po -A
+minikube kubectl -- get pods -A
