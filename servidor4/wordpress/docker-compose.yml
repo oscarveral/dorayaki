@@ -38,8 +38,8 @@ services:
     image: phpmyadmin/phpmyadmin:latest
     networks:
       - backend-net
-    #ports:
-    #  - "127.0.0.1:9000:80"
+    ports:
+      - "0.0.0.0:9000"
 
   wordpress:
     deploy:
