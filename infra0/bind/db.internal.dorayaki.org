@@ -20,6 +20,7 @@ servidor4   IN      A       172.16.2.2
 servidor5   IN      A       172.16.2.3
 infra0      IN      A       172.16.2.254
 
+swarm       IN      CNAME   servidor4
 radius      IN      CNAME   servidor9
 auditoria   IN      CNAME   servidor9
 
