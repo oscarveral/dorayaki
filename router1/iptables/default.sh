@@ -62,7 +62,9 @@ iptables -A FORWARD -i tun0 -o eth0 -p tcp --dport 9392 -d 172.16.1.2 -j ACCEPT
 
 # HTTP Server. Allow requests HTTP request only to this server. As this is a public service, DNAT is needed.
 iptables -t nat -A PREROUTING -i eth2 -p tcp --dport 8080 -j DNAT --to-destination 172.16.2.2
+iptables -t nat -A PREROUTING -i eth2 -p tcp --dport 80 -j DNAT --to-destination 172.16.2.2
 iptables -A FORWARD -o eth1 -d 172.16.2.2 -p tcp --dport 8080 -j ACCEPT
+iptables -A FORWARD -o eth1 -d 172.16.2.2 -p tcp --dport 80 -j ACCEPT
 
 # Docker Swarm. Is used only by servers LAN. Default rejection is applied.
 
