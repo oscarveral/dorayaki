@@ -1,3 +1,5 @@
+# From: https://github.com/ethnchao/docker-nagios/blob/master/docker-compose.yml
+
 version: '2'
 services:
   nagios:
