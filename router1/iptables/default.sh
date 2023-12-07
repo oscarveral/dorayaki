@@ -66,8 +66,4 @@ iptables -A FORWARD -o eth1 -d 172.16.2.2 -p tcp --dport 8080 -j ACCEPT
 
 # Docker Swarm. Is used only by servers LAN. Default rejection is applied.
 
-# Reject all other incoming and forwarding traffic.
-iptables -A INPUT -j REJECT --reject-with icmp-host-prohibited
-iptables -A FORWARD -j REJECT --reject-with icmp-host-prohibited
-
 iptables-save > /etc/iptables/rules.v4
