@@ -20,6 +20,6 @@ do
   echo "$stop"
 done
 
-nohup minikube kubectl -- port-forward service/foo-service 8080:8080 & 
+#nohup minikube kubectl -- port-forward service/nginx-service 8080:8080 & 
 
 minikube kubectl -- get po -A
