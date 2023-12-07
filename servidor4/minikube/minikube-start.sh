@@ -16,7 +16,7 @@ while [ "$stop" == "" ]
 do
   echo "Waiting..."
   sleep 1
-  stop=$(minikube kubectl -- get po -A | grep -e "foo.*Running")
+  stop=$(minikube kubectl -- get po -A | grep -e "nginx.*Running")
   echo "$stop"
 done
 
