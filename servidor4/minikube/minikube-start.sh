@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /etc/kubernets-docker/
+
 minikube start --memory=1900 --driver=docker
 
 minikube addons enable metrics-server
