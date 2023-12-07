@@ -32,5 +32,3 @@ spec:
     - port: 8080
       targetPort: 80
       protocol: TCP
-  externalIPs:
-    - 172.16.2.2
