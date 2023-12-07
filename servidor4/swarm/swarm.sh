@@ -23,3 +23,6 @@ fi
 
 # Write token to a file to be used by the worker nodes.
 docker swarm join-token -q worker > /home/admin/swarm_token
+
+# Init services.
+docker stack deploy -c /etc/wordpress/docker-compose.yml wordpress
