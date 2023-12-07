@@ -1,90 +1,42 @@
-version: "3.1"
-
+version: '2'
 services:
-  app:
-    image: instantlinux/nagios:${VERSION_NAGIOS:-latest}
-    restart: always
-    hostname: ${NAGIOS_FQDN:-nagios.docker}
-    environment:
-      AUTHORIZED_USERS: ${NAGIOS_AUTH_USERS:-nagiosadmin}
-      MAIL_RELAY_HOST: ${NAGIOS_MAIL_RELAY:-smtp}
-      NGINX_PORT: ${NAGIOS_NGINX_PORT:-80}
-      TZ: ${TZ:-UTC}
-    volumes:
-    - etc:/etc/nagios
-    - var:/var/nagios
-    - ${ADMIN_PATH:-/opt}/nagios/plugins:/opt/nagios/plugins:ro
+  nagios:
+    image: ethnchao/nagios
+    container_name: nagios
+    command: --enable-ndo --create-db --server-url http://192.168.101.100:4000
     ports:
-    - ${PORT_NAGIOS:-80}:80
-    secrets:
-    - nagios-htpasswd
-    # Use bridge mode unless at least one plugin (check_dhcp) requires host net
-    network_mode: host
-
-  nagiosql:
-    image: instantlinux/nagiosql:${VERSION_NAGIOSQL:-latest}
+      - 4000:80
+      - 4001:3000
     restart: always
-    hostname: nagiosql
-    environment:
-      DB_HOST: ${DB_HOST:-db}
-      NAGIOS_ETC: /etc/nagios
-      TZ: ${TZ:-UTC}
-    volumes:
-    - config:/var/www/nagiosql/config
-    - etc:/etc/nagios
-    - var:/var/nagios
-    ports:
-    - ${PORT_NAGIOSQL:-8080}:80
-    secrets:
-    - nagiosql-db-password
-    network_mode: bridge
-
-  nginx:
-    image: nginx:${VERSION_NGINX:-latest}
-    restart: always
-    hostname: monitor
-    ports:
-    - ${PORT_MONITOR_SSL:-443}:443
-    - ${PORT_MONITOR_HTTP:-80}:80
-    volumes:
-    - ${ADMIN_PATH:-/opt}/nagios/etc/nginx/conf.d:/etc/nginx/conf.d:ro
-    - ${SHARE_PATH:-/opt}/common/pki/ca:/etc/ssl/ca:ro
-    - ${SHARE_PATH:-/opt}/common/pki/certs:/etc/ssl/certs:ro
-    environment:
-      TZ: ${TZ:-UTC}
-    secrets:
-    - monitor.${DOMAIN:-demo}-server-key.pem
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
     depends_on:
-    - app
-    - nagiosql
-    network_mode: bridge
-  
-  db:
-    image: mysql:${MYSQL_VERSION:-latest}
-    restart: always
-    hostname: db
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_password}
-      MYSQL_DATABASE: ${DB_NAME:-nagiosdb}
-      MYSQL_USER: ${DB_USER:-nagio /suser}
-      MYSQL_PASSWORD: ${DB_PASSWORD:-nagiospassword}
-      TZ: ${TZ:-UTC}
+      - nagios_mysql
     volumes:
-      - db_data:/var/lib/mysql
-    ports:
-      - ${DB_PORT:-3306}:3306
-        
-  
-volumes:
-  config: # ~/dorayaki/servidor9/nagios/config
-  etc: #~/dorayaki/servidor9/nagios/etc
-  var: #~/dorayaki/servidor9/nagios/var
-  db_data: #~/dorayaki/servidor9/nagios/db_data
+      - ./data/plugin:/data/plugin
+      - ./data/conf:/usr/local/nagios/etc/mount
+      - ./data/example:/data/example
 
-secrets:
-  nagios-htpasswd:
-    file: /var/adm/secrets/nagios-htpasswd
-  nagiosql-db-password:
-    file: /var/adm/secrets/nagiosql-db-password
-  monitor.ci.net-server-key.pem:
-    file: ${ADMIN_PATH}/../tls/monitor.ci.net-server-key.pem
+  nagios_mysql:
+    image: mysql:5.6
+    container_name: mysql
+    ports:
+      - 13306:3306
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+    environment:
+      - MYSQL_USER=nagios
+      - MYSQL_PASSWORD=nagios
+      - MYSQL_ADDRESS=nagios_mysql
+      - MYSQL_DATABASE=nagios
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    volumes:
+      - nagios_db_data:/var/lib/mysql
+
+volumes:
+  nagios_db_data:
