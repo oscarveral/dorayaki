@@ -13,8 +13,5 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-mkdir /etc/wordpress 2> /dev/null
-
-cp -r database /etc/wordpress
-cp docker-compose.yml /etc/wordpress
-cp scale_wordpress.sh /etc/wordpress
+# Escale wordpress swarm based on first argument.
+docker service scale wordpress_wordpress=$1

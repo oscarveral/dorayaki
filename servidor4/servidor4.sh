@@ -34,6 +34,10 @@ cd minikube
 ./minikube.sh > /dev/null
 cd ..
 
+cd wordpress
+./wordpress.sh > /dev/null
+cd ..
+
 cd swarm
 ./swarm.sh > /dev/null
 cd ..
