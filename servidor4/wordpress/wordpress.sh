@@ -16,3 +16,4 @@ fi
 mkdir /etc/wordpress 2> /dev/null
 
 cp -r database /etc/wordpress
+cp docker-compose.yml /etc/wordpress
