@@ -37,4 +37,4 @@ fi
 mkdir -p /usr/share/nginx/https/ 2> /dev/null
 cp index.html /usr/share/nginx/https/
 
-docker build -t nginx-custom .
+docker build -t nginx-custom -f Dockerfile /
