@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo -u $(logname) minikube start --memory=1900 --driver=docker --static-ip 192.168.200.200
+sudo -u $(logname) minikube start --memory=1900 --driver=docker
 
 sudo -u $(logname) minikube addons enable metrics-server
 
