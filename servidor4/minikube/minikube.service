@@ -4,6 +4,7 @@ After=network.target
 
 [Service]
 ExecStart=/etc/kubernets-docker/minikube-create.sh
+ExecStop=/etc/kubernets-docker/minikube-delete.sh
 Type=OneShot
 User=servidor4
 

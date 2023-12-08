@@ -30,6 +30,10 @@ cd netplan
 ./network.sh > /dev/null
 cd ..
 
+cd nginx
+./nginx.sh > /dev/null
+cd ..
+
 cd minikube
 ./minikube.sh > /dev/null
 cd ..

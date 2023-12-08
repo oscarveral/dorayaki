@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
         - name: nginx
+          imagePullPolicy: Never
           image: nginx-custom
           ports:
             - containerPort: 80

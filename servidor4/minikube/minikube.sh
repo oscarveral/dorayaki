@@ -27,6 +27,8 @@ cp config.yaml /etc/kubernets-docker/
 cp minikube-create.sh /etc/kubernets-docker/
 cp minikube-delete.sh /etc/kubernets-docker/
 
+minikube image load nginx-custom
+
 cp minikube.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable minikube.service
