@@ -1,0 +1,11 @@
+[Unit]
+Description=Minikube Service
+After=network.target
+
+[Service]
+ExecStart=/etc/kubernets-docker/minikube-create.sh
+Type=OneShot
+User=servidor4
+
+[Install]
+WantedBy=multi-user.target
