@@ -28,4 +28,6 @@ cp minikube-start.sh /etc/kubernets-docker/
 cp minikube-stop.sh /etc/kubernets-docker/
 
 cp minikube.service /etc/systemd/system/
+cp minikube-tunnel.service /etc/systemd/system/
 systemctl enable --now minikube.service
+systemctl enable --now minikube-tunnel.service
