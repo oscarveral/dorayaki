@@ -14,6 +14,8 @@ if [ "$EUID" -ne 0 ]
 fi
 
 mkdir /etc/nginx/ 2> /dev/null
+cp Dockerfile /etc/nginx/
+
 mkdir /etc/nginx/conf.d/ 2> /dev/null
 cp http.conf /etc/nginx/conf.d/
 
