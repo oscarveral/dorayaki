@@ -24,6 +24,5 @@ if [ ! -f /etc/kubernets-docker/installed.log ]; then
 fi
 
 cp config.yaml /etc/kubernets-docker/
-cp minikube-expose.sh /etc/kubernets-docker/
 cp minikube-create.sh /etc/kubernets-docker/
 cp minikube-delete.sh /etc/kubernets-docker/
