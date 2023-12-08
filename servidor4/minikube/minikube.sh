@@ -25,7 +25,7 @@ fi
 
 cp config.yaml /etc/kubernets-docker/
 cp minikube-start.sh /etc/kubernets-docker/
-cp minikube-stop.sh /etc/kubernets-docker/
+cp minikube-delete.sh /etc/kubernets-docker/
 
 cp minikube.service /etc/systemd/system/
 systemctl enable --now minikube.service
