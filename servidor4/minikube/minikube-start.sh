@@ -1,24 +1,13 @@
 #!/bin/bash
 
-minikube start --memory=1900 --driver=docker --static-ip 192.168.200.200
+sudo -u $(logname) minikube start --memory=1900 --driver=docker --static-ip 192.168.200.200
 
-minikube addons enable metrics-server
+sudo -u $(logname) minikube addons enable metrics-server
 
-minikube tunnel  --rootless &
+nohup minikube tunnel &
 
 #nohup minikube dashboard 2> /dev/null &
 
-minikube kubectl -- apply -f config.yaml
-
-stop=""
-while [ "$stop" == "" ] 
-do
-  echo "Waiting..."
-  sleep 1
-  stop=$(minikube kubectl -- get pods -A | grep -e "nginx.*Running")
-  echo "$stop"
-done
+sudo -u $(logname) minikube kubectl -- apply -f config.yaml
 
 #nohup minikube kubectl -- port-forward service/nginx-service 8080:8080 & 
-
-minikube kubectl -- get pods -A
