@@ -8,6 +8,6 @@ minikube addons enable metrics-server
 
 minikube kubectl -- apply -f /etc/kubernets-docker/config.yaml
 
-echo servidor4 | sudo nohup minikube tunnel &
+nohup minikube tunnel &
 
 #nohup minikube kubectl -- port-forward service/nginx-service 8080:8080 & 

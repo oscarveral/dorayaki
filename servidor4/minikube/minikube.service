@@ -2,7 +2,8 @@
 Description=Runs minikube service on start.
 
 [Service]
-ExecStart=/etc/kubernets-docker/minikube-start.sh
+ExecStart=minikube start
+ExecStop=minikube stop
 Type=oneshot
 User=servidor4
 RemainAfterExit=yes
