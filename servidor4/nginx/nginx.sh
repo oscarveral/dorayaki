@@ -17,9 +17,17 @@ mkdir /etc/nginx/ 2> /dev/null
 cp Dockerfile /etc/nginx/
 
 mkdir /etc/nginx/conf.d/ 2> /dev/null
-cp http.conf /etc/nginx/conf.d/
+cp https.conf /etc/nginx/conf.d/
 
-mkdir -p /usr/share/nginx/http/ 2> /dev/null
-cp index.html /usr/share/nginx/http/
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout nginx.key -out nginx.crt -subj "/C=ES/ST=Murcia/L=Murcia/O=Dorayaki/CN=www.dorayaki.org"
+
+cp nginx.key /etc/nginx/
+cp nginx.crt /etc/nginx/
+
+mkdir -p /usr/share/nginx/https/ 2> /dev/null
+cp index.html /usr/share/nginx/https/
+
+mkdir -p /usr/share/nginx/cert 2> /dev/null
+cp nginx.crt /usr/share/nginx/cert/ 
 
 docker build -t nginx-custom .
