@@ -67,9 +67,9 @@ iptables -A FORWARD -o eth1 -d 172.16.2.2 -p tcp --dport 80 -j ACCEPT
 # Wordpress admin panel. Allow access to host on office only.
 iptables -A FORWARD -i eth0 -o eth1 -s 172.16.1.0/24 -p tcp --dport 9000 -d 172.16.2.2 -j ACCEPT
 
-# HTTP Server. Allow requests HTTP request only to this server. As this is a public service, DNAT is needed.
-iptables -t nat -A PREROUTING -i eth2 -p tcp --dport 8080 -j DNAT --to-destination 172.16.2.2
-iptables -A FORWARD -o eth1 -d 172.16.2.2 -p tcp --dport 8080 -j ACCEPT
+# HTTPS Server. Allow requests HTTPS request only to this server. As this is a public service, DNAT is needed.
+iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 172.16.2.2:8443
+iptables -A FORWARD -o eth1 -d 172.16.2.2 -p tcp --dport 8443 -j ACCEPT
 
 # Docker Swarm. Is used only by servers LAN. Default rejection is applied.
 
