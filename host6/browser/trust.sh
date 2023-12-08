@@ -25,4 +25,5 @@ openssl x509 -in nginx.crt -out nginx.pem -outform PEM
 rm nginx.crt
 
 mv nginx.pem /etc/pki/ca-trust/source/anchors/
-udpate-ca-trust
+
+exec udpate-ca-trust
