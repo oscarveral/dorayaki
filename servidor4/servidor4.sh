@@ -18,10 +18,6 @@ cd utils
 ./packages.sh > /dev/null
 cd ..
 
-cd sysctl
-./sysctl.sh > /dev/null
-cd ..
-
 cd docker
 ./docker.sh > /dev/null
 cd ..
