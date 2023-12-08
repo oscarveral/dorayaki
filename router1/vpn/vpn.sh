@@ -28,6 +28,7 @@ cd easy-rsa
 ./easyrsa --batch gen-dh 2> /dev/null
 
 cp pki/ca.crt /home/admin/vpn.crt
+chmod 644 /home/admin/vpn.crt
 
 cd ..
 
