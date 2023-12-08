@@ -2,7 +2,7 @@
 
 minikube start --memory=1900 --driver=docker
 
-sudo nohup minikube tunnel &
+nohup minikube tunnel &
 
 minikube addons enable metrics-server
 
