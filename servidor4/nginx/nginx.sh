@@ -27,8 +27,9 @@ if [ ! -f /etc/nginx/nginx.key ] || [ ! -f /etc/nginx/nginx.crt ]; then
 
 	mkdir -p /usr/share/nginx/cert 2> /dev/null
 	cp nginx.crt /usr/share/nginx/cert/
-	
-else
+
+	rm nginx.key
+	rm nginx.crt
 fi
 
 mkdir -p /usr/share/nginx/https/ 2> /dev/null
