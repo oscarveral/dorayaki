@@ -8,6 +8,8 @@ nohup minikube dashboard &
 
 minikube kubectl -- apply -f /etc/kubernets-docker/config.yaml
 
-minikube kubectl -- wait --for=condition=Ready pods --all
+while [ "$(minikube kubectl -- get pods | grep -c "Running")" != "3" ]; do
+	sleep 1
+done
 
 nohup minikube kubectl -- port-forward --address 0.0.0.0 service/nginx-service 8080:8080 &
