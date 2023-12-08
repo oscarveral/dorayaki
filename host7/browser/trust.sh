@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Add the HTTPS server certfiicate to the trust store. 
+# Add the HTTPS server certfiicate to the trust store.
 # Maybe you will need to disable the self signed certificate check in your browser.
 
 SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"

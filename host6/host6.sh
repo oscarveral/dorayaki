@@ -22,12 +22,13 @@ cd udev
 ./udev.sh > /dev/null
 cd ..
 
+cd browser
+./trust.sh > /dev/null
+cd ..
+
 cd network_manager
 ./network.sh > /dev/null
 cd ..
 
-cd browser
-./trust.sh > /dev/null
-cd ..
 
 echo Script configuration finished successfully. 1>&2
