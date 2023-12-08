@@ -13,21 +13,11 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-cd utils
-./hostname.sh > /dev/null
-./services.sh > /dev/null
-cd ..
+curl -k https://www.dorayaki.org:8443/nginx.crt -o nginx.crt
 
-cd udev
-./udev.sh > /dev/null
-cd ..
+openssl x509 -in nginx.crt -out nginx.pem -outform PEM
 
-cd network_manager
-./network.sh > /dev/null
-cd ..
+rm nginx.crt
 
-cd browser
-./trust.sh > /dev/null
-cd ..
-
-echo Script configuration finished successfully. 1>&2
+mv nginx.pem /etc/pki/ca-trust/source/anchors/
+udpate-ca-trust
