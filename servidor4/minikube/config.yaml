@@ -19,7 +19,7 @@ spec:
           imagePullPolicy: Never
           image: nginx-custom
           ports:
-            - containerPort: 80
+            - containerPort: 443
 ---
 kind: Service
 apiVersion: v1
@@ -30,6 +30,6 @@ spec:
   selector:
     app: nginx
   ports:
-    - port: 8080
-      targetPort: 80
+    - port: 443
+      targetPort: 443
       protocol: TCP

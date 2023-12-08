@@ -1,3 +1,3 @@
 FROM nginx
-COPY index.html /usr/share/nginx/http/index.html
-COPY http.conf /etc/nginx/conf.d/http.conf
+COPY /etc/nginx/ /etc/nginx/
+COPY /usr/share/nginx/ /usr/share/nginx/

@@ -19,15 +19,19 @@ cp Dockerfile /etc/nginx/
 mkdir /etc/nginx/conf.d/ 2> /dev/null
 cp https.conf /etc/nginx/conf.d/
 
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout nginx.key -out nginx.crt -subj "/C=ES/ST=Murcia/L=Murcia/O=Dorayaki/CN=www.dorayaki.org"
+if [ ! -f /etc/nginx/nginx.key ] || [ ! -f /etc/nginx/nginx.crt ]; then
+	sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout nginx.key -out nginx.crt -subj "/C=ES/ST=Murcia/L=Murcia/O=Dorayaki/CN=www.dorayaki.org"
 
-cp nginx.key /etc/nginx/
-cp nginx.crt /etc/nginx/
+	cp nginx.key /etc/nginx/
+	cp nginx.crt /etc/nginx/
+
+	mkdir -p /usr/share/nginx/cert 2> /dev/null
+	cp nginx.crt /usr/share/nginx/cert/
+	
+else
+fi
 
 mkdir -p /usr/share/nginx/https/ 2> /dev/null
 cp index.html /usr/share/nginx/https/
-
-mkdir -p /usr/share/nginx/cert 2> /dev/null
-cp nginx.crt /usr/share/nginx/cert/ 
 
 docker build -t nginx-custom .
