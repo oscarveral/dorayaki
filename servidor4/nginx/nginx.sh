@@ -18,3 +18,5 @@ cp nginx.conf /etc/nginx/
 
 mkdir -p /var/www/http/ 2> /dev/null
 cp index.html /var/www/http/
+
+docker build -t nginx-custom .
