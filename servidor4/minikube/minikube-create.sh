@@ -8,6 +8,7 @@ nohup minikube dashboard &
 
 minikube kubectl -- apply -f /etc/kubernets-docker/config.yaml
 
+sleep 10
 while [ "$(minikube kubectl -- get pods | grep -c "Running")" != "3" ]; do
 	sleep 1
 done
