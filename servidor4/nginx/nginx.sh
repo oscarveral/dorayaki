@@ -19,6 +19,8 @@ cp Dockerfile /etc/nginx/
 mkdir /etc/nginx/conf.d/ 2> /dev/null
 cp https.conf /etc/nginx/conf.d/
 
+mkdir /usr/share/nginx/ 2> /dev/null
+
 if [ ! -f /etc/nginx/nginx.key ] || [ ! -f /etc/nginx/nginx.crt ]; then
 	sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout nginx.key -out nginx.crt -subj "/C=ES/ST=Murcia/L=Murcia/O=Dorayaki/CN=www.dorayaki.org"
 
