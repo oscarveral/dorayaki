@@ -15,6 +15,8 @@ fi
 
 curl -k https://www.dorayaki.org:8443/nginx.crt -o nginx.crt
 
+dnf install -y openssl
+
 openssl x509 -in nginx.crt -out nginx.pem -outform PEM
 
 rm nginx.crt
