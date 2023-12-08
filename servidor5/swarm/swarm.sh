@@ -15,7 +15,7 @@ systemctl restart docker
 docker swarm leave --force
 
 # Get the token from the manager node.
-sshpass -p "admin" scp admin@swarm.dorayaki.org:/home/admin/swarm_token ./swarm_token
+sshpass -p "dorayaki" scp admin@swarm.dorayaki.org:/home/admin/swarm_token ./swarm_token
 TOKEN=$(cat swarm_token)
 rm swarm_token 2> /dev/null
 
