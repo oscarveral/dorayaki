@@ -26,4 +26,4 @@ rm nginx.crt
 
 mv nginx.pem /etc/pki/ca-trust/source/anchors/
 
-exec udpate-ca-trust
+sudo udpate-ca-trust
