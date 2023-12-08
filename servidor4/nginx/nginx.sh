@@ -14,9 +14,10 @@ if [ "$EUID" -ne 0 ]
 fi
 
 mkdir /etc/nginx/ 2> /dev/null
-cp nginx.conf /etc/nginx/
+mkdir /etc/nginx/conf.d/ 2> /dev/null
+cp http.conf /etc/nginx/conf.d/
 
-mkdir -p /var/www/http/ 2> /dev/null
-cp index.html /var/www/http/
+mkdir -p /usr/share/nginx/http/ 2> /dev/null
+cp index.html /usr/share/nginx/http/
 
 docker build -t nginx-custom .

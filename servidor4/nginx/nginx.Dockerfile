@@ -1,3 +1,3 @@
 FROM nginx
-VOLUME /var/www:/var/www
-VOLUME /etc/nginx:/etc/nginx
+COPY index.html /usr/share/nginx/http/index.html
+COPY http.conf /etc/nginx/conf.d/http.conf
