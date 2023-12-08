@@ -6,6 +6,8 @@ minikube start --memory=1900 --driver=docker --static-ip 192.168.200.200
 
 minikube addons enable metrics-server
 
+nohup minikube tunnel &
+
 #nohup minikube dashboard 2> /dev/null &
 
 minikube kubectl -- apply -f config.yaml
