@@ -4,6 +4,8 @@ minikube start --memory=1900 --driver=docker
 
 minikube addons enable metrics-server
 
+minikube image load nginx-custom
+
 nohup minikube dashboard &
 
 minikube kubectl -- apply -f /etc/kubernets-docker/config.yaml
