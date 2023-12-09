@@ -32,7 +32,7 @@ iptables -P OUTPUT ACCEPT
 iptables -A INPUT -i lo -j ACCEPT
 iptables -A OUTPUT -o lo -j ACCEPT
 
-# SNAT. Hide internal networks behind "$ISP".
+# SNAT. Hide internal networks behind ISP interface.
 iptables -t nat -A POSTROUTING -o "$ISP" -j MASQUERADE
 
 # Allow related inbound traffic for all interfaces.
@@ -42,7 +42,7 @@ iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A FORWARD -o "$ISP" -m multiport --dports 80,443 -j ACCEPT
 iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
 
-# DHCP. Only allow DHCP traffic from the internal networks of "$HOSTS" and "$SERVERS".
+# DHCP. Only allow DHCP traffic from the internal networks of HOSTS and SERVERS.
 iptables -A INPUT -i "$HOSTS" -p udp --dport 67:68 --sport 67:68 -j ACCEPT
 iptables -A INPUT -i "$SERVERS" -p udp --dport 67:68 --sport 67:68 -j ACCEPT
 
