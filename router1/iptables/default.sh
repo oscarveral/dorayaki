@@ -38,8 +38,8 @@ iptables -t nat -A POSTROUTING -o "$ISP" -j MASQUERADE
 # Allow related inbound traffic for all interfaces.
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
-# Allow internal networks to access external networks and allow responses back in.
-iptables -A FORWARD -o "$ISP" -j ACCEPT
+# Allow internal networks to access external networks (HTTP and HTTPS) and allow responses back in.
+iptables -A FORWARD -o "$ISP" --dport 80 --dport 443 -j ACCEPT
 iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 # DHCP. Only allow DHCP traffic from the internal networks of "$HOSTS" and "$SERVERS".
