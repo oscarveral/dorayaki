@@ -32,8 +32,9 @@ iptables -A OUTPUT -o lo -j ACCEPT
 # Allow related inbound traffic for all interfaces.
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
+# Allow SSH
+iptables -A INPUT -p tcp -dport 22 -j ACCEPT
 # Allow SNMP from subnet
-iptables -A INPUT -s "$HOSTS_NET" -p udp -m multiport --sports 161,162 -j ACCEPT
-
+iptables -A INPUT -s "$HOSTS_NET" -p udp --dport 161:162 -j ACCEPT
 
 iptables-save > /etc/iptables/rules.v4
