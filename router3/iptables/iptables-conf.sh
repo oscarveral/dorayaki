@@ -18,4 +18,7 @@ apt-get install iptables iptables-persistent -y
 iptables -F
 iptables -F -t nat
 
+# Drop TRACEROUTE
+iptables -A OUTPUT -p icmp --icmp-type time-exceeded -j DROP
+
 iptables-save > /etc/iptables/rules.v4
