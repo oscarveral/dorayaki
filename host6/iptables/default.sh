@@ -27,7 +27,6 @@ iptables -P OUTPUT ACCEPT
 
 # Allow traffic on the loopback interface
 iptables -A INPUT -i lo -j ACCEPT
-iptables -A OUTPUT -o lo -j ACCEPT
 
 # Allow related inbound traffic for all interfaces.
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
