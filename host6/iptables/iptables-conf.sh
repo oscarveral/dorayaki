@@ -13,25 +13,10 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-cd utils
-./hostname.sh > /dev/null
-./services.sh > /dev/null
-cd ..
+apt-get install iptables iptables-persistent -y
 
-cd udev
-./udev.sh > /dev/null
-cd ..
+mkdir /etc/iptables-config 2> /dev/null
 
-cd browser
-./trust.sh > /dev/null
-cd ..
+cp default.sh /etc/iptables-config/default.sh
 
-cd network_manager
-./network.sh > /dev/null
-cd ..
-
-cd iptables
-./iptables-conf.sh > /dev/null
-cd ..
-
-echo Script configuration finished successfully. 1>&2
+./default.sh
