@@ -13,6 +13,12 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
+HOSTS="eth0"
+SERVERS="eth1"
+ISP="eth2"
+HOSTS_NET="172.16.1.0/24"
+SERVERS_NET="172.16.2.0/24"
+
 # Default firewall configuration script.
 
 # Clear existing rules and set the default policies
