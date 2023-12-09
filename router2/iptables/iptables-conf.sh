@@ -21,4 +21,7 @@ iptables -F -t nat
 # Solo se necesita SNAT para dar acceso a internet a las máquinas del escenario.
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
+# Drop TRACEROUTE
+iptables -A OUTPUT -p icmp --icmp-type time-exceeded -j DROP
+
 iptables-save > /etc/iptables/rules.v4
