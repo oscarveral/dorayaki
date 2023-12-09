@@ -18,6 +18,9 @@ apt-get install iptables iptables-persistent -y
 iptables -F
 iptables -F -t nat
 
+# SNAT. Hide internal networks behind ISP interface.
+iptables -t nat -A POSTROUTING  ! -o 192.168.1.0/24  -j MASQUERADE
+
 # Drop TRACEROUTE
 iptables -A OUTPUT -p icmp --icmp-type time-exceeded -j DROP
 
