@@ -39,7 +39,7 @@ iptables -t nat -A POSTROUTING -o "$ISP" -j MASQUERADE
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 # Allow internal networks to access external networks (HTTP and HTTPS) and allow responses back in.
-iptables -A FORWARD -o "$ISP" --dport 80 --dport 443 -j ACCEPT
+iptables -A FORWARD -o "$ISP" -m multiport --dports 80,443 -j ACCEPT
 iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 # DHCP. Only allow DHCP traffic from the internal networks of "$HOSTS" and "$SERVERS".
@@ -76,6 +76,9 @@ iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s "$HOSTS_NET" -p tcp --dport 900
 # HTTPS Server. Allow requests HTTPS request only to this server. As this is a public service, DNAT is needed.
 iptables -t nat -A PREROUTING -p tcp --dport 8443 -j DNAT --to-destination 172.16.2.2
 iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 8443 -j ACCEPT
+
+# Nagios. Allow access from server9 to "$SERVERS_NET" 
+iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s 172.16.1.2 -p udp -m multiport --sports 161,162 -j ACCEPT
 
 # Docker Swarm. Is used only by servers LAN. Default rejection is applied.
 
