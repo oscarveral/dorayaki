@@ -80,6 +80,9 @@ iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 8443 -j ACCEPT
 # Nagios. Allow access from server9 to "$SERVERS_NET" 
 iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s 172.16.1.2 -p udp -m multiport --sports 161,162 -j ACCEPT
 
+# Drop TRACEROUTE
+iptables -A OUTPUT -p icmp --icmp-type time-exceeded -j DROP
+
 # Docker Swarm. Is used only by servers LAN. Default rejection is applied.
 
 iptables-save > /etc/iptables/rules.v4
