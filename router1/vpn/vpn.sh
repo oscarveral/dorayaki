@@ -31,6 +31,8 @@ cd easy-rsa
 ./easyrsa --batch gen-dh 2> /dev/null
 
 cp pki/ca.crt /home/admin/vpn.crt
+cp pki/issued/dorayaki-client.crt /home/admin/dorayaki-client.crt
+cp pki/private/dorayaki-client.key /home/admin/dorayaki-client.key
 chmod 644 /home/admin/vpn.crt
 
 cd ..
