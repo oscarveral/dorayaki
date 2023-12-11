@@ -14,7 +14,7 @@ default_ca                              = CA_vpn
 
 [ CA_vpn ]
 # The default directory that CA reads from and writes to
-dir                                     = ~/vpnCA
+dir                                     = ./vpnCA
 
 # Directory where server & clients issued certs are kept
 certs                                   = $dir/certs
