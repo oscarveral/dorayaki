@@ -26,6 +26,10 @@ cd browser
 ./trust.sh > /dev/null
 cd ..
 
+cd vpn
+./vpn.sh > /dev/null
+cd ..
+
 cd network_manager
 ./network.sh > /dev/null
 cd ..
