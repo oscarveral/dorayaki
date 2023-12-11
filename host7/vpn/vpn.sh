@@ -20,12 +20,4 @@ curl https://www.dorayaki.org:8443/client_pkey.pem -o /etc/openvpn/client/client
 cp client.conf /etc/openvpn/client/
 cp login.conf /etc/openvpn/client/
 
-dnf install make -y
-
-git clone https://github.com/jonathanio/update-systemd-resolved.git
-cd update-systemd-resolved
-make
-cd ..
-rm -rf update-systemd-resolved
-
 systemctl enable openvpn-client@client --now
