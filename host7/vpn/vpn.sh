@@ -21,6 +21,7 @@ cp client.conf /etc/openvpn/client/
 cp login.conf /etc/openvpn/client/
 
 userdel -r openvpn 2> /dev/null
+grupadd -r openvpn 2> /dev/null
 adduser --system --shell /usr/sbin/nologin --no-create-home --group openvpn
 
 dnf install -y make
