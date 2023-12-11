@@ -19,4 +19,4 @@ curl https://www.dorayaki.org:8443/dorayaki-client.key -o /etc/openvpn/client/do
 
 cp client.conf /etc/openvpn/client/
 
-systemctl enable openvpn@client --now
+systemctl enable openvpn-client@client --now
