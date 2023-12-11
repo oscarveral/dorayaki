@@ -1,6 +1,0 @@
-[Match]
-Name=tun0
-
-[Network]
-DHCP=yes
-DNS=172.16.2.254
