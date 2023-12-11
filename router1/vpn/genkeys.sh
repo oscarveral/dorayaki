@@ -16,7 +16,7 @@ touch index.txt
 mkdir CAkey
 chmod 700 CAkey
 mkdir Pkeys
-chmod 700 Pkeys
+chmod 744 Pkeys
 
 mkdir reqs
 
