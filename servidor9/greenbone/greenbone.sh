@@ -10,4 +10,4 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-docker exec -u gvmd gvmd gvmd --user=admin --new-password=admin
+#docker exec -u gvmd gvmd gvmd --user=admin --new-password=admin
