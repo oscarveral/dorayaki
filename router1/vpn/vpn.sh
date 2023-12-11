@@ -23,11 +23,11 @@ cd /etc/openvpn
 ln -s /usr/share/easy-rsa/* easy-rsa/ 2> /dev/null
 
 cd easy-rsa
-./easyrsa --batch clean-all 2> /dev/null
-./easyrsa --batch init-pki 2> /dev/null
-./easyrsa --batch build-ca nopass 2> /dev/null
-./easyrsa --batch build-server-full dorayaki-vpn nopass 2> /dev/null
-./easyrsa --batch build-client-full dorayaki-client nopass 2> /dev/null
+./easyrsa --batch clean-all
+./easyrsa --batch init-pki
+./easyrsa --batch build-ca nopass
+./easyrsa --batch build-server-full dorayaki-vpn nopass
+./easyrsa --batch build-client-full dorayaki-client nopass
 ./easyrsa --batch gen-dh 2> /dev/null
 
 cp pki/ca.crt /home/admin/vpn.crt
