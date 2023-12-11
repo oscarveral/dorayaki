@@ -15,15 +15,17 @@ fi
 
 apt-get install -y openvpn openvpn-auth-radius freeradius-utils easy-rsa
 
+mkdir /etc/openvpn/easy-rsa 2> /dev/null
+cp vars /etc/openvpn/easy-rsa/
+
 cd /etc/openvpn
 
-mkdir easy-rsa 2> /dev/null
 ln -s /usr/share/easy-rsa/* easy-rsa/ 2> /dev/null
 
 cd easy-rsa
 ./easyrsa --batch clean-all 2> /dev/null
 ./easyrsa --batch init-pki 2> /dev/null
-./easyrsa --batch build-ca --req-cn=dorayaki-vpn nopass 2> /dev/null
+./easyrsa --batch build-ca nopass 2> /dev/null
 ./easyrsa --batch build-server-full dorayaki-vpn nopass 2> /dev/null
 ./easyrsa --batch gen-dh 2> /dev/null
 

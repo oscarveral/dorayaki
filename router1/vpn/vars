@@ -1,0 +1,6 @@
+set_var EASYRSA_DN "dorayaki.org"
+set_var EASYRSA_REQ_COUNTRY "ES"
+set_var EASYRSA_REQ_PROVINCE "Murcia"
+set_var EASYRSA_REQ_CITY "Murcia"
+set_var EASYRSA_REQ_ORG "Dorayaki"
+set_var EASYRSA_REQ_OU "Dorayaki"
