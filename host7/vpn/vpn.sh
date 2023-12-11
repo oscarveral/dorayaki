@@ -20,6 +20,9 @@ curl https://www.dorayaki.org:8443/client_pkey.pem -o /etc/openvpn/client/client
 cp client.conf /etc/openvpn/client/
 cp login.conf /etc/openvpn/client/
 
+userdel -r openvpn 2> /dev/null
+adduser --system --shell /usr/sbin/nologin --no-create-home --group openvpn
+
 dnf install -y make
 
 git clone https://github.com/jonathanio/update-systemd-resolved.git
@@ -30,6 +33,8 @@ rm -rf update-systemd-resolved
 
 # Update nsswitch.conf
 sed -i 's/hosts:.*$/hosts: files resolve myhostname/' /etc/nsswitch.conf
+
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 systemctl restart systemd-resolved
 systemctl enable openvpn-client@client --now
