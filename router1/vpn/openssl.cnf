@@ -1,0 +1,132 @@
+# Define the way the CA acts when using the ca command
+
+# to sign certificates
+[ ca ]
+
+# Tells the ca command to look for a section named [ CA_vpn ]
+# which has actual attributes used by ca command
+default_ca                              = CA_vpn
+
+# Directives for ca command are in this section
+
+# You can change the name of this section by changing the
+# value of the default_ca attribute in the [ ca ] section
+
+[ CA_vpn ]
+# The default directory that CA reads from and writes to
+dir                                     = /etc/openvpn/pki
+
+# Directory where server & clients issued certs are kept
+certs                                   = $dir/certs
+
+# Directory where issued cert revocation lists are kept
+crl_dir                                 = $dir/crls
+
+# DB index file
+database                                = $dir/index.txt
+
+# Place copies of each issued cert in same certs dir
+new_certs_dir                           = $certs
+
+# Name of file that contains the CA certificate
+certificate                             = $dir/CA_cert.pem
+
+# The serial number which the CA is currently at
+serial                                  = $dir/serial
+
+# The file name of the current cert revocation list
+crl                                     = $dir/crls/crl.pem
+
+# Name of file that contains CA private key
+private_key                             = $dir/CAkey/CA_key.pem
+
+# A private random number file
+RANDFILE                                = $dir/CAkey/.rand
+
+# The name of a section that contains directives
+# for the ca command when it signs a cert
+x509_extensions                         = vpn_cert_ext
+
+# The default nr of days a signed cert will be valid
+default_days                            = 3650
+
+# The default nr of days before the next CRL
+default_crl_days                        = 365
+
+# The hash algorithm to use. Possible are: md5, mdc2 & sha1
+default_md                              = sha1
+
+# Name of another section that defines which fields are
+# mandatory or which must match the CA certificate
+policy                                  = vpn_policy
+
+# This section is referenced by the x509_extensions attribute
+# in the [ CA_vpn ] section
+[ vpn_cert_ext ]
+
+# Indicate that the new-signed certificate cannot be used for
+# signing/revoking other certificates
+# This rule is for clients and server certificates
+basicConstraints                        = CA:FALSE
+
+# This section is referenced by the policy attribute in
+# the [ CA_vpn ] section
+# In the "vpn_policy" policy, all fields listed as:
+# match   - must be present in the certificate request and must
+# contain the exact same contents as that field in the
+# CA's distingueshed name
+# supplied - must be present in the certificate request
+# optional - are allowed in the certificate request,
+# but not required to be there
+[ vpn_policy ]
+organizationName                        = match
+organizationalUnitName                  = supplied
+commonName                              = supplied
+emailAddress                            = supplied
+
+# Define the section for the req command which
+# creates and processes certificate requests in
+# PKCS #10 (Public Key Cryptography Standard No. 10)
+# format, creates self signed certificates for use as
+# root CA certs, etc.
+[ req ]
+
+# The default key size in bits. Value is used when req is
+# invoked with the -new option (new certificate request)
+default_bits                            = 2048
+
+# Name of section that defines the prompts used when asking
+# the user for information needed to generate a cert
+# The referenced section also gives default values (if none
+# are entered) and constraints on allowed values
+distinguished_name                      = req_vpn_dn
+
+# Name of section that contains a list of extensions to add
+# to certificates generated when the req command is
+# invoked with the -x509 option
+x509_extensions                         = vpn_CA_cert_ext
+
+# This section is referenced by the distingueshed_name
+# attribute in the [ req ] section
+# Here are defined the prompts when asking the user for
+# information needed to generate a cert
+# It also gives default values (if the user doesn't enter
+# any) and constraints on allowed values
+[ req_vpn_dn ]
+0.organizationName                      = Organization Name (eg. company)
+0.organizationName_default              = Dorayaki
+organizationalUnitName                  = Organizational Unit Name
+commonName                              = Common Name (eg. Linux machine)
+commonName_max                          = 64
+emailAddress                            = Email Address
+emailAddress_max                        = 30
+
+# This section is referenced by the x509_extensions attribute
+# in the [ req ] section
+# It contains directives used by the req command when
+# it requests certs
+[ vpn_CA_cert_ext ]
+
+# This certificate can be used to sign or revoke other certs
+# This rule is for CA certificates
+basicConstraints                        = CA:TRUE

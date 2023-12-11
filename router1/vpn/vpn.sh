@@ -15,16 +15,19 @@ fi
 
 apt-get install -y openvpn openvpn-auth-radius freeradius-utils
 
-openvpn --genkey secret secret.key
-chmod 644 secret.key
-
 cp server.conf /etc/openvpn/
 cp radius.cnf /etc/openvpn/
 
-cp secret.key /etc/openvpn/
-cp secret.key /home/admin/
+# Si no hay certificados generados se vuelve.
+if [ ! -f /home/router1/vpnCA/CA_cert.pem ] || [ ! -f /home/router1/vpnCA/certs/vpn_cert.pem ] || [ ! -f /home/router1/vpnCA/Pkeys/vpn_pkey.pem ] || [ ! -f /home/router1/vpnCA/dh2048.pem ]; then
+	echo ERROR! Certificates not found. 1>&2
+	exit 1
+fi
 
-rm secret.key
+cp /home/router1/vpnCA/CA_cert.pem /etc/openvpn/ca.pem
+cp /home/router1/vpnCA/certs/vpn_cert.pem /etc/openvpn/vpn.pem
+cp /home/router1/vpnCA/Pkeys/vpn_pkey.pem /etc/openvpn/vpn.key
+cp /home/router1/vpnCA/dh2048.pem /etc/openvpn/dh.pem
 
 deluser --remove-home openvpn 2> /dev/null
 adduser --system --shell /usr/sbin/nologin --no-create-home --group openvpn
