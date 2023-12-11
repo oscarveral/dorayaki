@@ -20,10 +20,6 @@ curl https://www.dorayaki.org:8443/client_pkey.pem -o /etc/openvpn/client/client
 cp client.conf /etc/openvpn/client/
 cp login.conf /etc/openvpn/client/
 
-userdel -r openvpn 2> /dev/null
-grupadd -r openvpn 2> /dev/null
-adduser --system --shell /usr/sbin/nologin --no-create-home --group openvpn
-
 dnf install -y make
 
 git clone https://github.com/jonathanio/update-systemd-resolved.git
