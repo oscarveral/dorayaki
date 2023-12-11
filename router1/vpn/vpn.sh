@@ -21,7 +21,7 @@ cp server.conf /etc/openvpn/
 cp radius.cnf /etc/openvpn/
 
 cp secret.key /etc/openvpn/
-cp server.crt /home/admin/
+cp server.key /home/admin/
 
 rm secret.key
 
