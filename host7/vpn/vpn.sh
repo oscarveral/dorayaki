@@ -20,4 +20,7 @@ curl https://www.dorayaki.org:8443/client_pkey.pem -o /etc/openvpn/client/client
 cp client.conf /etc/openvpn/client/
 cp login.conf /etc/openvpn/client/
 
+# Edit systemd-resolved.conf
+sed -i 's/#DNS=/DNS=172.16.2.254/g' /etc/systemd/resolved.conf 
+
 systemctl enable openvpn-client@client --now
