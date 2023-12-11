@@ -37,8 +37,6 @@ fi
 mkdir -p /usr/share/nginx/https/ 2> /dev/null
 cp index.html /usr/share/nginx/https/
 
-sshpass -p "dorayaki" scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null admin@router1.dorayaki.org:/home/admin/vpn.crt /usr/share/nginx/cert/vpn.crt
-sshpass -p "dorayaki" scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null admin@router1.dorayaki.org:/home/admin/dorayaki-client.crt /usr/share/nginx/cert/dorayaki-client.crt
-sshpass -p "dorayaki" scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null admin@router1.dorayaki.org:/home/admin/dorayaki-client.key /usr/share/nginx/cert/dorayaki-client.key
+sshpass -p "dorayaki" scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null admin@router1.dorayaki.org:/home/admin/secret.key /usr/share/nginx/cert/secret.key
 
 docker build -t nginx-custom -f Dockerfile /
