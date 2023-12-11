@@ -32,7 +32,7 @@ openssl req -new -nodes -keyout vpnCA/Pkeys/vpn_pkey.pem -out vpnCA/reqs/vpn_req
 openssl ca -in vpnCA/reqs/vpn_req.pem -batch -out vpnCA/certs/vpn_cert.pem -config ./openssl.cnf
 
 # Client
-openssl req -new -nodes -keyout vpnCA/Pkeys/client_pkey.pem -out vpnCA/reqs/client_req.pem -config ./openssl.cnf -subj "/C=ES/ST=Murcia/L=Murcia/O=Dorayaki/CN=dorayaki.org/OU=VPN/emailAddress=admin@dorayaki.org"
+openssl req -new -nodes -keyout vpnCA/Pkeys/client_pkey.pem -out vpnCA/reqs/client_req.pem -config ./openssl.cnf -subj "/C=ES/ST=Murcia/L=Murcia/O=Dorayaki/CN=vpnclient.dorayaki.org/OU=VPN/emailAddress=admin@dorayaki.org"
 openssl ca -in vpnCA/reqs/client_req.pem -batch -out vpnCA/certs/client_cert.pem -config ./openssl.cnf
 
 # Diffie-Hellman
