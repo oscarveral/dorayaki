@@ -25,5 +25,7 @@ dnf install make -y
 git clone https://github.com/jonathanio/update-systemd-resolved.git
 cd update-systemd-resolved
 make
+cd ..
+rm -rf update-systemd-resolved
 
 systemctl enable openvpn-client@client --now
