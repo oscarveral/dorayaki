@@ -13,42 +13,17 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-apt-get install -y openvpn openvpn-auth-radius freeradius-utils easy-rsa
+apt-get install -y openvpn openvpn-auth-radius freeradius-utils
 
-mkdir /etc/openvpn/easy-rsa 2> /dev/null
-cp vars /etc/openvpn/easy-rsa/
-
-cd /etc/openvpn
-
-ln -s /usr/share/easy-rsa/* easy-rsa/ 2> /dev/null
-
-cd easy-rsa
-./easyrsa --batch clean-all
-./easyrsa --batch init-pki
-./easyrsa --batch build-ca nopass
-./easyrsa --batch build-server-full dorayaki-vpn nopass
-./easyrsa --batch build-client-full dorayaki-client nopass
-./easyrsa --batch gen-dh
-
-cp pki/ca.crt /home/admin/vpn.crt
-cp pki/issued/dorayaki-client.crt /home/admin/dorayaki-client.crt
-cp pki/private/dorayaki-client.key /home/admin/dorayaki-client.key
-chmod 644 /home/admin/vpn.crt
-chmod 644 /home/admin/dorayaki-client.crt
-chmod 644 /home/admin/dorayaki-client.key
-
-cd ..
-
-mkdir keys 2> /dev/null
-cp easy-rsa/pki/ca.crt keys/
-cp easy-rsa/pki/issued/dorayaki-vpn.crt keys/
-cp easy-rsa/pki/private/dorayaki-vpn.key keys/
-cp easy-rsa/pki/dh.pem keys/
-
-cd $CURRENT_PATH
+openvpn --genkey secret secret.key
 
 cp server.conf /etc/openvpn/
 cp radius.cnf /etc/openvpn/
+
+cp secret.key /etc/openvpn/
+cp server.crt /home/admin/
+
+rm secret.key
 
 deluser --remove-home openvpn 2> /dev/null
 adduser --system --shell /usr/sbin/nologin --no-create-home --group openvpn
