@@ -34,6 +34,8 @@ cp pki/ca.crt /home/admin/vpn.crt
 cp pki/issued/dorayaki-client.crt /home/admin/dorayaki-client.crt
 cp pki/private/dorayaki-client.key /home/admin/dorayaki-client.key
 chmod 644 /home/admin/vpn.crt
+chmod 644 /home/admin/dorayaki-client.crt
+chmod 644 /home/admin/dorayaki-client.key
 
 cd ..
 
