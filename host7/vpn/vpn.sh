@@ -13,9 +13,7 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-curl https://www.dorayaki.org:8443/vpn.crt -o /etc/openvpn/client/vpn.crt
-curl https://www.dorayaki.org:8443/dorayaki-client.crt -o /etc/openvpn/client/dorayaki-client.crt
-curl https://www.dorayaki.org:8443/dorayaki-client.key -o /etc/openvpn/client/dorayaki-client.key
+curl https://www.dorayaki.org:8443/client.key -o /etc/openvpn/client/client.key
 
 cp client.conf /etc/openvpn/client/
 cp login.conf /etc/openvpn/client/
