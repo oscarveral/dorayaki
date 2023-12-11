@@ -16,6 +16,7 @@ fi
 apt-get install -y openvpn openvpn-auth-radius freeradius-utils
 
 openvpn --genkey secret secret.key
+chmod 644 secret.key
 
 cp server.conf /etc/openvpn/
 cp radius.cnf /etc/openvpn/
