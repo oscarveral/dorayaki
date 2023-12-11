@@ -29,6 +29,10 @@ cp /home/router1/vpnCA/certs/vpn_cert.pem /etc/openvpn/vpn.pem
 cp /home/router1/vpnCA/Pkeys/vpn_pkey.pem /etc/openvpn/vpn.key
 cp /home/router1/vpnCA/dh2048.pem /etc/openvpn/dh.pem
 
+cp /home/router1/vpnCA/CA_cert.pem /home/admin/
+cp /home/router1/vpnCA/certs/client_cert.pem /home/admin/
+cp /home/router1/vpnCA/Pkeys/client_pkey.pem /home/admin/
+
 deluser --remove-home openvpn 2> /dev/null
 adduser --system --shell /usr/sbin/nologin --no-create-home --group openvpn
 
