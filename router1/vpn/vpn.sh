@@ -27,6 +27,7 @@ cd easy-rsa
 ./easyrsa --batch init-pki 2> /dev/null
 ./easyrsa --batch build-ca nopass 2> /dev/null
 ./easyrsa --batch build-server-full dorayaki-vpn nopass 2> /dev/null
+./easyrsa --batch build-client-full dorayaki-client nopass 2> /dev/null
 ./easyrsa --batch gen-dh 2> /dev/null
 
 cp pki/ca.crt /home/admin/vpn.crt
