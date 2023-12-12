@@ -34,6 +34,10 @@ cd greenbone
 ./greenbone.sh > /dev/null
 cd ..
 
+cd nagios
+./nagios.sh > /dev/null
+cd ..
+
 cd netplan
 ./network.sh > /dev/null
 cd ..
