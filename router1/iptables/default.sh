@@ -18,7 +18,7 @@ SERVERS="eth1"
 ISP="eth2"
 VPN="tun0"
 HOSTS_NET="172.16.1.0/24"
-HOSTS_VPN="172.16.1.128/25"
+HOSTS_VPN="172.16.3.0/24"
 SERVERS_NET="172.16.2.0/24"
 
 # Default firewall configuration script.
