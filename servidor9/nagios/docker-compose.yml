@@ -5,7 +5,7 @@ services:
   nagios:
     image: ethnchao/nagios
     container_name: nagios
-    command: --enable-ndo --create-db --server-url http://0.0.0.0:4000
+    command: --enable-ndo --create-db --server-url http://auditoria.dorayaki.org:4000
     ports:
       - 4000:80
       - 4001:3000
