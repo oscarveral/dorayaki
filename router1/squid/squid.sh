@@ -20,8 +20,8 @@ mkdir /etc/path/to/main/
 mkdir /etc/path/to/main/config
 curl https://scripttiger.github.io/hosts-packages/hosts -o blacklist.txt
 
-cp blacklist.txt /etc/path/to/
-cp squid.conf /etc/path/to/
+#cp blacklist.txt /etc/path/to/
+cp squid.conf /etc/path/to/main/config
 
 rm blacklist.txt
 
