@@ -10,6 +10,6 @@ services:
     ports:
       - "3128:3128"
     volumes:
-      - /path/to/squid/cache:/var/spool/squid
-      - /path/to/blacklist.txt:/etc/squid/blacklist.txt
-      - /path/to/squid.conf:/etc/squid/squid.conf
+      - /etc/path/to/squid/cache:/var/spool/squid
+      - /etc/path/to/blacklist.txt:/etc/squid/blacklist.txt
+      - /etc/path/to/squid.conf:/etc/squid/squid.conf

@@ -13,14 +13,17 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-mkdir path
-mkdir path/to
-mkdir path/to/squid
+mkdir /etc/path
+mkdir /etc/path/to
+mkdir /etc/path/to/squid
+mkdir /etc/path/to/squid/cache
 
 curl https://scripttiger.github.io/hosts-packages/hosts -o blacklist.txt
 
-cp blacklist.txt path/to/
-cp squid.conf path/to/
+cp blacklist.txt /etc/path/to/
+cp squid.conf /etc/path/to/
+
+rm blacklist.txt
 
 docker compose up -d
 
