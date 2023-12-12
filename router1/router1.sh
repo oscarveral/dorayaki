@@ -46,4 +46,8 @@ cd sysctl
 ./sysctl.sh > /dev/null
 cd ..
 
+cd squid
+./squid.sh > /dev/null
+cd ..
+
 echo Script configuration finished successfully. 1>&2
