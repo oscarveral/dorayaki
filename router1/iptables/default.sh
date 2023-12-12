@@ -85,7 +85,7 @@ iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s 172.16.1.2 -p udp -m multiport 
 iptables -A INPUT ! -i "$ISP" -p tcp --dport 3000 -j ACCEPT
 
 # Nagios.
-iptables -A FORWARD -s "$HOSTS_NET" -p tcp --dport 4000 -j ACCEPT
+iptables -A FORWARD -i tun0 -p tcp --dport 4000 -j ACCEPT
 
 
 # Drop TRACEROUTE
