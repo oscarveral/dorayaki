@@ -23,7 +23,7 @@ rm /etc/NetworkManager/system-connections/* 2> /dev/null
 systemctl start NetworkManager
 
 # Interfaz de red solo anfitrión para uso de SSH desde el anfitrión de la VM.
-nmcli con add type ethernet con-name eth0 ifname eth0 ipv4.method manual ip4 192.168.63.40/24 ipv4.ignore-auto-dns yes 2> /dev/null
+nmcli con add type ethernet con-name eth0 ifname eth0 ipv4.method manual ip4 192.168.63.40/24 2> /dev/null
 # Interfaz para uso cotidiano por parte del usuario de la maquina.
 nmcli con add type ethernet con-name eth1 ifname eth1 ipv4.method auto 2> /dev/null
 
