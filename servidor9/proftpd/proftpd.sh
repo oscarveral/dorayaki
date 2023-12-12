@@ -13,6 +13,9 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-DMS_GITHUB_URL="https://raw.githubusercontent.com/docker-mailserver/docker-mailserver/master"
-wget "${DMS_GITHUB_URL}/compose.yaml"
-wget "${DMS_GITHUB_URL}/mailserver.env"
+apt-get install -y proftpd
+
+# Set defaut root to /home/proftpd
+sed -i 's/DefaultRoot.*$/DefaultRoot ~/' /etc/proftpd/proftpd.conf
+
+systemctl enable --now proftpd
