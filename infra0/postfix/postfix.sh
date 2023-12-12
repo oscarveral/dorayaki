@@ -16,3 +16,6 @@ fi
 DMS_GITHUB_URL="https://raw.githubusercontent.com/docker-mailserver/docker-mailserver/master"
 wget "${DMS_GITHUB_URL}/compose.yaml"
 wget "${DMS_GITHUB_URL}/mailserver.env"
+
+# Change hostname to mail.dorayaki.org
+sed -i 's/hostname=mail/hostname=mail.dorayaki.org/g' copose.yaml

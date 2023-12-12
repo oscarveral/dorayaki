@@ -19,3 +19,4 @@ vpn         IN      CNAME   public
 dns         IN      CNAME   public
 www         IN      CNAME   public
 wordpress   IN      CNAME   public
+mail        IN      CNAME   public

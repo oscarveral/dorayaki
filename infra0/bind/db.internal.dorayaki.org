@@ -24,6 +24,7 @@ swarm       IN      CNAME   servidor4
 radius      IN      CNAME   servidor9
 auditoria   IN      CNAME   servidor9
 ntopng      IN      CNAME   router1
+mail        IN      CNAME   infra0
 
 dns         IN      CNAME   infra0
 
