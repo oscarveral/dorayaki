@@ -42,13 +42,8 @@ iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 # Allow servers to access the internet.
-iptables -A FORWARD ! -s "$HOSTS_NET" -o "$ISP" -j ACCEPT
+iptables -A FORWARD -i "$SERVERS" -s "$SERVERS_NET" -o "$ISP" -j ACCEPT
 
-#iptables -A FORWARD ! -s "$HOSTS_VPN" -o "$ISP" -j ACCEPT
-
-# Allow hosts to access the http internet by proxy on router.
-iptables -t nat -A PREROUTING -i "$HOSTS" -p tcp --dport 80 -j DNAT --to-destination 127.0.0.1:3128
-iptables -A INPUT -i lo -p tcp --dport 3128 -j ACCEPT
 # Allow hosts to access the https internet directly.
 iptables -A FORWARD -o "$ISP" -p tcp --dport 443 -j ACCEPT
 
@@ -74,7 +69,7 @@ iptables -A FORWARD -i "$SERVERS" -s "$SERVERS_NET" -p udp --dport 1812 -d 172.1
 
 # Greenbone. Allow access to web interface only to organization hosts. As only VPN clients are outside the organization, we need to allow access.
 # Physical hosts on office already have access to this service as they share LAN with the server.
-iptables -A FORWARD -i tun0 -p tcp --dport 9392 -d 172.16.1.2 -j ACCEPT
+iptables -A FORWARD -i "$VPN" -s "$HOSTS_VPN" -p tcp --dport 9392 -d 172.16.1.2 -j ACCEPT
 
 # Wordpress. Allow access to any host on the internet. As this is a public service, DNAT is needed.
 iptables -t nat -A PREROUTING -i "$ISP" -p tcp --dport 80 -j DNAT --to-destination 172.16.2.2
@@ -82,20 +77,22 @@ iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 80 -j ACCEPT
 
 # Wordpress admin panel. Allow access to host on office only.
 iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s "$HOSTS_NET" -p tcp --dport 9000 -d 172.16.2.2 -j ACCEPT
-iptables -A FORWARD -i tun0 -o "$SERVERS" -s "$HOSTS_VPN" -p tcp --dport 9000 -d 172.16.2.2 -j ACCEPT
+iptables -A FORWARD -i "$VPN" -o "$SERVERS" -s "$HOSTS_VPN" -p tcp --dport 9000 -d 172.16.2.2 -j ACCEPT
 
 # HTTPS Server. Allow requests HTTPS request only to this server. As this is a public service, DNAT is needed.
 iptables -t nat -A PREROUTING -i "$ISP" -p tcp --dport 8443 -j DNAT --to-destination 172.16.2.2
 iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 8443 -j ACCEPT
 
-# Nagios. Allow access from server9 to "$SERVERS_NET" 
+# Nagios. SNMP port allowed and web interface.
 iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s 172.16.1.2 -p udp -m multiport --sports 161,162 -j ACCEPT
+iptables -A FORWARD -i "$VPN" -p tcp --dport 4000 -j ACCEPT
 
 # Ntopng. Allow access from hosts net to ntong server.
 iptables -A INPUT ! -i "$ISP" -p tcp --dport 3000 -j ACCEPT
 
-# Nagios.
-iptables -A FORWARD -i tun0 -p tcp --dport 4000 -j ACCEPT
+# Allow hosts to access the http internet by proxy on router.
+#iptables -t nat -A PREROUTING -i "$HOSTS" -p tcp --dport 80 -j DNAT --to-destination 127.0.0.1:3128
+#iptables -A INPUT -i lo -p tcp --dport 3128 -j ACCEPT
 
 # Drop TRACEROUTE
 iptables -A INPUT ! -i "$ISP" -p icmp -j ACCEPT
