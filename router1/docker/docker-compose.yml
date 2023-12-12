@@ -9,7 +9,7 @@ services:
     command: --community -d /var/lib/ntopng -i enp0s8 -r 127.0.0.1:6379@0 -w
     0.0.0.0:3000
     volumes:
-      - ./data/ntopng:/var/lib/ntopng
+      - /data/ntopng:/var/lib/ntopng
     network_mode: host
     restart: unless-stopped
 
@@ -19,5 +19,5 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - ./data/redis:/data
+      - /data/redis:/data
     restart: unless-stopped
