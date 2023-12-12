@@ -15,7 +15,13 @@ fi
 
 apt-get install -y proftpd
 
-# Set defaut root to /home/proftpd
-sed -i 's/DefaultRoot.*$/DefaultRoot ~/' /etc/proftpd/proftpd.conf
+adduser --home /home/ftp --shell /bin/false --no-create-home --disabled-password --disabled-login ftp
+
+rm /etc/proftpd/proftpd.conf
+touch /etc/proftpd/proftpd.conf
+
+echo "ServerName \"$(hostname)\"" >> /etc/proftpd/proftpd.conf
+echo "DefaultRoot ~" >> /home/ftp
+echo "AuthOrder mod_auth_file.c" >> /etc/proftpd/proftpd.conf
 
 systemctl enable --now proftpd

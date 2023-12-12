@@ -17,6 +17,9 @@ DMS_GITHUB_URL="https://raw.githubusercontent.com/docker-mailserver/docker-mails
 wget "${DMS_GITHUB_URL}/compose.yaml"
 wget "${DMS_GITHUB_URL}/mailserver.env"
 
-# Change hostname to mail.dorayaki.org
+# Edit hostname in compose to mail.dorayaki.org
 
 docker compose up -d
+
+docker exec -ti mailserver setup email add oscar@dorayaki.org
+docker exec -ti mailserver setup email add carlos@dorayaki.org
