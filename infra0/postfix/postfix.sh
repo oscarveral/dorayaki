@@ -18,4 +18,4 @@ wget "${DMS_GITHUB_URL}/compose.yaml"
 wget "${DMS_GITHUB_URL}/mailserver.env"
 
 # Change hostname to mail.dorayaki.org
-sed -i 's/.*hostname=mail/\t\thostname=mail.dorayaki.org/g' compose.yaml
+sed -i 's/.*hostname=mail.example.com/\t\thostname=mail.dorayaki.org/g' compose.yaml
