@@ -36,7 +36,7 @@ sudo ln -s /etc/default/saslauthd /etc/saslauthd
 /etc/init.d/saslauthd start
 /etc/init.d/postfix restart
 
-apt.get install dovecot-core dovecot-imapd -y
+apt-get install dovecot-core dovecot-imapd -y
 
 chmod +x /var/mail
 
