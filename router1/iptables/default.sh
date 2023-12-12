@@ -39,7 +39,7 @@ iptables -t nat -A POSTROUTING -o "$ISP" -j MASQUERADE
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 # Allow internal networks to access external networks and allow responses back in.
-iptables -A FORWARD ! -s "HOSTS_RED" -o "$ISP" -j ACCEPT
+iptables -A FORWARD ! -s "$HOSTS_RED" -o "$ISP" -j ACCEPT
 iptables -A FORWARD -o "$ISP" -p tpc -m multiport --dport 80,443 -j ACCEPT
 iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
 
