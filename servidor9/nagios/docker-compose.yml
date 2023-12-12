@@ -17,9 +17,9 @@ services:
     depends_on:
       - nagios_mysql
     volumes:
-      - ./data/plugin:/data/plugin
-      - ./data/conf:/usr/local/nagios/etc/mount
-      - ./data/example:/data/example
+      - /data/nagios/plugin:/data/plugin
+      - /data/nagios/conf:/usr/local/nagios/etc/mount
+      - /data/nagios/example:/data/example
 
   nagios_mysql:
     image: mysql:5.6

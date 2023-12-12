@@ -10,7 +10,14 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-mkdir config etc var db_data
+mkdir -p /data/nagios/etc
+mkdir -p /data/nagios/var
+mkdir -p /data/nagios/db_data
+
+mkdir -p /data/nagios/conf
+mkdir -p /data/nagios/plugin
+mkdir -p /data/nagios/example
+
 
 docker compose -p
 
