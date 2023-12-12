@@ -71,7 +71,7 @@ iptables -A FORWARD -i "$SERVERS" -s "$SERVERS_NET" -p udp --dport 1812 -d 172.1
 
 # Greenbone. Allow access to web interface only to organization hosts. As only VPN clients are outside the organization, we need to allow access.
 # Physical hosts on office already have access to this service as they share LAN with the server.
-iptables -A FORWARD -i tun0 -o "$HOSTS" -p tcp --dport 9392 -d 172.16.1.2 -j ACCEPT
+iptables -A FORWARD -i tun0 -p tcp --dport 9392 -d 172.16.1.2 -j ACCEPT
 
 # Wordpress. Allow access to any host on the internet. As this is a public service, DNAT is needed.
 iptables -t nat -A PREROUTING -i "$ISP" -p tcp --dport 80 -j DNAT --to-destination 172.16.2.2
