@@ -87,9 +87,9 @@ iptables -A INPUT ! -i "$ISP" -p tcp --dport 3000 -j ACCEPT
 # Nagios.
 iptables -A FORWARD -i tun0 -p tcp --dport 4000 -j ACCEPT
 
-
-# Drop TRACEROUTE
-iptables -A OUTPUT -p icmp --icmp-type time-exceeded -j DROP
+# Ping
+iptables -A INPUT ! -i "$ISP" -p icmp --icmp-type time-exceeded -j ACCEPT
+iptables -A FORWARD ! -i "$ISP" -p icmp --icmp-type time-exceeded -j ACCEPT
 
 # Docker Swarm. Is used only by servers LAN. Default rejection is applied.
 
