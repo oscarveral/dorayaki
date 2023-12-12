@@ -18,7 +18,6 @@ mkdir -p /data/nagios/conf
 mkdir -p /data/nagios/plugin
 mkdir -p /data/nagios/example
 
-
-docker compose -p
+docker compose up -d &
 
 
