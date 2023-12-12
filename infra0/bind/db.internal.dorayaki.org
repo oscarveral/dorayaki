@@ -27,6 +27,7 @@ ntopng      IN      CNAME   router1
 dns         IN      CNAME   infra0
 
 www         IN      CNAME   servidor4
+wordpress   IN      CNAME   servidor4
 
 ; Public services records.
 
