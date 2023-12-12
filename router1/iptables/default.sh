@@ -94,7 +94,9 @@ iptables -A INPUT ! -i "$ISP" -p tcp --dport 3000 -j ACCEPT
 #iptables -t nat -A PREROUTING -i "$HOSTS" -s "$HOSTS_NET" -p tcp --dport 80 -j DNAT --to-destination 127.0.0.1:3128
 #iptables -A INPUT ! -i "$ISP" -p tcp --dport 3128 -j ACCEPT
 
-# Mail.
+# Mail. SMTP and IMAP.
+iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s "$HOSTS_NET" -p tcp --dport 25 -j ACCEPT
+iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s "$HOSTS_NET" -p tcp --dport 143 -j ACCEPT
 
 # Drop TRACEROUTE
 iptables -A INPUT ! -i "$ISP" -p icmp -j ACCEPT
