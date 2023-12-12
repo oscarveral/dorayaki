@@ -49,7 +49,7 @@ iptables -A FORWARD ! -s "$HOSTS_NET" -o "$ISP" -j ACCEPT
 #iptables -A FORWARD ! -s "$HOSTS_VPN" -o "$ISP" -j ACCEPT
 
 # Allow hosts to access the http internet by proxy on router.
-iptables -t nat -A PREROUTING -i "$HOSTS" -p tcp --dport 80 -j DNAT --to-destination 127.0.0.1:3128
+#iptables -t nat -A PREROUTING -i "$HOSTS" -p tcp --dport 80 -j DNAT --to-destination 127.0.0.1:3128
 iptables -A INPUT -i lo -p tcp --dport 3128 -j ACCEPT
 # Allow hosts to access the https internet directly.
 iptables -A FORWARD -o "$ISP" -p tcp --dport 443 -j ACCEPT
