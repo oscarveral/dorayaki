@@ -75,7 +75,7 @@ iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 80 -j ACCEPT
 iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s "$HOSTS_NET" -p tcp --dport 9000 -d 172.16.2.2 -j ACCEPT
 
 # HTTPS Server. Allow requests HTTPS request only to this server. As this is a public service, DNAT is needed.
-iptables -t nat -A PREROUTING -p tcp --dport 8443 -j DNAT --to-destination 172.16.2.2
+iptables -t nat -A PREROUTING -i "$ISP" -p tcp --dport 8443 -j DNAT --to-destination 172.16.2.2
 iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 8443 -j ACCEPT
 
 # Nagios. Allow access from server9 to "$SERVERS_NET" 
