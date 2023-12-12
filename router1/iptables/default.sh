@@ -38,9 +38,15 @@ iptables -t nat -A POSTROUTING -o "$ISP" -j MASQUERADE
 # Allow related inbound traffic for all interfaces.
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
-# Allow internal networks to access external networks and allow responses back in.
+# Allow servers to access the internet.
 iptables -A FORWARD ! -s "$HOSTS_NET" -o "$ISP" -j ACCEPT
-iptables -A FORWARD -o "$ISP" -p tcp -m multiport --dport 80,443 -j ACCEPT
+
+# Allow hosts to access the http internet by proxy on router.
+iptables -t nat -A PREROUTING -o "$ISP" -p tcp --dport 80 -j DNAT --to-destination localhost:3128
+# Allow hosts to access the https internet directly.
+iptables -A FORWARD -o "$ISP" -p tcp --dport 443 -j ACCEPT
+
+# Allow answers from internet.
 iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 # DHCP. Only allow DHCP traffic from the internal networks of HOSTS and SERVERS.
@@ -65,7 +71,7 @@ iptables -A FORWARD -i "$SERVERS" -s "$SERVERS_NET" -p udp --dport 1812 -d 172.1
 
 # Greenbone. Allow access to web interface only to organization hosts. As only VPN clients are outside the organization, we need to allow access.
 # Physical hosts on office already have access to this service as they share LAN with the server.
-iptables -A FORWARD -i tun0 -o "$HOSTS" -s "$HOSTS_NET" -p tcp --dport 9392 -d 172.16.1.2 -j ACCEPT
+iptables -A FORWARD -i tun0 -o "$HOSTS" -p tcp --dport 9392 -d 172.16.1.2 -j ACCEPT
 
 # Wordpress. Allow access to any host on the internet. As this is a public service, DNAT is needed.
 iptables -t nat -A PREROUTING -i "$ISP" -p tcp --dport 80 -j DNAT --to-destination 172.16.2.2
