@@ -8,7 +8,7 @@ services:
             - TZ=UTC
         volumes:
             - /etc/path/to/data:/var/spool/squid
-            - /etc/path/to/main/config:/etc/squid/squid.conf
+            - /etc/path/to/main/config:/etc/squid/
         ports:
             - 3128:3128
         image: ubuntu/squid:5.2-22.04_beta
