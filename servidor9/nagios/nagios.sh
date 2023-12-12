@@ -18,6 +18,8 @@ mkdir -p /data/nagios/conf
 mkdir -p /data/nagios/plugin
 mkdir -p /data/nagios/example
 
+cp services.cfg /data/nagios/conf/
+
 docker pull ethnchao/nagios
 docker pull mysql:5.6
 
