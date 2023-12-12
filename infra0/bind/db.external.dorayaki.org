@@ -10,6 +10,8 @@ $ORIGIN dorayaki.org.
 ; Public services records.
 
 @           IN      NS      public
+@           IN      MX      10 public
+
 
 public      IN      A       10.2.3.2
 

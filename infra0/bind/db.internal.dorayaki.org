@@ -10,6 +10,7 @@ $ORIGIN dorayaki.org.
 ; Private services records.
 
 @           IN      NS      infra0.dorayaki.org.
+@           IN      MX      10 infra0.dorayaki.org.
 
 servidor9   IN      A       172.16.1.2
 

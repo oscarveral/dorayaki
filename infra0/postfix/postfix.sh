@@ -13,7 +13,7 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-apt-get install postfix -y
+apt-get install mailutils postfix -y
 
 useradd -m -s /bin/bash -G mail oscar
 passwd oscar
