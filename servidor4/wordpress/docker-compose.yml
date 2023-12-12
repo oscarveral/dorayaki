@@ -39,7 +39,7 @@ services:
     networks:
       - backend-net
     ports:
-      - "127.0.0.1:9000:9000"
+      - "9000:9000"
 
   wordpress:
     deploy:
