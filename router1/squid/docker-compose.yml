@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  squid:
+    image: sameersbn/squid:latest
+    container_name: squid
+    environment:
+      - PROXY_USERNAME=your_username
+      - PROXY_PASSWORD=your_password
+    ports:
+      - "3128:3128"
+    volumes:
+      - /path/to/squid/cache:/var/spool/squid
+      - /path/to/blacklist.txt:/etc/squid/blacklist.txt
+      - /path/to/squid.conf:/etc/squid/squid.conf
