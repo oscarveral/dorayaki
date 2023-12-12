@@ -82,7 +82,7 @@ iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 8443 -j ACCEPT
 iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s 172.16.1.2 -p udp -m multiport --sports 161,162 -j ACCEPT
 
 # Ntopng. Allow access from hosts net to ntong server.
-iptables -A INPUT -i "$HOSTS" -p tcp --dport 3000 -j ACCEPT
+iptables -A INPUT ! -i "$ISP" -p tcp --dport 3000 -j ACCEPT
 
 # Drop TRACEROUTE
 iptables -A OUTPUT -p icmp --icmp-type time-exceeded -j DROP
