@@ -36,3 +36,8 @@ apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docke
 
 mkdir -p /data/ntopng
 mkdir -p /data/redis
+
+docker pull ntop/ntopng
+docker pull redis
+
+docker compose up -d &
