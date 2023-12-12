@@ -84,6 +84,10 @@ iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s 172.16.1.2 -p udp -m multiport 
 # Ntopng. Allow access from hosts net to ntong server.
 iptables -A INPUT ! -i "$ISP" -p tcp --dport 3000 -j ACCEPT
 
+# Nagios.
+iptables -A FORWARD -s "$HOSTS_NET" -p tcp --dport 4000 -j ACCEPT
+
+
 # Drop TRACEROUTE
 iptables -A OUTPUT -p icmp --icmp-type time-exceeded -j DROP
 

@@ -18,6 +18,9 @@ mkdir -p /data/nagios/conf
 mkdir -p /data/nagios/plugin
 mkdir -p /data/nagios/example
 
+docker pull ethnchao/nagios
+docker pull mysql:5.6
+
 docker compose up -d &
 
 
