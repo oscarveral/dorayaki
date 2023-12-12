@@ -6,7 +6,7 @@ services:
 
   ntopng:
     image: vimagick/ntopng
-    command: --community -d /var/lib/ntopng -i eth0 -r 127.0.0.1:6379@0 -w 0.0.0.0:3000
+    command: --community -d /var/lib/ntopng -i eth0 -i eth1 -i eth2 -i tun0 -r 127.0.0.1:6379@0 -w 0.0.0.0:3000
     volumes:
       - /data/ntopng:/var/lib/ntopng
     network_mode: host
