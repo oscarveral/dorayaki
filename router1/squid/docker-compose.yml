@@ -11,4 +11,5 @@ services:
             - /etc/path/to/main/config:/etc/squid/squid.conf
         ports:
             - 3128:3128
-        image: ubuntu/squid:5.2-22.04_bet
+        image: ubuntu/squid:5.2-22.04_beta
+
