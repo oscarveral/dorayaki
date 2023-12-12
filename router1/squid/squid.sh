@@ -15,9 +15,9 @@ fi
 
 mkdir /etc/path
 mkdir /etc/path/to
-mkdir /etc/path/to/squid
-mkdir /etc/path/to/squid/cache
-
+mkdir /etc/path/to/data
+mkdir /etc/path/to/main/
+mkdir /etc/path/to/main/config
 curl https://scripttiger.github.io/hosts-packages/hosts -o blacklist.txt
 
 cp blacklist.txt /etc/path/to/
