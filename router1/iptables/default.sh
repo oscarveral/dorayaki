@@ -16,6 +16,7 @@ fi
 HOSTS="eth0"
 SERVERS="eth1"
 ISP="eth2"
+VPN="tun0"
 HOSTS_NET="172.16.1.0/24"
 HOSTS_VPN="172.16.1.128/25"
 SERVERS_NET="172.16.2.0/24"
@@ -44,7 +45,8 @@ iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 # Allow servers to access the internet.
 iptables -A FORWARD ! -s "$HOSTS_NET" -o "$ISP" -j ACCEPT
-iptables -A FORWARD ! -s "$HOSTS_VPN" -o "$ISP" -j ACCEPT
+
+#iptables -A FORWARD ! -s "$HOSTS_VPN" -o "$ISP" -j ACCEPT
 
 # Allow hosts to access the http internet by proxy on router.
 iptables -t nat -A PREROUTING -i "$HOSTS" -p tcp --dport 80 -j DNAT --to-destination 127.0.0.1:3128
