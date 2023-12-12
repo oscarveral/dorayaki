@@ -75,7 +75,6 @@ iptables -A FORWARD -i "$VPN" -s "$HOSTS_VPN" -p tcp --dport 9392 -d 172.16.1.2 
 iptables -t nat -A PREROUTING -i "$ISP" -p tcp --dport 80 -j DNAT --to-destination 172.16.2.2
 iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 80 -j ACCEPT
 
-# NO VA
 # Wordpress admin panel. Allow access to host on office only.
 iptables -A FORWARD -i "$HOSTS" -s "$HOSTS_NET" -p tcp --dport 9000 -d 172.16.2.2 -j ACCEPT
 iptables -A FORWARD -i "$VPN" -s "$HOSTS_VPN" -p tcp --dport 9000 -d 172.16.2.2 -j ACCEPT
