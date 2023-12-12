@@ -71,13 +71,15 @@ iptables -A FORWARD -i "$SERVERS" -s "$SERVERS_NET" -p udp --dport 1812 -d 172.1
 # Physical hosts on office already have access to this service as they share LAN with the server.
 iptables -A FORWARD -i "$VPN" -s "$HOSTS_VPN" -p tcp --dport 9392 -d 172.16.1.2 -j ACCEPT
 
+# NO VA
 # Wordpress. Allow access to any host on the internet. As this is a public service, DNAT is needed.
 iptables -t nat -A PREROUTING -i "$ISP" -p tcp --dport 80 -j DNAT --to-destination 172.16.2.2
 iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 80 -j ACCEPT
 
+# NO VA
 # Wordpress admin panel. Allow access to host on office only.
-iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s "$HOSTS_NET" -p tcp --dport 9000 -d 172.16.2.2 -j ACCEPT
-iptables -A FORWARD -i "$VPN" -o "$SERVERS" -s "$HOSTS_VPN" -p tcp --dport 9000 -d 172.16.2.2 -j ACCEPT
+iptables -A FORWARD -i "$HOSTS" -s "$HOSTS_NET" -p tcp --dport 9000 -d 172.16.2.2 -j ACCEPT
+iptables -A FORWARD -i "$VPN" -s "$HOSTS_VPN" -p tcp --dport 9000 -d 172.16.2.2 -j ACCEPT
 
 # HTTPS Server. Allow requests HTTPS request only to this server. As this is a public service, DNAT is needed.
 iptables -t nat -A PREROUTING -i "$ISP" -p tcp --dport 8443 -j DNAT --to-destination 172.16.2.2
@@ -87,6 +89,7 @@ iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 8443 -j ACCEPT
 iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s 172.16.1.2 -p udp -m multiport --sports 161,162 -j ACCEPT
 iptables -A FORWARD -i "$VPN" -p tcp --dport 4000 -j ACCEPT
 
+# NO VA
 # Ntopng. Allow access from hosts net to ntong server.
 iptables -A INPUT ! -i "$ISP" -p tcp --dport 3000 -j ACCEPT
 
