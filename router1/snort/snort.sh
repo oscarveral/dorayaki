@@ -18,6 +18,6 @@ cp local.rules /etc/snort/rules/
 cp white_list.rules /etc/snort/rules/
 cp black_list.rules /etc/snort/rules/
 
-docker compose up
+docker compose up -d
 
-#snort -i eth0 -c /etc/snort/etc/snort.conf -A console
+docker exec -it snort snort -i eth0 -c /etc/snort/etc/snort.conf -A console
