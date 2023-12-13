@@ -16,4 +16,4 @@ mkdir -p /etc/snort/rules/ 2> /dev/null
 
 cp local.rules /etc/snort/rules/
 
-docker compose up -d
+docker run -it --rm --net=host linton/docker-snort /bin/bash
