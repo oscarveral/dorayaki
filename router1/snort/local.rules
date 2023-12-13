@@ -1,0 +1,2 @@
+alert tcp any any -> any any (msg:"TCP detectado...";sid:1000004;)
+alert icmp any any -> any any (msg:"Ping detecado...";sid:1000005;)

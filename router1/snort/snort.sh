@@ -14,4 +14,6 @@ fi
 
 mkdir -p /etc/snort/rules/ 2> /dev/null
 
+cp local.rules /etc/snort/rules/
+
 docker compose up -d
