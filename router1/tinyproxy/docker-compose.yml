@@ -1,6 +1,6 @@
 version: '3'
 services:
-  nagios:
+  proxy:
     build: . 
     container_name: tinyproxy
     ports:
@@ -12,3 +12,4 @@ services:
         max-file: "10"
     volumes:
       - ./:/etc/tinyproxy
+
