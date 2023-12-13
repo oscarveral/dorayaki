@@ -14,7 +14,7 @@ fi
 
 curl https://scripttiger.github.io/hosts-packages/hosts -o blacklist_raw.txt
 
-./extract_domains > blacklist.txt
+./extract_domains.sh > blacklist.txt
 
 #docker compose up -d
 
