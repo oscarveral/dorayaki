@@ -1,11 +1,13 @@
 # Use a base image
-FROM fedora:latest
- 
-# Update the image with the latest packages (recommended) 
-RUN yum update -y; yum clean all
+#FROM fedora:latest
+FROM alpine:latest
 
-# Install Apache Web Server 
-RUN yum install -y tinyproxy; yum clean all
+# Update the image with the latest packages (recommended) 
+#RUN yum update -y; yum clean all
+RUN apk update
+ 
+#RUN yum install -y tinyproxy; yum clean all
+RUN apk add tinyproxy
 
 WORKDIR /etc/tinyproxy
 # Set the default command to run tinyproxy
