@@ -98,9 +98,10 @@ iptables -A FORWARD -o "$SERVERS" -d 172.16.2.254 -p tcp --dport 25 -j ACCEPT
 iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s "$HOSTS_NET" -p tcp --dport 143 -j ACCEPT
 
 
-# Drop TRACEROUTE
+# Drop TRACEROUTE TODO
 iptables -A INPUT ! -i "$ISP" -p icmp -j ACCEPT
 iptables -A FORWARD ! -i "$ISP" -p icmp -j ACCEPT
+
 
 # Docker Swarm. Is used only by servers LAN. Default rejection is applied.
 
