@@ -87,8 +87,8 @@ iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 8443 -j ACCEPT
 iptables -A INPUT ! -i "$ISP" -p tcp --dport 3000 -j ACCEPT
 
 # Allow hosts to access the http internet by proxy on router.
-#iptables -t nat -A PREROUTING -i "$HOSTS" -s "$HOSTS_NET" -p tcp --dport 80 -j REDIRECT --to-destination 3128
-#iptables -A INPUT ! -i "$ISP" -p tcp --dport 3128 -j ACCEPT
+iptables -t nat -A PREROUTING -i "$HOSTS" -s "$HOSTS_NET" -p tcp --dport 80 -j REDIRECT --to-destination 3128
+iptables -A INPUT ! -i "$ISP" -p tcp --dport 3128 -j ACCEPT
 
 # SMTP. DNAT to mail server.
 iptables -t nat -A PREROUTING -i "$ISP" -p tcp --dport 25 -j DNAT --to-destination 172.16.2.254
