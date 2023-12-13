@@ -12,6 +12,8 @@ dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce
 
 dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+docker start
+
 usermod -aG docker $(logname)
 
 docker pull greenbone/vulnerability-tests
