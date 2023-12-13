@@ -7,10 +7,6 @@ fi
 
 # Install docker script.
 
-for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; 
-  do apt-get remove $pkg; 
-done
-
 dnf -y install dnf-plugins-core
 dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
