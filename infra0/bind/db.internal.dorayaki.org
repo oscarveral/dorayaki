@@ -10,7 +10,7 @@ $ORIGIN dorayaki.org.
 ; Private services records.
 
 @           IN      NS      infra0.dorayaki.org.
-@           IN      MX      10  infra0.dorayaki.org.
+@           IN      MX      10  mail.dorayaki.org.
 
 servidor9   IN      A       172.16.1.2
 
@@ -19,12 +19,12 @@ router1     IN      A       172.16.1.1
 servidor4   IN      A       172.16.2.2
 servidor5   IN      A       172.16.2.3
 infra0      IN      A       172.16.2.254
+mail        IN      A       172.16.2.254
 
 swarm       IN      CNAME   servidor4
 radius      IN      CNAME   servidor9
 auditoria   IN      CNAME   servidor9
 ntopng      IN      CNAME   router1
-mail        IN      CNAME   infra0
 
 dns         IN      CNAME   infra0
 

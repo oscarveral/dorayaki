@@ -10,12 +10,12 @@ $ORIGIN dorayaki.org.
 ; Public services records.
 
 @           IN      NS      public
-@           IN      MX      10 public
+@           IN      MX      10 mail
 
 public      IN      A       10.2.3.2
+mail        IN      A       10.2.3.2
 
 vpn         IN      CNAME   public
 dns         IN      CNAME   public
 www         IN      CNAME   public
 wordpress   IN      CNAME   public
-mail        IN      CNAME   public
