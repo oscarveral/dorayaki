@@ -91,7 +91,7 @@ iptables -A FORWARD -i "$VPN" -p tcp --dport 4000 -j ACCEPT
 iptables -A INPUT ! -i "$ISP" -p tcp --dport 3000 -j ACCEPT
 
 # Allow hosts to access the http internet by proxy on router.
-#iptables -t nat -A PREROUTING -i "$HOSTS" -s "$HOSTS_NET" -p tcp --dport 80 -j DNAT --to-destination 127.0.0.1:3128
+#iptables -t nat -A PREROUTING -i "$HOSTS" -s "$HOSTS_NET" -p tcp --dport 80 -j REDIRECT --to-destination 3128
 #iptables -A INPUT ! -i "$ISP" -p tcp --dport 3128 -j ACCEPT
 
 # SMTP. DNAT to mail server.
