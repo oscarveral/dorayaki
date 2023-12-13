@@ -14,7 +14,7 @@ fi
 
 #curl https://scripttiger.github.io/hosts-packages/hosts -o blacklist_raw.txt
 
-cp squid.conf /etc/squid/
+cp squid.conf /etc/path/to/main/config/
 
 ./extract_domains > blacklist.txt
 
