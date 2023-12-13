@@ -12,7 +12,9 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-curl https://scripttiger.github.io/hosts-packages/hosts -o blacklist_raw.txt
+#curl https://scripttiger.github.io/hosts-packages/hosts -o blacklist_raw.txt
+
+cp squid.conf /etc/squid/
 
 ./extract_domains > blacklist.txt
 
