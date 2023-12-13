@@ -15,13 +15,15 @@ fi
 
 apt-get install -y proftpd
 
-adduser --home /home/ftp --shell /bin/false --no-create-home --disabled-password --disabled-login ftp
+adduser --home /home/ftp ftpuser
+passwd ftpuser
 
 rm /etc/proftpd/proftpd.conf
 touch /etc/proftpd/proftpd.conf
 
 echo "ServerName \"$(hostname)\"" >> /etc/proftpd/proftpd.conf
-echo "DefaultRoot ~" >> /home/ftp
+echo "Port 21" >> /etc/proftpd/proftpd.conf
 echo "AuthOrder mod_auth_file.c" >> /etc/proftpd/proftpd.conf
+echo "RequireValidShell on" >> /etc/proftpd/proftpd.conf
 
 systemctl enable --now proftpd
