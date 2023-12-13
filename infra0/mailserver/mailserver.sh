@@ -13,12 +13,6 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-DMS_GITHUB_URL="https://raw.githubusercontent.com/docker-mailserver/docker-mailserver/master"
-wget "${DMS_GITHUB_URL}/compose.yaml"
-wget "${DMS_GITHUB_URL}/mailserver.env"
-
-# Edit hostname in compose to mail.dorayaki.org
-
 docker compose up -d
 
 docker exec -ti mailserver setup email add oscar@dorayaki.org
