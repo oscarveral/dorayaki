@@ -80,7 +80,8 @@ iptables -A FORWARD -i "$HOSTS" -s "$HOSTS_NET" -p tcp --dport 9000 -d 172.16.2.
 iptables -A FORWARD -i "$VPN" -s "$HOSTS_VPN" -p tcp --dport 9000 -d 172.16.2.2 -j ACCEPT
 
 # HTTPS Server. Allow requests HTTPS request only to this server. As this is a public service, DNAT is needed.
-iptables -t nat -A PREROUTING -i "$ISP" -p tcp --dport 8443 -j DNAT --to-destination 172.16.2.2
+iptables -t nat -A PREROUTING -i "$ISP" -p tcp --dport 443 -j DNAT --to-destination 172.16.2.2:8443
+iptables -t nat -A PREROUTING -p tcp -d 172.16.2.2 --dport 443 -j REDIRECT --to-port 8443
 iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 8443 -j ACCEPT
 
 # Ntopng. Allow access from hosts net to ntopng server.
@@ -96,7 +97,6 @@ iptables -A FORWARD -o "$SERVERS" -d 172.16.2.254 -p tcp --dport 25 -j ACCEPT
 
 # IMAP. Allow hosts to access IMAP server.
 iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s "$HOSTS_NET" -p tcp --dport 143 -j ACCEPT
-
 
 # Drop TRACEROUTE TODO
 iptables -A INPUT ! -i "$ISP" -p icmp -j ACCEPT
