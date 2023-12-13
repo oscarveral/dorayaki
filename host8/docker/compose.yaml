@@ -2,20 +2,6 @@
 name: master0
 version: "3"
 services:
-  radius:
-    container_name: radius
-    image: freeradius/freeradius-server:latest
-    ports:
-      - 1812:1812/udp
-      - 1813:1813/udp
-    build:
-      context: /
-      dockerfile_inline: |
-        FROM freeradius/freeradius-server:latest
-        COPY /etc/raddb/ /etc/raddb/
-    command: -X
-    restart: unless-stopped
-
   vulnerability-tests:
     image: greenbone/vulnerability-tests
     environment:

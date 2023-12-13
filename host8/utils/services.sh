@@ -7,3 +7,6 @@ fi
 
 # Habilitar el servicio de SSH.
 systemctl enable --now sshd
+
+# Instalar paquetes necesarios.
+dnf install -y nmap
