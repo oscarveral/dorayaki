@@ -12,6 +12,6 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-docker run --rm -it snort /bin/bash
-docker run -d -e HOME_NET=172.16.1.1 -e INTERFACE=eth2 -e AD=172.16.1.1 --net=host --cap-add=NET_ADMIN dnif/snort
+mkdir -p /etc/snort/rules/ 2> /dev/null
 
+docker compose up -d
