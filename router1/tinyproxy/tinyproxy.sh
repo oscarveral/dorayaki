@@ -18,4 +18,4 @@ curl https://scripttiger.github.io/hosts-packages/hosts -o blacklist_raw.txt
 
 #docker compose up -d
 
-tinyproxy -d -c tinyproxy.conf
+tinyproxy -d -c tinyproxy.conf &
