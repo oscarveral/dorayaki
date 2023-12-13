@@ -83,11 +83,7 @@ iptables -A FORWARD -i "$VPN" -s "$HOSTS_VPN" -p tcp --dport 9000 -d 172.16.2.2 
 iptables -t nat -A PREROUTING -i "$ISP" -p tcp --dport 8443 -j DNAT --to-destination 172.16.2.2
 iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 8443 -j ACCEPT
 
-# Nagios. SNMP port allowed and web interface.
-iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s 172.16.1.2 -p udp -m multiport --sports 161,162 -j ACCEPT
-iptables -A FORWARD -i "$VPN" -p tcp --dport 4000 -j ACCEPT
-
-# Ntopng. Allow access from hosts net to ntong server.
+# Ntopng. Allow access from hosts net to ntopng server.
 iptables -A INPUT ! -i "$ISP" -p tcp --dport 3000 -j ACCEPT
 
 # Allow hosts to access the http internet by proxy on router.
@@ -102,9 +98,10 @@ iptables -A FORWARD -o "$SERVERS" -d 172.16.2.254 -p tcp --dport 25 -j ACCEPT
 iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s "$HOSTS_NET" -p tcp --dport 143 -j ACCEPT
 
 
-# Drop TRACEROUTE
+# Drop TRACEROUTE TODO
 iptables -A INPUT ! -i "$ISP" -p icmp -j ACCEPT
 iptables -A FORWARD ! -i "$ISP" -p icmp -j ACCEPT
+
 
 # Docker Swarm. Is used only by servers LAN. Default rejection is applied.
 
