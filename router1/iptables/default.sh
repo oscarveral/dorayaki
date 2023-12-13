@@ -101,9 +101,6 @@ iptables -A FORWARD -i "$HOSTS" -o "$SERVERS" -s "$HOSTS_NET" -p tcp --dport 143
 iptables -A INPUT ! -i "$ISP" -p icmp -j ACCEPT
 iptables -A FORWARD ! -i "$ISP" -p icmp -j ACCEPT
 
-# For audit purposes, disable after testing.
-iptables -A INPUT -p icmp -j ACCEPT
-
 # Docker Swarm. Is used only by servers LAN. Default rejection is applied.
 
 iptables-save > /etc/iptables/rules.v4
