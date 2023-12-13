@@ -67,10 +67,6 @@ iptables -A FORWARD -o "$SERVERS" -d 172.16.2.254 -p udp --dport 53 -j ACCEPT
 # Radius. Allow requests only from servers LAN to internal server.
 iptables -A FORWARD -i "$SERVERS" -s "$SERVERS_NET" -p udp --dport 1812 -d 172.16.1.2 -j ACCEPT
 
-# Allow hosts to access the http internet by proxy on router.
-iptables -t nat -A PREROUTING -i "$HOSTS" -s "$HOSTS_NET" -p tcp --dport 80 -j REDIRECT --to-port 3128
-iptables -A INPUT ! -i "$ISP" -p tcp --dport 3128 -j ACCEPT
-
 # Greenbone. Allow access to web interface only to organization hosts. As only VPN clients are outside the organization, we need to allow access.
 # Physical hosts on office already have access to this service as they share LAN with the server.
 iptables -A FORWARD -i "$VPN" -s "$HOSTS_VPN" -p tcp --dport 9392 -d 172.16.1.2 -j ACCEPT
@@ -89,6 +85,10 @@ iptables -A FORWARD -o "$SERVERS" -d 172.16.2.2 -p tcp --dport 8443 -j ACCEPT
 
 # Ntopng. Allow access from hosts net to ntopng server.
 iptables -A INPUT ! -i "$ISP" -p tcp --dport 3000 -j ACCEPT
+
+# Allow hosts to access the http internet by proxy on router.
+iptables -t nat -A PREROUTING -i "$HOSTS" -s "$HOSTS_NET" -p tcp --dport 80 -j DNAT --to-destination 172.16.1.1:3128
+iptables -A INPUT ! -i "$ISP" -p tcp --dport 3128 -j ACCEPT
 
 # SMTP. DNAT to mail server.
 iptables -t nat -A PREROUTING -i "$ISP" -p tcp --dport 25 -j DNAT --to-destination 172.16.2.254
