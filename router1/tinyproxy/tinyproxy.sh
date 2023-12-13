@@ -12,6 +12,8 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
-curl https://scripttiger.github.io/hosts-packages/hosts -o blacklist.txt
+curl https://scripttiger.github.io/hosts-packages/hosts -o blacklist_raw.txt
+
+./extract_domains > blacklist.txt
 
 docker compose up -d
