@@ -1,0 +1,14 @@
+version: '3'
+services:
+  nagios:
+    build: . 
+    container_name: tinyproxy
+    ports:
+      - 3128:3128
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+    volumes:
+      - ./:/etc/tinyproxy
