@@ -6,7 +6,7 @@ minikube addons enable metrics-server
 
 minikube image load nginx-custom
 
-nohup minikube dashboard --port 11111 &
+#nohup minikube dashboard --port 11111 &
 
 minikube kubectl -- apply -f /etc/kubernets-docker/config.yaml
 
