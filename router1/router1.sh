@@ -38,16 +38,16 @@ cd docker
 ./docker.sh > /dev/null
 cd ..
 
+cd tinyproxy
+./tinyproxy.sh > /dev/null
+cd ..
+
 cd netplan
 ./network.sh > /dev/null
 cd ..
 
 cd sysctl
 ./sysctl.sh > /dev/null
-cd ..
-
-cd squid
-./squid.sh > /dev/null
 cd ..
 
 echo Script configuration finished successfully. 1>&2

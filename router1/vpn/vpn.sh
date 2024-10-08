@@ -18,6 +18,8 @@ apt-get install -y openvpn openvpn-auth-radius freeradius-utils
 cp server.conf /etc/openvpn/
 cp radius.cnf /etc/openvpn/
 
+./genkeys.sh
+
 # Si no hay certificados generados se vuelve.
 if [ ! -f /home/router1/vpnCA/CA_cert.pem ] || [ ! -f /home/router1/vpnCA/certs/vpn_cert.pem ] || [ ! -f /home/router1/vpnCA/Pkeys/vpn_pkey.pem ] || [ ! -f /home/router1/vpnCA/dh2048.pem ]; then
 	echo ERROR! Certificates not found. 1>&2
